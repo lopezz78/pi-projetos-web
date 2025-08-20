@@ -1,12 +1,25 @@
-# PI-Projetos-Web
-Este repositório possui o projeto do 2 semestre da disciplina PI: Desenvolvimento de Sistemas Web pela instituição PUC-Campinas
+# Inclui+
 
-## 🎯 Objetivo
-Aplicar os conceitos de desenvolvimento web aprendidos em aula, incluindo:
-- Criação de interfaces com **HTML, CSS e JavaScript**.
+## Descrição
+Aplicativo para [descrever objetivo], focado em [público-alvo].
+
+## Tecnologias Utilizadas
+- HTML5, CSS3, JavaScript
+- Node.js
+- Banco de Dados: MySQL / Oracle / Firebase
+
+## Estrutura do Projeto
+Explicação da divisão de pastas.
+
+## Protótipo
+Link para o protótipo no Figma: [link]
 
 ## Integrantes
 - Arthur Negro Lopez 
 - Arthur Carvalho
 - Arthur Girotto
 - Ricardo Sanches
+
+## Status do Projeto
+Em desenvolvimento
+Primeira versão estimada para: [data]
