@@ -19,6 +19,8 @@ Link para o protótipo no Figma: [link]
 - Arthur Carvalho
 - Arthur Girotto
 - Ricardo Sanches
+- Gabriel Ramalho
+
 
 ## Status do Projeto
 Em desenvolvimento
