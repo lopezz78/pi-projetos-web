@@ -12,3 +12,6 @@ for(i=1; i<50; i++)
     else 
     console.log(i) 
 }
+console.log("esse é um teste ")
+console.log("batata")
+console.log("Oi")
