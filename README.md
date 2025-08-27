@@ -12,7 +12,7 @@ Aplicativo para [descrever objetivo], focado em [público-alvo].
 Explicação da divisão de pastas.
 
 ## Protótipo
-Link para o protótipo no Figma: [link]
+Link para o protótipo no Figma: [https://www.figma.com/make/7oROaWoa8zdAgw2ZBUnYYv/Site-de-Produtos-para-Pessoas-com-Necessidades-Especiais?node-id=0-1&p=f&t=sTXh0ruqBC0jNHgP-0]
 
 ## Integrantes
 - Arthur Negro Lopez Função:
