@@ -15,11 +15,11 @@ Explicação da divisão de pastas.
 Link para o protótipo no Figma: [link]
 
 ## Integrantes
-- Arthur Negro Lopez 
-- Arthur Carvalho
-- Arthur Girotto
-- Ricardo Sanches
-- Gabriel Ramalho
+- Arthur Negro Lopez Função:
+- Arthur Carvalho Função:
+- Arthur Gerotto Função:
+- Ricardo Sanches Função:
+- Gabriel Ramalho Função:
 
 
 ## Status do Projeto
