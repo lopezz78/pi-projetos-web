@@ -20,7 +20,8 @@ Link para o protótipo no Figma: [https://www.figma.com/make/7oROaWoa8zdAgw2ZBUn
 - Arthur Gerotto Função: HTML, JS (Código Bruto do Site) 
 - Ricardo Sanches Função: HTML, CSS (Aparência do site)
 - Gabriel Ramalho Função:HTML, JS(Código Bruto do Site)
-  Obs: Todos devem ajudar ns pesquisas, porêm deem enfase no que está definido para cada um.
+- Obs: Todos devem ajudar ns pesquisas, porêm deem enfase no que está definido para cada um.
+  
 
 ## Status do Projeto
 Em desenvolvimento
