@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Inclui+</title>  <!-- Nome no Url do Site-->
+<link rel="stylesheet" href="paginaCadastro.css"> <!-- Link para o arquivo CSS externo -->
+<meta name="description" content="Página de cadastro para o sistema Inclui+.">
+</head>
+<body>
+
+<h1>Cadastro no Sistema Inclui+</h1> <!-- Título da Página de Cadastro -->
+<h2> Preencha todos os Campos Abaixo Para realizar o Cadastro em Nosso Site.</h2>
+
+<form action="index.html" method="post"> <!-- Mudar dps -->
+	<label for="NomeCompleto">Nome:</label> <!-- Campo para Nome Completo -->
+	<input type="text" id="NomeCompleto" name="NomeCompleto" required>
+
+	<label for="Email">Email:</label>  <!-- Campo para Email -->
+	<input type="email" id="Email" name="Email" placeholder="exemplo@gmail.com" required>
+
+	<label for="Senha">Senha:</label> <!-- Campo para Senha -->
+	<input type="password" id="Senha" name="Senha" minlength="8" required> <!-- Mínimo de 8 caracteres -->
+
+    <label for="ConfirmarSenha">Confirmar Senha:</label> <!-- Campo para Confirmar Senha -->
+    <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" required>
+
+    <label for="Idade">Idade:</label> <!-- Campo para Idade -->
+    <input type="number" id="Idade" name="Idade" min="18" max="99" required> <!-- Idade entre 18 e 99 anos -->
+
+    <label for="Data de Nacimento">Data de Nascimento:</label> <!-- Campo para Data de Nascimento -->
+    <input type="date" id="DataDeNascimento" name="DataDeNascimento" required>
+
+    <button type="Cadastrar">Cadastrar</button> <!-- Botão para Enviar o Formulário -->
+    <button type="Resetar">Limpar</button> <!-- Botão para Limpar o Formulário -->
+    
+
+
+
+
+
+
+	
+	
+</form>
+
+</body>
+</html>
