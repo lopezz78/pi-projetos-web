@@ -1,7 +1,7 @@
 # Inclui+
 
 ## Descrição
-Aplicativo para [descrever objetivo], focado em [público-alvo].
+Aplicativo para Venda e doação de equipamentos para pessoas com necessidades especiais.
 
 ## Tecnologias Utilizadas
 - HTML5, CSS3, JavaScript
