@@ -1,222 +1,147 @@
-/* Reset básico */ 
-body, h1, h2, h3, h4, p, ul, ol, li {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* GERAL */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f6f8fa;
-  color: #222;
-  padding: 24px;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafb;
+  color: #333;
 }
 
-/* ===== Topbar clean (logo + nome + CTA) ===== */
-.topbar {
-  background: #1565c0; /* azul principal */
-  color: #fff;
-  padding: 10px 16px;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-  box-shadow: 0 2px 8px rgba(13,68,116,0.12);
-  position: sticky;
+/* NAVBAR FIXA */
+.navbar {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 1000;
 }
-.topbar__brand {
-  max-width: 1280px;
-  margin: 0 auto;
+
+.logo-area {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.topbar__logo {
+
+.logo {
   width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: transparent;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06);
-}
-.topbar__name {
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: .2px;
 }
 
-/* Botão Cadastre-se na topbar */
-.topbar__cta {
-  margin-left: auto;               /* empurra para a direita */
-  background: #fff;
-  color: #1565c0;
+.site-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a {
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: 700;
-  box-shadow: 0 1px 4px rgba(0,0,0,.12);
-  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
-}
-.topbar__cta:hover,
-.topbar__cta:focus-visible {
-  background: #f2f6ff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(13,68,116,0.18);
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-/* Títulos e listas (mantém seu tema) */
-h2 {
-  color: #1565c0;
-  margin: 18px 0 12px;
-  font-size: 1.3rem;
-}
-ul {
-  list-style: disc inside;
-  margin-bottom: 24px;
-  margin-left: 18px;
-}
-li {
-  margin-bottom: 6px;
-  font-size: 1rem;
+.menu li a:hover {
+  color: #2563eb;
 }
 
-h3 {
-  color: #0d4474;
-  margin-top: 28px;
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-img {
-  display: block;
-  margin: 10px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(13,68,116,0.08);
-}
-p {
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
-em {
-  color: #1565c0;
-  font-weight: bold;
+.btn-doar {
+  background: #2563eb;
+  color: white !important;
+  padding: 8px 15px;
+  border-radius: 20px;
 }
 
-/* ===== Carrossel de cards (imagem + preço) ===== */
-.carousel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 300px);
-  gap: 18px;
-  overflow-x: auto;
-  padding: 8px 4px 14px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(13,68,116,0.06) inset;
-}
-.carousel::-webkit-scrollbar { height: 10px; }
-.carousel::-webkit-scrollbar-track { background: #f0f3f7; border-radius: 12px; }
-.carousel::-webkit-scrollbar-thumb { background: #c5cfdb; border-radius: 12px; }
-.carousel:hover::-webkit-scrollbar-thumb { background: #aebaca; }
-
-.card {
-  scroll-snap-align: start;
-  border: 1px solid #e3e8ef;
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0 4px 16px rgba(13,68,116,0.08);
-  overflow: hidden;
-  transition: transform .15s ease, box-shadow .15s ease;
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("img/hero-bg.jpg") no-repeat center center/cover;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  color: #222;
-}
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(13,68,116,0.16);
-}
-.card__media {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-}
-.card__body { padding: 12px 14px 14px; }
-.card__title {
-  font-size: 1rem;
-  color: #0d4474;
-  margin: 0 0 6px 0;
-  font-weight: 700;
-  line-height: 1.3;
-}
-.card__desc {
-  color: #4a5968;
-  font-size: .92rem;
-  margin: 0 0 10px;
-}
-.card__price {
-  margin-top: auto;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: .2px;
-  color: #1565c0;
-}
-
-/* ===== Barra de ícones de contato ===== */
-h4 {
-  color: #1565c0;
-  margin-top: 36px;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-.socials {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 6px 0 0;
-}
-.socials__btn {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #2a2f36;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(13,68,116,0.12);
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-  text-decoration: none;
-  outline: none;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 0 20px;
 }
-.socials__btn:hover,
-.socials__btn:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(13,68,116,0.18);
-  background: #0d4474;
-}
-.socials__icon {
-  width: 22px;
-  height: 22px;
-  display: block;
-  /* Para ícones claros como no print, ative:
-  filter: grayscale(1) brightness(2) contrast(0.9);
-  opacity: .9; */
-}
-h4 + .socials { margin-top: 10px; }
 
-/* Responsividade */
-@media (max-width: 700px) {
-  body { padding: 8px; }
-  .carousel { grid-auto-columns: minmax(220px, 260px); gap: 14px; }
-  .card__title { font-size: .95rem; }
-  .card__price { font-size: 1.15rem; }
-  .topbar__cta { padding: 6px 10px; font-size: .95rem; }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* escurece imagem */
 }
-@media (max-width: 480px) {
-  h2, h3, h4 { font-size: 1rem; }
-  img { max-width: 100%; }
-  .socials { gap: 10px; }
-  .socials__btn { width: 42px; height: 42px; border-radius: 9px; }
-  .socials__icon { width: 20px; height: 20px; }
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.hero-btn {
+  background: #06b6d4;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.hero-btn:hover {
+  background: #3b82f6;
+}
+
+/* SEÇÃO DE TEXTO */
+.info-section {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+.box {
+  background: white;
+  padding: 30px;
+  margin-bottom: 50px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease-out;
+}
+
+.box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
