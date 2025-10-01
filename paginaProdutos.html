@@ -1,95 +1,139 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Inclui+</title> <!-- Nome no Url do Site-->
-<img src="logoSite.png" alt=""width="100" height="100"> <!-- Logo do Site-->
-<link rel= "stylesheet" href= "estiloPaginaProtutos.css"> <!-- Link para o arquivo CSS externo -->
-<meta name="description" content="Site de Produtos para Pessoas com Necessidades Especiais.">
+  <meta charset="UTF-8">
+  <title>Inclui+</title>
+  <link rel="stylesheet" href="estiloPaginaProtutos.css">
+  <meta name="description" content="Site de Produtos para Pessoas com Necessidades Especiais.">
 </head>
 
-<body> <!-- Corpo do Site -->
+<body>
 
-<h1>Inclui+ Site de Produtos para Pessoas com Necessidades Especiais </h1> <!-- Título do Site -->
-<button onclick="window.location.href='paginaCadastro.html'">Cadastre-se</button> <!-- Botão para ir para a Página de Cadastro -->
+  <!-- barra do topo (logo + nome + botão Cadastre-se) futuramente pretendo colocar pesquisa tbm-->
+  <header class="topbar" role="banner">
+    <div class="topbar__brand">
+      <img src="logoSite.png" alt="Inclui+ — logomarca" class="topbar__logo" width="40" height="40">
+      <span class="topbar__name">Inclui+</span>
 
-<h2>Produtos Disponiveis</h2>
-<ol> <!-- Lista Ordenada dos Produtos do Site -->
-<ul>
-    <li>Cadeira de Rodas</li>
-    <li>Aparelho Auditivo Bluetooth</li>
-    <li>Lupa Digital com voz para Baixa Visão</li>
-    <li>Próteses Personalizadas</li>
-    <li>Tablet com Acessibilidade para Autismo</li>
-    <li>Teclado em Braille</li>
-    <li>Utensílios de Cozinha Adaptados</li>
+      <!-- Botão no canto direito -->
+      <a href="paginaCadastro.html" class="topbar__cta">Cadastre-se</a>
+    </div>
+  </header>
 
-</ul>
-</ol>
-    <!-- Produtos Disponiveis-->
-    <h3>Cadeira de Rodas</h3>
-    <img src="Inclui+/CadeiraDeRodasEletrica.png" alt="Cadeira de Rodas Eletrica" width="300" height="200"> <!--Imagem do Produto-->
-<p>Cadeira de Rodas Eletrica com Controle Remoto e Bateria de Longa duração<p> <!--Descrição do Produto-->
-<p>Preço: <em>R$2.500,00 a vista ou 2.900,00 parcelado em até 12x</em></p> 
- 
-    <h3>Aparelho Auditivo Bluetooth</h3>
-    <img src= "Inclui+/AparelhoAuditivo.png" alt="Aparelho Auditivo Bluetooth" width="300" height="200"> <!--Imagem do Produto-->
-<p>Aparelho Auditivo Bluetooth com Cancelamento de Ruido<p> <!--Descrição do Produto-->
-<p>Preço: <em>R$2.200,00 a vista ou 2.500,00 parcelado em até 12x</em></p>
-
-    <h3>Lupa Digital com voz para Baixa Visão</h3>
-    <img src="Inclui+/lupaDigital.png" alt="Lupa Digital com voz para Baixa Visão" width="300" height="200"> <!--Imagem do Produto-->
-<p>Lupa Digital com ampliação de até 30x e leitura em voz alta<p> <!--Descrição do Produto-->
-<p>Preço: <em>R$1.500,00 a vista ou 1.800,00 parcelado em até 12x</em></p>
-
-    <h3>Próteses Personalizadas</h3>
-    <img src="Inclui+/proteseBraço.png" alt="Próteses Personalizadas(Braço)" width="300" height="200"> <!--Imagem do Produto-->
-    <img src="Inclui+/protesePerna.png" alt="Próteses Personalizadas(Perna)" width="300" height="200"> <!--Imagem do Produto-->
-<p>Próteses Personalizadas com materiais de alta qualidade e conforto<p> <!--Descrição do Produto-->
-<p>Preço: <em>R$5.000,00 a vista ou 5.500,00 parcelado em até 12x</em></p>
-
-    <h3>Tablet com Acessibilidade para Autismo</h3> 
-    <img src="Inclui+/tabletParaAutismo1.png" alt="Tablet com Acessibilidade para Autismo" width="300" height="200"> <!--Imagem do Produto-->
-    <img src="Inclui+tabletParaAutismo2.png" alt="Tablet com Acessibilidade para Autismo" width="300" height="200"> <!--Imagem do Produto-->
-<p>Tablet com aplicativos e jogos adaptados para crianças com autismo</p> <!--Descrição do Produto-->
-<p> Preço: 1200,00 a Vista ou 1900,00 em até 12x/p>
-
-    <h3>Teclado em Braille</h3>
-    <img src= "Inclui+/tecladoBraille1.png" alt="Teclado em Braille" width="300" height="200"> <!--Imagem do Produto-->
-    <img src= "Inclui+/tecladoBraille2.png" alt="Teclado em Braille" width="300" height="200"> <!--Imagem do Produto-->
-<p>Teclado em Braille com conectividade USB e compatível com diversos dispositivos</p> <!--Descrição do Produto-->
-<p>Preço: 800,00 a Vista ou 1200,00 em até 12x</p>
-
-    <h3>Utensílios de Cozinha Adaptados</h3>
-    <img src="Inclui+/facaDeSerraAngulada.png" alt="Faca de Serra Angulada" width="300" height="200"> <!--Imagem do Produto-->
-<p>Faca de Serra Angulada com cabo ergonômico e lâmina de precisão para facilitar o corte de alimentos para pessoas com deficiência</p> <!--Descrição do Produto-->
-<p>Preço: 150,00 a Vista ou 300,00 em até 12x</p>
-
-<img src="Inclui+/tesoura5Laminas.png" alt="Tesoura de 5 Lâminas" width="300" height="200"> <!--Imagem do Produto-->
-<p>Tesoura de 5 Lâminas para facilitar o corte de alimentos e outros materiais trazendo segurança e conforto</p> <!--Descrição do Produto-->
-<p>Preço: 150,00 a Vista ou 300,00 em até 12x</p>
-
-<img src="Inclui+/tabuaDeCozinhaAdaptada.png" alt="Tábua de Cozinha Adaptada" width="300" height="200"> <!--Imagem do Produto-->
-<p>Tábua de Cozinha Adaptada com suporte para facilitar o corte de alimentos para pessoas com deficiência</p> <!--Descrição do Produto-->
-<p>Preço: 150,00 a Vista ou 300,00 em até 12x</p>
-
-<h4>Contato para Suporte</h4>
-<ol>
+  <h2>Produtos Disponiveis</h2>
+  <ol>
     <ul>
-        <li>Email:</li>
-            <img src= "Inclui+/iconeEmail.png" alt="Email Icon" width= "50" height= "50"> <!--Imagem do Email-->
-            <p>suporte@inclui.com.br</p>
-        <li>Telefone:</li>
-            <img src="Inclui+/iconeTelefone.png" alt="Phone Icon" width= "50" height= "50"> <!--Imagem do Telefone-->
-            <p>(11) 1234-5678</p>
-        <li>Instagram</li>
-            <img src="Inclui+/iconeInstagram.png" alt="Instagram Icon" width= "50" height= "50"> <!--Imagem do Instagram-->
-            <p>@inclui.mais</p>
-        <li>Facebook</li>
-            <img src="Inclui+/iconeFacebook.png" alt="Facebook Icon" width= "50" height= "50"> <!--Imagem do Facebook-->
-            <p>Inclui+</p>
+      <li>Cadeira de Rodas</li>
+      <li>Aparelho Auditivo Bluetooth</li>
+      <li>Lupa Digital com voz para Baixa Visão</li>
+      <li>Próteses Personalizadas</li>
+      <li>Tablet com Acessibilidade para Autismo</li>
+      <li>Teclado em Braille</li>
+      <li>Utensílios de Cozinha Adaptados</li>
     </ul>
-</ol>
+  </ol>
+
+  <!-- Carrossel de produtos (cards) -->
+  <div class="carousel">
+
+    <div class="card">
+      <img src="Inclui+/CadeiraDeRodasEletrica.png" alt="Cadeira de Rodas Elétrica" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Cadeira de Rodas</h3>
+        <p class="card__desc">Cadeira de Rodas Elétrica com controle remoto e bateria de longa duração.</p>
+        <p class="card__price">R$ 2.500,00 à vista • R$ 2.900,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="AparelhoAuditivo.png" alt="Aparelho Auditivo Bluetooth" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Aparelho Auditivo Bluetooth</h3>
+        <p class="card__desc">Aparelho auditivo com cancelamento de ruído.</p>
+        <p class="card__price">R$ 2.200,00 à vista • R$ 2.500,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="lupaDigital.png" alt="Lupa Digital com voz para Baixa Visão" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Lupa Digital com Voz</h3>
+        <p class="card__desc">Ampliação até 30x e leitura em voz alta.</p>
+        <p class="card__price">R$ 1.500,00 à vista • R$ 1.800,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="proteseBraço.png" alt="Prótese personalizada de braço" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Próteses Personalizadas</h3>
+        <p class="card__desc">Materiais de alta qualidade e conforto.</p>
+        <p class="card__price">R$ 5.000,00 à vista • R$ 5.500,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="tabletParaAutismo1.png" alt="Tablet com Acessibilidade para Autismo" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Tablet Acessível (Autismo)</h3>
+        <p class="card__desc">Aplicativos e jogos adaptados para crianças com autismo.</p>
+        <p class="card__price">R$ 1.200,00 à vista • R$ 1.900,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="tecladoBraille1.png" alt="Teclado em Braille" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Teclado em Braille</h3>
+        <p class="card__desc">Conectividade USB e compatível com diversos dispositivos.</p>
+        <p class="card__price">R$ 800,00 à vista • R$ 1.200,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="facaDeSerraAngulada.png" alt="Faca de Serra Angulada" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Faca de Serra Angulada</h3>
+        <p class="card__desc">Cabo ergonômico e lâmina de precisão.</p>
+        <p class="card__price">R$ 150,00 à vista • R$ 300,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="tesoura5Laminas.png" alt="Tesoura de 5 Lâminas" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Tesoura de 5 Lâminas</h3>
+        <p class="card__desc">Facilita cortes com segurança e conforto.</p>
+        <p class="card__price">R$ 150,00 à vista • R$ 300,00 em até 12x</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="tabuaDeCozinhaAdaptada.png" alt="Tábua de Cozinha Adaptada" class="card__media" width="300" height="200">
+      <div class="card__body">
+        <h3 class="card__title">Tábua de Cozinha Adaptada</h3>
+        <p class="card__desc">Suporte para facilitar o corte de alimentos.</p>
+        <p class="card__price">R$ 150,00 à vista • R$ 300,00 em até 12x</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h4>Contato para Suporte</h4>
+  <nav class="socials" aria-label="Canais de contato">
+    <a class="socials__btn" href="mailto:suporte@inclui.com.br" aria-label="E-mail">
+      <img src="iconeEmail.png" alt="" class="socials__icon" width="28" height="28">
+    </a>
+    <a class="socials__btn" href="tel:+551112345678" aria-label="Telefone">
+      <img src="iconeTelefone.png" alt="" class="socials__icon" width="28" height="28">
+    </a>
+    <a class="socials__btn" href="https://instagram.com/inclui.mais" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="iconeInstagram.png" alt="" class="socials__icon" width="28" height="28">
+    </a>
+    <a class="socials__btn" href="https://facebook.com/incluimais" target="_blank" rel="noopener" aria-label="Facebook">
+      <img src="iconeFacebook.png" alt="" class="socials__icon" width="28" height="28">
+    </a>
+  </nav>
 
 </body>
 </html>
