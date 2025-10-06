@@ -1,9 +1,20 @@
 /* GERAL */
+/* Paleta de Cores Inclui+ */
+:root {
+  --azul-primario: #2563EB;
+  --ciano-secundario: #0891B2;
+  --fundo-neutro: #F8FAFC;
+  --texto-principal: #1E293B;
+  --texto-suporte: #64748B;
+  --borda-suave: #E2E8F0;
+  --branco: #FFFFFF;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f9fafb;
-  color: #333;
+  background: var(--fundo-neutro);
+  color: var(--texto-principal);
 }
 
 /* NAVBAR FIXA */
@@ -34,7 +45,7 @@ body {
 .site-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--azul-primario);
 }
 
 .menu {
@@ -47,18 +58,18 @@ body {
 
 .menu li a {
   text-decoration: none;
-  color: #333;
+  color: var(--texto-principal);
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .menu li a:hover {
-  color: #2563eb;
+  color: var(--azul-primario);
 }
 
 .btn-doar {
-  background: #2563eb;
-  color: white !important;
+  background: var(--azul-primario);
+  color: var(--branco) !important;
   padding: 8px 15px;
   border-radius: 20px;
 }
@@ -71,7 +82,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: var(--branco);
   position: relative;
   padding: 0 20px;
 }
@@ -100,17 +111,17 @@ body {
 }
 
 .hero-btn {
-  background: #06b6d4;
+  background: var(--ciano-secundario);
   padding: 12px 20px;
   border-radius: 25px;
   text-decoration: none;
-  color: white;
+  color: var(--branco);
   font-weight: 600;
   transition: background 0.3s;
 }
 
 .hero-btn:hover {
-  background: #3b82f6;
+  background: var(--azul-primario);
 }
 
 /* SEÇÃO DE TEXTO */
@@ -121,12 +132,13 @@ body {
 }
 
 .box {
-  background: white;
+  background: var(--branco);
   padding: 30px;
   margin-bottom: 50px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 
+  border: 1px solid var(--borda-suave);
   opacity: 0;
   transform: translateY(60px);
   transition: all 0.9s ease-out;
@@ -140,7 +152,7 @@ body {
 .box h2 {
   font-size: 1.6rem;
   margin-bottom: 15px;
-  color: #2563eb;
+  color: var(--azul-primario);
   display: flex;
   align-items: center;
   gap: 10px;
