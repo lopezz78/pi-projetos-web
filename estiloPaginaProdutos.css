@@ -117,7 +117,7 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   .search-bar--nav input { height: 38px; }
 }
 
-/* ===== Barra de pesquisa (estilo Buscapé) ===== */
+/* ===== Barra de pesquisa (Pique Buscapé) ===== */
 :root {
   --accent-search: #2563eb; /* amarelo de destaque */
 }
