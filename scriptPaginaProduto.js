@@ -47,4 +47,3 @@
     }
   }, { passive: true });
 })();
-/* apenas ignore */
