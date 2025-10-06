@@ -1,7 +1,11 @@
 // Esconde a navbar quando rola para baixo e mostra quando rola para cima
 (function () {
+  console.debug('[navbar] script loaded');
   const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
+  if (!navbar) {
+    console.warn('[navbar] element not found');
+    return;
+  }
 
   // Define a altura real da navbar para não sobrepor o conteúdo
   const setNavbarHeight = () => {
@@ -9,6 +13,8 @@
     document.documentElement.style.setProperty('--navbar-h', h + 'px');
   };
   setNavbarHeight();
+  // Recalcular também após todos os recursos carregarem (imagens podem alterar altura)
+  window.addEventListener('load', setNavbarHeight);
   window.addEventListener('resize', setNavbarHeight);
 
   // Esconde/mostra conforme direção do scroll (com tolerância p/ evitar tremedeira)
