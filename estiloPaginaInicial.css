@@ -157,3 +157,11 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}

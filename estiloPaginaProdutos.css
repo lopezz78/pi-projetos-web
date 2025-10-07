@@ -14,7 +14,7 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   position: fixed;        /* fixa no topo */
   top: 0;
   left: 0;
-  width: 100%;
+  width: 95%;
   background: rgba(255,255,255,0.95);
   display: flex;
   align-items: center;
@@ -36,23 +36,23 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   .navbar { transition: none; } 
 }
 
-.logo-area {
+.logo-area { /* logo + nome do site */
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.logo {
+.logo {  /* logo */
   width: 40px;
 }
 
-.site-name {
+.site-name { /* nome do site */
   font-size: 1.5rem;
   font-weight: 700;
   color: #2563eb;
 }
 
-.menu {
+.menu { /* links de navegação */
   list-style: none;
   display: flex;
   gap: 20px;
@@ -60,25 +60,25 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   padding: 0;
 }
 
-.menu li a {
+.menu li a { /* links */
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.menu li a:hover {
+.menu li a:hover { /* hover nos links */
   color: #2563eb;
 }
 
-.btn-doar {
+.btn-doar { /* botão de doar */
   background: #2563eb;
   color: white !important;
   padding: 8px 15px;
   border-radius: 20px;
 }
 
-.btn-login {
+.btn-login { /* botão de login */
   background: #06b6d4;
   color: white !important;
   padding: 8px 15px;
