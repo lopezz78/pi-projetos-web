@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>Cadastro no Sistema Inclui+</h1> <!-- Título da Página de Cadastro -->
+<h1>Cadastro Empresarial</h1> <!-- Título da Página de Cadastro -->
 <h2> Preencha todos os Campos Abaixo Para realizar o Cadastro em Nosso Site.</h2>
 
 <!-- NAVBAR -->
@@ -49,7 +49,6 @@
 
     <label for="Contato">Contato:</label> <!-- Campo para Contato -->
     <input type="number" id="Numero De Contato" name="Numero De Contato"minlength= "10" maxlength="11" required>
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
 
     <label for="Endereço">Endereço:</label> <!-- Campo para Endereço -->
     <input type="text" id="Endereço" name="Endereço" required>
@@ -61,16 +60,12 @@
         <option value="Associação">Associação</option>
         <option value="Fundação">Fundação</option>
         <option value="Outros">Outros</option>
-        <imput type="text" id="OutroTipoDeInstituição" name="OutroTipoDeInstituição"maxlength= "100000" placeholder="Especifique se 'Outros' for selecionado"> 
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
     </select>
 
     <button type="submit">Cadastrar</button> <!-- Botão para Enviar o Formulário -->
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
 
-    <button type="reset">Limpar</button> <!-- Botão para Limpar o Formulário -->
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
-    
+  <input type="hidden" name="formulario" value="cadastro"> <!-- Campo Oculto para Identificar o Formulário -->
+
 
 
 
