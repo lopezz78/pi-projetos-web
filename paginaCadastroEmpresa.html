@@ -32,10 +32,10 @@
 
 
 <form action="index.html" method="post"> <!-- Banco de Dados (SQL) -->
-	<label for="NomeCompleto">Nome:</label> <!-- Campo para Nome Completo -->
-	<input type="text" id="NomeCompleto" name="NomeCompleto" required>
+	<label for="NomeDaInstituição">Nome Da Instituição</label> <!-- Campo para o nome da Instituição -->
+	<input type="text" id="NomeDaInstituição" name="NomeDaInstituição" required>
 
-	<label for="Email">Email:</label>  <!-- Campo para Email -->
+	<label for="EmailDaInstituição">Email Da Instituição:</label>  <!-- Campo para Email Da Instituição -->
 	<input type="email" id="Email" name="Email" placeholder="exemplo@gmail.com" required>
 
 	<label for="Senha">Senha:</label> <!-- Campo para Senha -->
@@ -44,24 +44,26 @@
     <label for="ConfirmarSenha">Confirmar Senha:</label> <!-- Campo para Confirmar Senha -->
     <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" required>
 
-    <label for="Idade">Idade:</label> <!-- Campo para Idade -->
-    <input type="number" id="Idade" name="Idade" min="18" max="99" required> <!-- Idade entre 18 e 99 anos -->
+    <label for="CNPJ">Idade:</label> <!-- Campo para Idade -->
+    <input type="number" id="CNPJ" name="CNPJ" minlength="14" maxlength="14" required> <!-- Numero do CNPJ -->
 
-    <label for="Data de Nacimento">Data de Nascimento:</label> <!-- Campo para Data de Nascimento -->
+    <label for="Contato">Contato:</label> <!-- Campo para Contato -->
+    <input type="number" id="Numero De Contato" name="Numero De Contato"minlength= "10" maxlength="11" required>
     <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
 
-    <input type="date" id="DataDeNascimento" name="DataDeNascimento" required>
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
+    <label for="Endereço">Endereço:</label> <!-- Campo para Endereço -->
+    <input type="text" id="Endereço" name="Endereço" required>
 
-    <label for="Genero">Gênero:</label> <!-- Campo para Gênero -->
-    <select id="Genero" name="Genero" required>
+    <label for="TipoDeInstituição">Tipo De Instituição:</label> <!-- Campo para Tipo De Instituição -->
+    <select id="TipoDeInstituição" name="TipoDeInstituição" required>
         <option value="">Selecione</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Outro">Outro</option>
-        <option value="Prefiro não dizer">Prefiro não dizer</option>
-        
+        <option value="ONG">ONG</option>
+        <option value="Associação">Associação</option>
+        <option value="Fundação">Fundação</option>
+        <option value="Outros">Outros</option>
+        <imput type="text" id="OutroTipoDeInstituição" name="OutroTipoDeInstituição"maxlength= "100000" placeholder="Especifique se 'Outros' for selecionado"> 
     <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
+    </select>
 
     <button type="submit">Cadastrar</button> <!-- Botão para Enviar o Formulário -->
     <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
