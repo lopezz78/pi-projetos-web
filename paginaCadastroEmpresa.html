@@ -9,6 +9,9 @@
 </head>
 <body>
 
+  <!--Link Arquivo JS-->
+<script src="scriptPaginaCadastroEmpresarial.js" defer></script> <!-- Link para o arquivo JS externo -->
+
 <h1>Cadastro Empresarial</h1> <!-- Título da Página de Cadastro -->
 <h2> Preencha todos os Campos Abaixo Para realizar o Cadastro em Nosso Site.</h2>
 
@@ -30,7 +33,7 @@
   </header>
 
 
-
+ <!--Formulário de Cadastro Empresarial-->
 <form action="index.html" method="post"> <!-- Banco de Dados (SQL) -->
 	<label for="NomeDaInstituição">Nome Da Instituição</label> <!-- Campo para o nome da Instituição -->
 	<input type="text" id="NomeDaInstituição" name="NomeDaInstituição" required>
@@ -39,16 +42,23 @@
 	<input type="email" id="Email" name="Email" placeholder="exemplo@gmail.com" required>
 
 	<label for="Senha">Senha:</label> <!-- Campo para Senha -->
-	<input type="password" id="Senha" name="Senha" minlength="8" required> <!-- Mínimo de 8 caracteres -->
+    <div class="password-container">
+        <input type="password" id="Senha" name="Senha" minlength="8" required>
+        <button type="button" id="toggleSenha" class="toggle-password">👁️</button> 
+    </div>
 
     <label for="ConfirmarSenha">Confirmar Senha:</label> <!-- Campo para Confirmar Senha -->
-    <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" required>
+    <div class="password-container">
+        <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" required>
+        <button type="button" id="toggleConfirmarSenha" class="toggle-password">👁️</button>
+    </div>
+    <span id="mensagemErroSenha" class="error-message"></span>
 
-    <label for="CNPJ">Idade:</label> <!-- Campo para Idade -->
-    <input type="number" id="CNPJ" name="CNPJ" minlength="14" maxlength="14" required> <!-- Numero do CNPJ -->
+    <label for="CNPJ">CNPJ:</label> <!-- Campo para Idade -->
+    <input type="number" id="CNPJ" name="CNPJ" placeholder= "00.000.000/0001-00"minlength="14" maxlength="14" required> <!-- Numero do CNPJ -->
 
     <label for="Contato">Contato:</label> <!-- Campo para Contato -->
-    <input type="number" id="Numero De Contato" name="Numero De Contato"minlength= "10" maxlength="11" required>
+    <input type="tel" id="Contato" name="Contato" placeholder= "(11) 12345-6789"minlength= "10" maxlength="11" required>
 
     <label for="Endereço">Endereço:</label> <!-- Campo para Endereço -->
     <input type="text" id="Endereço" name="Endereço" required>

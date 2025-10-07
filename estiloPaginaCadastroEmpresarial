@@ -150,6 +150,38 @@ button[type="submit"]:hover, button[type="reset"]:hover {
   background: var(--azul-primario);
 }
 
+/* Adicione isso ao seu arquivo .css */
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  /* Remove a margem de baixo do input para o container cuidar disso */
+  margin-bottom: 0; 
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--texto-suporte);
+}
+
+.error-message {
+  color: #E53E3E; /* Um tom de vermelho */
+  font-size: 0.9rem;
+  height: 1rem; /* Garante que o layout não "pule" */
+  display: block;
+  margin-top: 4px;
+}
+
 /* Responsividade */
 @media (max-width: 500px) {
   body {
