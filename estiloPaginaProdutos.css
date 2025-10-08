@@ -401,6 +401,13 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(37,99,235,0.08);
 }
+footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
 
 /* RESPONSIVO */
 @media (max-width: 700px) {

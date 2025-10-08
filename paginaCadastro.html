@@ -48,10 +48,46 @@
     <input type="number" id="Idade" name="Idade" min="18" max="99" required> <!-- Idade entre 18 e 99 anos -->
 
     <label for="Data de Nacimento">Data de Nascimento:</label> <!-- Campo para Data de Nascimento -->
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
+    <input type="date" id="DataDeNacimento" name="DataDeNacimento" required>
+    
 
-    <input type="date" id="DataDeNascimento" name="DataDeNascimento" required>
+    <label for="Cidade">Cidade:</label> <!-- Campo para Cidade -->
+    <input type="text" id="Cidade" name="Cidade" required>
+  
 
+    <label for="Estado" >Estado:</label> <!-- Campo para Estado -->
+    <select id="Estado" name="Estado" required>
+        <option value="">Selecione</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+    </select>
+   
+        
     <label for="Genero">Gênero:</label> <!-- Campo para Gênero -->
     <select id="Genero" name="Genero" required>
         <option value="">Selecione</option>
@@ -60,7 +96,7 @@
         <option value="Outro">Outro</option>
         <option value="Prefiro não dizer">Prefiro não dizer</option>
     </select>
-    <br><br> <!-- Quebra de Linha para Melhorar a Visualização -->
+
     <button type="submit">Cadastrar</button> <!-- Botão para Enviar o Formulário -->
 
     <button type="reset">Limpar</button> <!-- Botão para Limpar o Formulário -->
@@ -71,5 +107,18 @@
 
 </form>
 
+
+<!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
+      <p>Desenvolvido por Equipe Inclui+</p>
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Serviço</a>
+        <a href="#">Contato</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
