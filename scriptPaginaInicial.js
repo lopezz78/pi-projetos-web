@@ -1,16 +1,51 @@
-const boxes = document.querySelectorAll('.box'); /* Seleciona todos os elementos com a classe 'box' */
+// Garante que o script só rode depois que a página carregar completamente
+document.addEventListener('DOMContentLoaded', function() {
 
-const checkBoxes = () => { /* Função para verificar a posição das caixas */
-  const triggerBottom = window.innerHeight * 0.8; /* Define o gatilho como 80% da altura da janela */
+  // =================================================================
+  // PARTE 1: ANIMAÇÃO DAS CAIXAS AO ROLAR A PÁGINA (SCROLL)
+  // =================================================================
+  // Esta parte faz os cards aparecerem suavemente conforme você rola a página
+  
+  const boxesParaAnimar = document.querySelectorAll('.box');
+  
+  if (boxesParaAnimar.length > 0) {
+    const checkBoxes = () => {
+      // Define a "linha gatilho" a 80% da altura da tela
+      const triggerBottom = window.innerHeight * 0.8;
+      
+      boxesParaAnimar.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        
+        // Se o topo do box passou da linha gatilho, adiciona a classe 'show'
+        if (boxTop < triggerBottom) {
+          box.classList.add('show');
+        }
+      });
+    };
+    
+    // Escuta o evento de scroll para verificar a posição dos boxes
+    window.addEventListener('scroll', checkBoxes);
+    
+    // Roda a função uma vez no início para verificar os boxes que já estão visíveis
+    checkBoxes();
+  }
 
-  boxes.forEach(box => { /* Para cada caixa */
-    const boxTop = box.getBoundingClientRect().top; /* Obtém a posição superior da caixa em relação à viewport */
-
-    if (boxTop < triggerBottom) { /* Se a parte superior da caixa estiver acima do gatilho */
-      box.classList.add('show'); /* Adiciona a classe 'show' para animar */
-    }
+  // =================================================================
+  // PARTE 2: FUNCIONALIDADE DE CLIQUE PARA ABRIR NOVA ABA
+  // =================================================================
+  // Esta parte faz os cards com o atributo 'data-href' serem clicáveis
+  
+  const clickableBoxes = document.querySelectorAll('.box[data-href]');
+  
+  clickableBoxes.forEach(box => {
+    box.addEventListener('click', function() {
+      // Pega a URL que está no atributo 'data-href' do HTML
+      const url = this.getAttribute('data-href');
+      
+      // Se a URL existir, abre em uma nova aba
+      if (url) {
+        window.open(url, '_blank');
+      }
+    });
   });
-};
-
-window.addEventListener('scroll', checkBoxes); /* Adiciona um ouvinte de evento para o scroll da janela */
-checkBoxes(); /* Chama a função inicialmente para verificar as caixas já visíveis */
+});
