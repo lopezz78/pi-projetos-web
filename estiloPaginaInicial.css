@@ -195,7 +195,8 @@ body {
   box-shadow: 0 2px 6px rgba(37,99,235,0.08);
 }
 
-footer {
+/* RODAPÉ */
+.footer {
   background: var(--azul-primario);
   color: var(--branco);
   text-align: center;
