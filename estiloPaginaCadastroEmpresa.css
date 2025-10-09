@@ -146,21 +146,20 @@ button[type="submit"], button[type="reset"] {
   transition: background 0.2s;
 }
 
+/* Animação de entrada */
 button[type="submit"]:hover, button[type="reset"]:hover {
   background: var(--azul-primario);
 }
 
-/* Adicione isso ao seu arquivo .css */
-
+  /* Mostrar/Ocultar Senha */
 .password-container {
   position: relative;
   display: flex;
   align-items: center;
 }
-
+  /* Garante que o input ocupe toda a largura disponível */
 .password-container input {
   width: 100%;
-  /* Remove a margem de baixo do input para o container cuidar disso */
   margin-bottom: 0; 
 }
 
@@ -174,6 +173,7 @@ button[type="submit"]:hover, button[type="reset"]:hover {
   color: var(--texto-suporte);
 }
 
+  /* Mensagem de erro */
 .error-message {
   color: #E53E3E; /* Um tom de vermelho */
   font-size: 0.9rem;
@@ -182,6 +182,7 @@ button[type="submit"]:hover, button[type="reset"]:hover {
   margin-top: 4px;
 }
 
+/* Rodapé */
 footer {
   background: var(--azul-primario);
   color: var(--branco);
