@@ -409,6 +409,13 @@ footer {
   margin-top: 50px;
 }
 
+footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
 /* RESPONSIVO */
 @media (max-width: 700px) {
   .navbar {

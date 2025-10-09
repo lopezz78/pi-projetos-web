@@ -173,7 +173,7 @@ footer {
 
 /* Você pode também adicionar um efeito visual quando o mouse passa por cima */
 .box[data-href]:hover {
-  background-color: #6e7379; /* Ou qualquer outra cor que combine com seu site */
+  background-color: #5880b0; /* Ou qualquer outra cor que combine com seu site */
   transform: translateY(-5px); /* Efeito de levantar o card */
   transition: all 0.3s ease;
 }
