@@ -84,4 +84,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Botão "Saiba Mais" - Rolagem suave para a seção "Sobre Nós"
+  const saibaMaisBtn = document.querySelector('.hero-btn');
+  const sobreSection = document.querySelector('#sobre');
+
+  if (saibaMaisBtn && sobreSection) {
+    saibaMaisBtn.addEventListener('click', function (e) {
+      e.preventDefault(); // Evita comportamento padrão do link
+      sobreSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 });
