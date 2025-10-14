@@ -17,7 +17,7 @@ body, h1, h2, form, label, input, select, button {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--fundo-neutro);
   color: var(--texto-principal);
   padding: 24px;
@@ -28,7 +28,7 @@ body {
   position: fixed; /* Fixa no topo */
   top: 0; 
   left: 0;
-  width: 95%; /* Largura da navbar */
+  width: 100%; /* Largura da navbar */
   background: rgba(255,255,255,0.9);
   display: flex;
   align-items: center;
@@ -36,6 +36,7 @@ body {
   padding: 15px 40px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .logo-area {

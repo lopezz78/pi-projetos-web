@@ -1,7 +1,7 @@
 /* Fonte padrão do site */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #f9fafb;
   color: #333;
 }
@@ -14,7 +14,7 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   position: fixed;        /* fixa no topo */
   top: 0;
   left: 0;
-  width: 95%;
+  width: 100%;
   background: rgba(255,255,255,0.95);
   display: flex;
   align-items: center;
@@ -25,6 +25,7 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   backdrop-filter: saturate(120%) blur(6px);
   transform: translateY(0);                 /* estado visível */
   transition: transform .28s ease-in-out;   /* animação suave */
+  box-sizing: border-box;
 }
 
 .navbar--hidden {                            /* estado escondido */
@@ -144,7 +145,7 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   background: #fff;
   border-radius: 999px;
   padding: 0 48px 0 18px;      /* espaço p/ ícone à direita */
-  font: 500 1rem Arial, Helvetica, sans-serif;
+  font: 500 1rem 'Poppins', sans-serif;
   color: #333;
 }
 
