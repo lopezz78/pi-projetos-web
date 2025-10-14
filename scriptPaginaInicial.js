@@ -48,4 +48,40 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // =================================================================
+  // PARTE 3: FUNCIONALIDADE DE CLIQUE PARA ABRIR POP-UP
+  // =================================================================
+  // Esta parte faz os cards com o atributo 'data-popup' serem clicáveis
+  
+  const boxesPopup = document.querySelectorAll('.box[data-popup]');
+  const popups = document.querySelectorAll('.popup');
+
+  // Adiciona evento de clique para abrir o pop-up
+  boxesPopup.forEach(box => {
+    box.addEventListener('click', function () {
+      const popupId = this.getAttribute('data-popup');
+      const popup = document.getElementById(popupId);
+      if (popup) {
+        popup.style.display = 'flex';
+      }
+    });
+  });
+
+  // Adiciona evento de clique para fechar o pop-up
+  popups.forEach(popup => {
+    const closeBtn = popup.querySelector('.popup-close');
+    closeBtn.addEventListener('click', function () {
+      popup.style.display = 'none';
+    });
+  });
+
+  // Fecha o pop-up ao clicar fora do conteúdo
+  popups.forEach(popup => {
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  });
 });
