@@ -1,11 +1,8 @@
 // Garante que o script só rode depois que a página carregar completamente
 document.addEventListener('DOMContentLoaded', function() {
 
-  // =================================================================
-  // PARTE 1: ANIMAÇÃO DAS CAIXAS AO ROLAR A PÁGINA (SCROLL)
-  // =================================================================
+
   // Esta parte faz os cards aparecerem suavemente conforme você rola a página
-  
   const boxesParaAnimar = document.querySelectorAll('.box');
   
   if (boxesParaAnimar.length > 0) {
@@ -30,11 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
     checkBoxes();
   }
 
-  // =================================================================
-  // PARTE 2: FUNCIONALIDADE DE CLIQUE PARA ABRIR NOVA ABA
-  // =================================================================
+
   // Esta parte faz os cards com o atributo 'data-href' serem clicáveis
-  
   const clickableBoxes = document.querySelectorAll('.box[data-href]');
   
   clickableBoxes.forEach(box => {
@@ -49,11 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // =================================================================
-  // PARTE 3: FUNCIONALIDADE DE CLIQUE PARA ABRIR POP-UP
-  // =================================================================
+
+
   // Esta parte faz os cards com o atributo 'data-popup' serem clicáveis
-  
   const boxesPopup = document.querySelectorAll('.box[data-popup]');
   const popups = document.querySelectorAll('.popup');
 
