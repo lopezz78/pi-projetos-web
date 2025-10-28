@@ -87,23 +87,27 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
 }
 
 /* ===== Busca dentro da navbar ===== */
-.navbar { gap: 16px; flex-wrap: wrap; }     /* permite quebrar no mobile */
+.navbar { gap: 16px; flex-wrap: wrap; }
 
 .logo-area { flex: 0 0 auto; }
 .nav-search-wrap {
-  flex: 1 1 600px;           /* ocupa o meio da barra */
+  flex: 1 1 600px;
   max-width: 720px;
+  /* Adicione isso para remover o mask-image que pode estar afetando */
+  mask-image: none !important;
 }
 .navbar .menu { flex: 0 0 auto; }
 
-/* Reaproveita seu estilo .search-bar, só reduz o “pílula” e a altura */
+/* Reaproveita seu estilo .search-bar, só reduz o "pílula" e a altura */
 .search-bar--nav {
   margin: 0;
-  padding: 4px;              /* moldura azul menor */
+  padding: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  /* Garante que a moldura não seja cortada */
+  overflow: visible;
 }
 .search-bar--nav input {
-  height: 40px;              /* era 46px */
+  height: 40px;
   padding: 0 44px 0 14px;
 }
 
@@ -120,16 +124,16 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
 
 /* ===== Barra de pesquisa (Pique Buscapé) ===== */
 :root {
-  --accent-search: #2563eb; /* amarelo de destaque */
+  --accent-search: #2563eb;
 }
 
 .search-bar {
   position: relative;
   background: var(--accent-search);
   border-radius: 999px;
-  padding: 6px;                 /* cria a “moldura” amarela */
+  padding: 2px; /* Moldura fina */
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  overflow: hidden;             /* mantém o halo contido */
+  overflow: visible; /* Mudei de hidden para visible */
 }
 
 /* halo azul aplicado no contêiner quando qualquer filho recebe foco */
@@ -144,9 +148,10 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   outline: 0;
   background: #fff;
   border-radius: 999px;
-  padding: 0 48px 0 18px;      /* espaço p/ ícone à direita */
+  padding: 0 48px 0 18px;
   font: 500 1rem 'Poppins', sans-serif;
   color: #333;
+  box-sizing: border-box; /* Adiciona para garantir que o padding não quebre o layout */
 }
 
 .search-bar input::placeholder {
@@ -250,8 +255,9 @@ h2 {
   box-shadow: 0 4px 18px rgba(0,0,0,0.07);
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  /* degrade nas bordas para sugerir rolagem */
+  /* degrade nas bordas para sugerir rolagem - APLICADO APENAS NO CARROSSEL */
   position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
 }
 
