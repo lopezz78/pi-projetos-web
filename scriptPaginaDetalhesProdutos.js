@@ -41,3 +41,141 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('detalhes-produto').innerHTML = "<p>Produto não encontrado.</p>";
   }
 });
+
+// Script para carregar detalhes do produto a partir do id na query string
+(function () {
+  // Dados dos produtos (substitua por fetch() se quiser carregar de um arquivo/API)
+  const produtos = [
+    {
+      id: '1',
+      nome: 'Cadeira de Rodas',
+      descricaoCurta: 'Cadeira de Rodas Elétrica com Controle Remoto e Bateria de Longa duração',
+      descricao: 'Cadeira de rodas elétrica confortável, com ajuste de encosto, controle remoto e autonomia de até 8 horas. Ideal para uso doméstico e externo. Peso suportado: 150kg. Assento acolchoado e rodas com suspensão.',
+      preco: 'R$ 2.500,00 à vista ou R$ 2.900,00 em até 12x',
+      imagem: 'Inclui+/CadeiraDeRodasEletrica.png',
+      caracteristicas: [
+        'Controle remoto incluído',
+        'Bateria de longa duração (8h)',
+        'Suspensão nas rodas',
+        'Assento acolchoado'
+      ],
+      especificacoes: {
+        'Peso máximo suportado': '150 kg',
+        'Autonomia': 'Até 8 horas',
+        'Velocidade máxima': '6 km/h',
+        'Dimensões do assento': '45 x 45 cm'
+      }
+    },
+    {
+      id: '2',
+      nome: 'Aparelho Auditivo Bluetooth',
+      descricaoCurta: 'Aparelho Auditivo Bluetooth com Cancelamento de Ruído',
+      descricao: 'Aparelho auditivo bluetooth com múltiplos níveis de ganho, cancelamento ativo de ruído e conectividade com smartphones para ajustes e streaming de áudio. Bateria recarregável com estojo.',
+      preco: 'R$ 2.200,00 à vista ou R$ 2.500,00 em até 12x',
+      imagem: 'Inclui+/AparelhoAuditivo.png',
+      caracteristicas: [
+        'Bluetooth para smartphone',
+        'Cancelamento ativo de ruído',
+        'Bateria recarregável',
+        'Várias pontas de silicone incluídas'
+      ],
+      especificacoes: {
+        'Tipo': 'Retroauricular',
+        'Duração da bateria': '24 horas (com estojo)',
+        'Conectividade': 'Bluetooth 5.0',
+        'Garantia': '1 ano'
+      }
+    },
+    {
+      id: '3',
+      nome: 'Lupa Digital com Voz',
+      descricaoCurta: 'Lupa Digital com ampliação de até 30x e leitura em voz alta',
+      descricao: 'Lupa digital portátil com tela LCD, ampliação até 30x, contraste ajustável e função de leitura em voz alta para pessoas com baixa visão. Possui iluminação LED integrada.',
+      preco: 'R$ 1.500,00 à vista ou R$ 1.800,00 em até 12x',
+      imagem: 'Inclui+/lupaDigital.png',
+      caracteristicas: [
+        'Ampliação até 30x',
+        'Leitura em voz alta',
+        'Iluminação LED',
+        'Tela LCD integrada'
+      ],
+      especificacoes: {
+        'Ampliação máxima': '30x',
+        'Tela': 'LCD 5" (exemplo)',
+        'Bateria': 'Recarregável 6 horas',
+        'Peso': '350 g'
+      }
+    }
+  ];
+
+  // Helpers
+  const qs = new URLSearchParams(window.location.search);
+  const id = qs.get('id');
+
+  const imgEl = document.getElementById('produto-imagem');
+  const nomeEl = document.getElementById('produto-nome');
+  const descCurtaEl = document.getElementById('produto-descricao-curta');
+  const descEl = document.getElementById('produto-descricao');
+  const precoEl = document.getElementById('produto-preco');
+  const charListEl = document.getElementById('produto-caracteristicas');
+  const specsEl = document.getElementById('produto-especificacoes');
+  const botaoVoltar = document.getElementById('botao-voltar');
+  const botaoComprar = document.getElementById('botao-comprar');
+
+  function mostrarNotFound() {
+    nomeEl.textContent = 'Produto não encontrado';
+    descCurtaEl.textContent = '';
+    descEl.textContent = 'O produto solicitado não foi localizado.';
+    precoEl.textContent = '';
+    imgEl.removeAttribute('src');
+    imgEl.alt = 'Produto não encontrado';
+    charListEl.innerHTML = '';
+    specsEl.innerHTML = '';
+  }
+
+  const produto = produtos.find(p => p.id === id);
+
+  if (!produto) {
+    mostrarNotFound();
+    return;
+  }
+
+  // Preencher campos
+  nomeEl.textContent = produto.nome;
+  descCurtaEl.textContent = produto.descricaoCurta;
+  descEl.textContent = produto.descricao;
+  precoEl.textContent = produto.preco;
+
+  if (produto.imagem) {
+    imgEl.src = produto.imagem;
+    imgEl.alt = produto.nome;
+  } else {
+    imgEl.alt = produto.nome;
+  }
+
+  // Características
+  charListEl.innerHTML = '';
+  produto.caracteristicas.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    charListEl.appendChild(li);
+  });
+
+  // Especificações (dl)
+  specsEl.innerHTML = '';
+  Object.entries(produto.especificacoes).forEach(([chave, valor]) => {
+    const dt = document.createElement('dt');
+    dt.textContent = chave;
+    const dd = document.createElement('dd');
+    dd.textContent = valor;
+    specsEl.appendChild(dt);
+    specsEl.appendChild(dd);
+  });
+
+  // Botões
+  botaoVoltar.addEventListener('click', () => window.history.back());
+  botaoComprar.addEventListener('click', () => {
+    // Ação simples: redirecionar para uma página de compra (substitua conforme necessário)
+    window.location.href = `checkout.html?id=${produto.id}`;
+  });
+})();

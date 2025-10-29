@@ -13,9 +13,33 @@
 
   <main id="detalhes-produto">
     <img id="produto-imagem" alt="Imagem do Produto">
-    <h2 id="produto-nome">Carregando...</h2>
-    <p id="produto-descricao"></p>
-    <p id="produto-preco"></p>
+    <div class="produto-info">
+      <h2 id="produto-nome">Carregando...</h2>
+      <p id="produto-descricao-curta"></p>
+      <p id="produto-preco" class="preco"></p>
+
+      <!-- Descrição longa / características / especificações -->
+      <section id="secao-descricao">
+        <h3>Descrição</h3>
+        <p id="produto-descricao"></p>
+      </section>
+
+      <section id="secao-caracteristicas">
+        <h3>Características</h3>
+        <ul id="produto-caracteristicas"></ul>
+      </section>
+
+      <section id="secao-especificacoes">
+        <h3>Especificações</h3>
+        <dl id="produto-especificacoes"></dl>
+      </section>
+
+      <!-- Ações -->
+      <div class="acoes">
+        <button id="botao-comprar">Comprar</button>
+        <button id="botao-voltar">Voltar</button>
+      </div>
+    </div>
   </main>
 
   <script src="scriptPaginaDetalhesProdutos.js"></script>
