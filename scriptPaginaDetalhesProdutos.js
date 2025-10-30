@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Script para carregar detalhes do produto a partir do id na query string
 (function () {
-  // Dados dos produtos (substitua por fetch() se quiser carregar de um arquivo/API)
   const produtos = [
     {
       id: '1',
@@ -52,7 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
       descricaoCurta: 'Cadeira de Rodas Elétrica com Controle Remoto e Bateria de Longa duração',
       descricao: 'Cadeira de rodas elétrica confortável, com ajuste de encosto, controle remoto e autonomia de até 8 horas. Ideal para uso doméstico e externo. Peso suportado: 150kg. Assento acolchoado e rodas com suspensão.',
       preco: 'R$ 2.500,00 à vista ou R$ 2.900,00 em até 12x',
-      imagem: 'Inclui+/CadeiraDeRodasEletrica.png',
+      imagens: [
+        'Inclui+/CadeiraDeRodasEletrica.png',
+        'Inclui+/CadeiraDeRodasEletrica2.png',
+        'Inclui+/CadeiraDeRodasEletrica3.png'
+      ],
       caracteristicas: [
         'Controle remoto incluído',
         'Bateria de longa duração (8h)',
@@ -72,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
       descricaoCurta: 'Aparelho Auditivo Bluetooth com Cancelamento de Ruído',
       descricao: 'Aparelho auditivo bluetooth com múltiplos níveis de ganho, cancelamento ativo de ruído e conectividade com smartphones para ajustes e streaming de áudio. Bateria recarregável com estojo.',
       preco: 'R$ 2.200,00 à vista ou R$ 2.500,00 em até 12x',
-      imagem: 'Inclui+/AparelhoAuditivo.png',
+      imagens: [
+        'Inclui+/AparelhoAuditivo.png',
+        'Inclui+/AparelhoAuditivo2.png'
+      ],
       caracteristicas: [
         'Bluetooth para smartphone',
         'Cancelamento ativo de ruído',
@@ -92,7 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
       descricaoCurta: 'Lupa Digital com ampliação de até 30x e leitura em voz alta',
       descricao: 'Lupa digital portátil com tela LCD, ampliação até 30x, contraste ajustável e função de leitura em voz alta para pessoas com baixa visão. Possui iluminação LED integrada.',
       preco: 'R$ 1.500,00 à vista ou R$ 1.800,00 em até 12x',
-      imagem: 'Inclui+/lupaDigital.png',
+      imagens: [
+        'Inclui+/lupaDigital.png',
+        'Inclui+/lupaDigital2.png'
+      ],
       caracteristicas: [
         'Ampliação até 30x',
         'Leitura em voz alta',
@@ -108,11 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   ];
 
-  // Helpers
   const qs = new URLSearchParams(window.location.search);
   const id = qs.get('id');
 
   const imgEl = document.getElementById('produto-imagem');
+  const miniaturasWrap = document.getElementById('gal-miniaturas');
   const nomeEl = document.getElementById('produto-nome');
   const descCurtaEl = document.getElementById('produto-descricao-curta');
   const descEl = document.getElementById('produto-descricao');
@@ -121,6 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const specsEl = document.getElementById('produto-especificacoes');
   const botaoVoltar = document.getElementById('botao-voltar');
   const botaoComprar = document.getElementById('botao-comprar');
+  const btnPrev = document.querySelector('.gal-prev');
+  const btnNext = document.querySelector('.gal-next');
 
   function mostrarNotFound() {
     nomeEl.textContent = 'Produto não encontrado';
@@ -129,29 +140,56 @@ document.addEventListener('DOMContentLoaded', function () {
     precoEl.textContent = '';
     imgEl.removeAttribute('src');
     imgEl.alt = 'Produto não encontrado';
+    miniaturasWrap.innerHTML = '';
     charListEl.innerHTML = '';
     specsEl.innerHTML = '';
   }
 
   const produto = produtos.find(p => p.id === id);
+  if (!produto) { mostrarNotFound(); return; }
 
-  if (!produto) {
-    mostrarNotFound();
-    return;
-  }
-
-  // Preencher campos
   nomeEl.textContent = produto.nome;
   descCurtaEl.textContent = produto.descricaoCurta;
   descEl.textContent = produto.descricao;
   precoEl.textContent = produto.preco;
 
-  if (produto.imagem) {
-    imgEl.src = produto.imagem;
-    imgEl.alt = produto.nome;
-  } else {
-    imgEl.alt = produto.nome;
+  // Galeria
+  const imagens = Array.isArray(produto.imagens) && produto.imagens.length ? produto.imagens : ['Inclui+/placeholder.png'];
+  let currentIndex = 0;
+
+  function atualizarImagem(index){
+    currentIndex = Math.max(0, Math.min(index, imagens.length - 1));
+    imgEl.src = imagens[currentIndex];
+    imgEl.alt = produto.nome + ' — imagem ' + (currentIndex + 1);
+    // atualiza miniaturas
+    const thumbs = miniaturasWrap.querySelectorAll('img');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
+    // esconder botões quando não necessário
+    if (imagens.length <= 1) {
+      btnPrev.style.display = 'none';
+      btnNext.style.display = 'none';
+    } else {
+      btnPrev.style.display = '';
+      btnNext.style.display = '';
+    }
   }
+
+  // criar miniaturas
+  miniaturasWrap.innerHTML = '';
+  imagens.forEach((src, i) => {
+    const t = document.createElement('img');
+    t.src = src;
+    t.alt = produto.nome + ' miniatura ' + (i+1);
+    t.addEventListener('click', () => atualizarImagem(i));
+    miniaturasWrap.appendChild(t);
+  });
+
+  // arrow handlers
+  btnPrev.addEventListener('click', () => atualizarImagem((currentIndex - 1 + imagens.length) % imagens.length));
+  btnNext.addEventListener('click', () => atualizarImagem((currentIndex + 1) % imagens.length));
+
+  // inicializa
+  atualizarImagem(0);
 
   // Características
   charListEl.innerHTML = '';
@@ -172,10 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
     specsEl.appendChild(dd);
   });
 
-  // Botões
   botaoVoltar.addEventListener('click', () => window.history.back());
   botaoComprar.addEventListener('click', () => {
-    // Ação simples: redirecionar para uma página de compra (substitua conforme necessário)
     window.location.href = `checkout.html?id=${produto.id}`;
   });
 })();
