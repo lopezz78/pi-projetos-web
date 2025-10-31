@@ -23,7 +23,25 @@ document.addEventListener('DOMContentLoaded', function () {
       descricao: "Lupa Digital com ampliação de até 30x e leitura em voz alta.",
       preco: "R$1.500,00 à vista ou 1.800,00 parcelado em até 12x",
       imagem: "Inclui+/lupaDigital.png"
-    }
+    },
+    4: {
+      nome: "Faca de Serra Angulada",
+      descricao: "Faca de Serra Angulada utilizada para facilitar o corde de alimentos.",
+      preco: "R$700,00 à vista ou 900.00 parcelado em até 12x",
+      imagem: "Inclui+/facaDeSerraAngulada.png"
+    },
+    5: {
+      nome: "Tábua de cozinha adaptada",
+      descricao: "Tábua de cozinha adaptada para facilitar pessoas com cortes de alimentos no dia a dia.",
+      preco: "R$1.000,00 à vista ou 1.100.00 parcelado em até 12x",
+      imagem: "Inclui+/tabuaDeCozinhaAdaptada.png"
+    },
+    6: {
+      nome: "Tesoura 5 Laminas.",
+      descricao: "Tesoura para cortar uma maior quantidade de alimentos de uma só vez.",
+      preco: "R$700,00 à vista ou 750.00 parcelado em até 12x",
+      imagem: "Inclui+/tesoura5Laminas.png"
+    },
   };
 
   // Busca os detalhes do produto pelo ID
