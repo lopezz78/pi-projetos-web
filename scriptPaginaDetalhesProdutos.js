@@ -123,6 +123,66 @@ document.addEventListener('DOMContentLoaded', function () {
         'Bateria': 'Recarregável 6 horas',
         'Peso': '350 g'
       }
+    },
+    {
+      id: '4',
+      nome: 'Faca de Serra Angulada',
+      descricaoCurta: 'Faca de Serra Angulada utilizada para facilitar o corde de alimentos',
+      descricao: 'Faca de serra angulada com cabo ergonômico, ideal para pessoas com mobilidade reduzida nas mãos. A lâmina serrilhada facilita o corte de pães, carnes e vegetais.',
+      preco: 'R$ 700,00 à vista ou R$ 900,00 em até 12x',
+      imagem: 'Inclui+/facaDeSerraAngulada.png',
+      caracteristicas: [
+        'Lâmina serrilhada',
+        'Cabo ergonômico',
+        'Aço inoxidável',
+        'Fácil de limpar'
+      ],
+      especificacoes: {
+        'Material da lâmina': 'Aço inoxidável',
+        'Comprimento da lâmina': '20 cm',
+        'Peso': '150 g',
+        'Garantia': '6 meses'
+      }
+    },
+    {
+      id: '5',
+      nome: 'Tábua de cozinha adaptada',
+      descricaoCurta: 'Tábua de cozinha adaptada para facilitar pessoas com cortes de alimentos no dia a dia',
+      descricao: 'Tábua de cozinha adaptada com bordas antiderrapantes e compartimentos para separar alimentos. Ideal para pessoas com mobilidade reduzida, facilitando o preparo das refeições.',
+      preco: 'R$ 1.000,00 à vista ou R$ 1.100,00 em até 12x',
+      imagem: 'Inclui+/tabuaDeCozinhaAdaptada.png',
+      caracteristicas: [
+        'Bordas antiderrapantes',
+        'Compartimentos integrados',
+        'Fácil de limpar',
+        'Material durável'
+      ],
+      especificacoes: {
+        'Material': 'Plástico BPA-free',
+        'Dimensões': '40 x 30 cm',
+        'Peso': '800 g',
+        'Garantia': '1 ano'
+      }
+    },
+    {
+      id: '6',
+      nome: 'Tesoura 5 Laminas.',
+      descricaoCurta: 'Tesoura para cortar uma maior quantidade de alimentos de uma só vez',
+      descricao: 'Tesoura com 5 lâminas afiadas, ideal para cortar ervas, legumes e outros alimentos rapidamente. Cabo ergonômico para maior conforto e controle durante o uso.',
+      preco: 'R$ 700,00 à vista ou R$ 750,00 em até 12x',
+      imagem: 'Inclui+/tesoura5Laminas.png',
+      caracteristicas: [
+        '5 lâminas afiadas',
+        'Cabo ergonômico',
+        'Fácil de limpar',
+        'Aço inoxidável'
+      ],
+      especificacoes: {
+        'Material das lâminas': 'Aço inoxidável',
+        'Número de lâminas': '5',
+        'Peso': '200 g',
+        'Garantia': '6 meses'
+      }
     }
   ];
 
