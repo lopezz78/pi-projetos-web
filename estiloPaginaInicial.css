@@ -132,6 +132,7 @@ body {
   padding: 20px;
 }
 
+/* BOX COM SOMBRA E ARREDONDADO */
 .box {
   background: var(--branco);
   padding: 30px;
@@ -149,7 +150,7 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
+ /* Animação de entrada */
 .box h2 {
   font-size: 1.6rem;
   margin-bottom: 15px;

@@ -5,6 +5,17 @@ body {
   background: #f9fafb;
   color: #333;
 }
+ 
+/* Paleta de Cores Inclui+ */
+:root {
+  --azul-primario: #2563EB;
+  --ciano-secundario: #0891B2;
+  --fundo-neutro: #F8FAFC;
+  --texto-principal: #1E293B;
+  --texto-suporte: #64748B;
+  --borda-suave: #E2E8F0;
+  --branco: #FFFFFF;
+}
 
 /* ===== Navbar: fixa + animação de esconder/mostrar ===== */
 :root { --navbar-h: 0px; }            /* js */
@@ -408,17 +419,15 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(37,99,235,0.08);
 }
-/* RODAPÉ (N ta FUNCIONANDO N SEI PQ) */
+/* RODAPÉ */
 .footer {
   background: var(--azul-primario);
   color: var(--branco);
   text-align: center;
   padding: 20px;
+  width: 100%;
   margin-top: 50px;
 }
-
-
-
 /* RESPONSIVO */
 @media (max-width: 700px) {
   .navbar {

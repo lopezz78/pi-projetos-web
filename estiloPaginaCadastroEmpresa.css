@@ -20,7 +20,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--fundo-neutro);
   color: var(--texto-principal);
-  padding: 24px;
 }
 
 /* NAVBAR FIXA */
@@ -190,6 +189,12 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 50px;
+}
+/* Fundo do Rodapé centralizado */
+.container{ 
+  max-width: 1200px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 24px; /* Espaçamento interno */
 }
 
 /* Responsividade */

@@ -20,7 +20,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--fundo-neutro);
   color: var(--texto-principal);
-  padding: 24px;
+
 }
 
 /* NAVBAR FIXA */
@@ -182,13 +182,20 @@ button[type="submit"]:hover, button[type="reset"]:hover {
   display: block;
   margin-top: 4px;
 }
-
-footer {
+ /* Estilo da barra de pesquisa */
+.footer {
   background: var(--azul-primario);
   color: var(--branco);
   text-align: center;
   padding: 20px;
+  width: 100%;
   margin-top: 50px;
+}
+/* Fundo do Rodapé centralizado */
+.container{ 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
 }
 
 /* Responsividade */
