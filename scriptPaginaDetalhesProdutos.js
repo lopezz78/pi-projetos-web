@@ -42,6 +42,18 @@ document.addEventListener('DOMContentLoaded', function () {
       preco: "R$700,00 à vista ou 750.00 parcelado em até 12x",
       imagem: "Inclui+/tesoura5Laminas.png"
     },
+    7: {
+      nome: "Tablet para Autismo.",
+      descricao: 'Tablet com aplicativos educativos para crianças com autismo.',
+      preco: "R$1.200,00 à vista ou 1.800.00 parcelado em até 12x",
+      imagem: "Inclui+/tabletParaAutismo1.png"
+    },
+    8: {
+      nome: "Teclado em Braille",
+      descricao: "Teclado em Braille para facilitar a digitação de pessoas com deficiência visual.",
+      preco: "R$800,00 à vista ou 1.000.00 parcelado em até 12x",
+      imagem: "Inclui+/tecladoBraille1.png"
+    }
   };
 
   // Busca os detalhes do produto pelo ID
@@ -192,12 +204,56 @@ document.addEventListener('DOMContentLoaded', function () {
         'Peso': '200 g',
         'Garantia': '6 meses'
       }
+    },
+    {
+      id: '7',
+      nome: 'Tablet para Autismo.',
+      descricaoCurta: 'Tablet com aplicativos educativos para crianças com autismo.',
+      descricao: 'Tablet desenvolvido para crianças com autismo, com aplicativos educativos, interface simplificada e controle parental. Inclui capa protetora resistente a quedas.',
+      preco: 'R$ 1.200,00 à vista ou R$ 1.800,00 em até 12x',
+      imagem: 'Inclui+/tabletParaAutismo1.png', 
+      caracteristicas: [
+        'Aplicativos educativos pré-instalados',
+        'Interface simplificada',
+        'Controle parental',
+        'Capa protetora resistente'
+      ],
+      especificacoes: {
+        'Tela': '8 polegadas',
+        'Armazenamento': '32 GB',
+        'Bateria': 'Até 10 horas',
+        'Peso': '400 g'
+      }
+    },
+    {
+      id: '8',
+      nome: 'Teclado em Braille',
+      descricaoCurta: 'Teclado para facilitar a digitação de pessoas com deficiência visual.',
+      descricao: 'Teclado em Braille compacto e portátil, ideal para pessoas com deficiência visual. Compatível com diversos dispositivos e sistemas operacionais, facilitando a digitação e navegação.',
+      preco: 'R$ 800,00 à vista ou R$ 1.000,00 em até 12x',
+      imagem: 'Inclui+/tecladoBraille1.png',
+      caracteristicas: [
+        'Teclas em Braille táteis',
+        'Compatível com múltiplos dispositivos',
+        'Design compacto e portátil',
+        'Fácil de usar'
+      ],
+      especificacoes: {
+        'Número de teclas': '40',
+        'Conectividade': 'USB e Bluetooth',
+        'Peso': '500 g',
+        'Garantia': '1 ano'
+      }
     }
+
+
   ];
 
+  // Extrai o id da query string
   const qs = new URLSearchParams(window.location.search);
   const id = qs.get('id');
 
+  // Referências aos elementos do DOM
   const imgEl = document.getElementById('produto-imagem');
   const miniaturasWrap = document.getElementById('gal-miniaturas');
   const nomeEl = document.getElementById('produto-nome');
@@ -211,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const btnPrev = document.querySelector('.gal-prev');
   const btnNext = document.querySelector('.gal-next');
 
+  // Função para mostrar mensagem de produto não encontrado
   function mostrarNotFound() {
     nomeEl.textContent = 'Produto não encontrado';
     descCurtaEl.textContent = '';

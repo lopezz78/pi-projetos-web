@@ -195,10 +195,22 @@ section h3{ margin:10px 0 8px; font-size:1.05rem; color:#0f172a; font-weight:600
 .contato-list{ list-style:none; display:flex; gap:18px; padding:0; margin:0; flex-wrap:wrap; align-items:center }
 .contato-list li{ display:flex; gap:8px; align-items:center; background:rgba(0,0,0,0.03); padding:8px 12px; border-radius:8px }
 
-/* Footer */
-.footer{ max-width:1100px; margin:10px auto 60px; padding:18px; color:#374151 }
-.footer-content{ display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap }
+ /* Estilo da barra de pesquisa */
+.footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: 50px;
+}
 
+/* Fundo do Rodapé centralizado */
+.container{ 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
 /* Responsive tweaks */
 @media(max-width:819px){
   main#detalhes-produto{ grid-template-columns: 1fr; margin:18px 12px; border-radius:10px; }
@@ -221,3 +233,41 @@ button:focus, a:focus{ outline:3px solid rgba(37,99,235,0.18); outline-offset:3p
   header, .acoes, .gal-miniaturas, .gal-btn{ display:none }
   main#detalhes-produto{ box-shadow:none; background:transparent }
 }
+
+/* CONTATO/SUPORTE */
+.contato-section {
+  max-width: 900px;
+  margin: 60px auto 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  padding: 32px;
+}
+
+.contato-section h4 {
+  color: #2563eb;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+
+.contato-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contato-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.contato-list img {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(37,99,235,0.08);
+}
+
