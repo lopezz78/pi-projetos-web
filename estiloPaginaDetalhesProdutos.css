@@ -153,33 +153,110 @@ main#detalhes-produto{
   display:flex;
   flex-direction:column;
   gap:14px;
+  overflow: auto;
 }
 
-/* Top row: nome à esquerda, preço+botão à direita */
+/* Top: título centralizado e preço + botão com botão abaixo do preço */
 .produto-top{
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-.produto-titulo-wrap{ flex:1; min-width:0 }
-#produto-nome{ margin:0; color:var(--primary); font-size:1.5rem; font-weight:700 }
-#produto-descricao-curta{ margin:6px 0 0; color:var(--muted); font-size:0.95rem }
-
-/* preço + botão */
-.produto-acao-wrap{
-  display:flex;
-  align-items:center;
+  justify-content:flex-start;
   gap:12px;
-  white-space:nowrap;
+  text-align:center;
+  width:100%;
+  padding-top:4px;
 }
-#produto-preco{ font-size:1.4rem; font-weight:800; color:#0b1220; background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(6,182,212,0.03)); padding:10px 14px; border-radius:10px; box-shadow: 0 4px 12px rgba(2,6,23,0.04); }
-.btn-comprar{ padding:10px 16px; background:linear-gradient(90deg,var(--primary), #1e3a8a); color:#fff; border-radius:10px; border:0; font-weight:700; cursor:pointer }
+
+/* Título centralizado */
+.produto-titulo-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  flex:0 0 auto;
+  min-width:0;
+  width:100%;
+}
+
+#produto-nome{
+  margin:0;
+  color:var(--primary);
+  font-size:1.9rem; /* aumentado */
+  font-weight:800;
+  line-height:1.05;
+}
+
+/* Área de preço + botão: botão posicionado abaixo do preço */
+.produto-acao-wrap {
+  display:flex;
+  flex-direction:column; /* empilha preço em cima e botão embaixo */
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:auto;
+  margin-top:8px;
+}
+
+/* Permitir botões amplos em telas pequenas */
+@media(max-width:420px){
+  .produto-acao-wrap{
+    width:100%;
+  }
+  .produto-acao-wrap .btn-comprar{
+    width:100%;
+  }
+}
+
+/* Preço em destaque */
+#produto-preco {
+  font-size:1.5rem;
+  font-weight:800;
+  color:#0b1220;
+  background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(6,182,212,0.06));
+  padding:6px 10px;
+  border-radius:10px;
+  display:inline-block;
+}
+/* Botão comprar*/
+.btn-comprar {
+  padding: 14px 22px;
+  min-width: 160px;
+  font-size: 1.05rem;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--primary), #1e3a8a);
+  color: #fff;
+  border-radius: 12px;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s ease, transform .12s ease, box-shadow .12s ease;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+}
+
+.btn-comprar:hover {
+  background: linear-gradient(90deg, #1e3a8a, var(--primary));
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.12);
+}
 
 /* Sections */
-section{ text-align:left; background:transparent; padding:8px 0; border-top:1px dashed rgba(15,23,42,0.04); }
-section h3{ margin:10px 0 8px; font-size:1.05rem; color:#0f172a; font-weight:600 }
-#produto-descricao{ color:var(--muted); font-size:1rem; white-space:pre-line }
+section{ 
+  text-align:left; 
+  background:transparent; 
+  padding:8px 0; 
+  border-top:1px dashed rgba(15,23,42,0.04); 
+}
+section h3{ margin:10px 0 8px;
+  font-size:1.05rem; 
+  color:#0f172a; 
+  font-weight:600 
+}
+#produto-descricao{ color:var(--muted); 
+  font-size:1rem; 
+  white-space:pre-line 
+}
 
 /* Características: pill list */
 #produto-caracteristicas{ display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0 }

@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '1',
       nome: 'Cadeira de Rodas',
-      descricaoCurta: 'Cadeira de Rodas Elétrica com Controle Remoto e Bateria de Longa duração',
       descricao: 'Cadeira de rodas elétrica confortável, com ajuste de encosto, controle remoto e autonomia de até 8 horas. Ideal para uso doméstico e externo. Peso suportado: 150kg. Assento acolchoado e rodas com suspensão.',
       preco: 'R$ 2.500,00 à vista ou R$ 2.900,00 em até 12x',
       imagens: [
@@ -102,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '2',
       nome: 'Aparelho Auditivo Bluetooth',
-      descricaoCurta: 'Aparelho Auditivo Bluetooth com Cancelamento de Ruído',
       descricao: 'Aparelho auditivo bluetooth com múltiplos níveis de ganho, cancelamento ativo de ruído e conectividade com smartphones para ajustes e streaming de áudio. Bateria recarregável com estojo.',
       preco: 'R$ 2.200,00 à vista ou R$ 2.500,00 em até 12x',
       imagens: [
@@ -125,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '3',
       nome: 'Lupa Digital com Voz',
-      descricaoCurta: 'Lupa Digital com ampliação de até 30x e leitura em voz alta',
       descricao: 'Lupa digital portátil com tela LCD, ampliação até 30x, contraste ajustável e função de leitura em voz alta para pessoas com baixa visão. Possui iluminação LED integrada.',
       preco: 'R$ 1.500,00 à vista ou R$ 1.800,00 em até 12x',
       imagens: [
@@ -148,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '4',
       nome: 'Faca de Serra Angulada',
-      descricaoCurta: 'Faca de Serra Angulada utilizada para facilitar o corde de alimentos',
       descricao: 'Faca de serra angulada com cabo ergonômico, ideal para pessoas com mobilidade reduzida nas mãos. A lâmina serrilhada facilita o corte de pães, carnes e vegetais.',
       preco: 'R$ 700,00 à vista ou R$ 900,00 em até 12x',
       imagem: 'Inclui+/facaDeSerraAngulada.png',
@@ -168,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '5',
       nome: 'Tábua de cozinha adaptada',
-      descricaoCurta: 'Tábua de cozinha adaptada para facilitar pessoas com cortes de alimentos no dia a dia',
       descricao: 'Tábua de cozinha adaptada com bordas antiderrapantes e compartimentos para separar alimentos. Ideal para pessoas com mobilidade reduzida, facilitando o preparo das refeições.',
       preco: 'R$ 1.000,00 à vista ou R$ 1.100,00 em até 12x',
       imagem: 'Inclui+/tabuaDeCozinhaAdaptada.png',
@@ -188,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '6',
       nome: 'Tesoura 5 Laminas.',
-      descricaoCurta: 'Tesoura para cortar uma maior quantidade de alimentos de uma só vez',
       descricao: 'Tesoura com 5 lâminas afiadas, ideal para cortar ervas, legumes e outros alimentos rapidamente. Cabo ergonômico para maior conforto e controle durante o uso.',
       preco: 'R$ 700,00 à vista ou R$ 750,00 em até 12x',
       imagem: 'Inclui+/tesoura5Laminas.png',
@@ -208,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '7',
       nome: 'Tablet para Autismo.',
-      descricaoCurta: 'Tablet com aplicativos educativos para crianças com autismo.',
       descricao: 'Tablet desenvolvido para crianças com autismo, com aplicativos educativos, interface simplificada e controle parental. Inclui capa protetora resistente a quedas.',
       preco: 'R$ 1.200,00 à vista ou R$ 1.800,00 em até 12x',
       imagem: 'Inclui+/tabletParaAutismo1.png', 
@@ -228,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: '8',
       nome: 'Teclado em Braille',
-      descricaoCurta: 'Teclado para facilitar a digitação de pessoas com deficiência visual.',
       descricao: 'Teclado em Braille compacto e portátil, ideal para pessoas com deficiência visual. Compatível com diversos dispositivos e sistemas operacionais, facilitando a digitação e navegação.',
       preco: 'R$ 800,00 à vista ou R$ 1.000,00 em até 12x',
       imagem: 'Inclui+/tecladoBraille1.png',
