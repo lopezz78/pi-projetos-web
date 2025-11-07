@@ -53,7 +53,19 @@ document.addEventListener('DOMContentLoaded', function () {
       descricao: "Teclado em Braille para facilitar a digitação de pessoas com deficiência visual.",
       preco: "R$800,00 à vista ou 1.000.00 parcelado em até 12x",
       imagem: "Inclui+/tecladoBraille1.png"
-    }
+    },
+    9: {
+      nome: "Vaso Sanitário Portátil",
+      descricao: "Vaso Sanitário Portátil para uso em viagens e situações de emergência.",
+      preco: "R$600,00 à vista ou 700.00 parcelado em até 12x",
+      imagem: "Inclui+/vasoSanitarioPortatil.png"
+    },
+    10: {
+      nome: "Andador fixo 4 rodas",
+      descricao: "Andador fixo com 4 rodas, ideal para auxiliar na mobilidade de pessoas com dificuldades para caminhar.",
+      preco: "R$1.200,00 à vista ou 1.400.00 parcelado em até 12x",
+      imagem: "Inclui+/andador4Rodas1.png"
+    },
   };
 
   // Busca os detalhes do produto pelo ID
@@ -127,7 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
       preco: 'R$ 1.500,00 à vista ou R$ 1.800,00 em até 12x',
       imagens: [
         'Inclui+/lupaDigital.png',
-        'Inclui+/lupaDigital2.png'
+        'Inclui+/lupaDigital2.png',
+        'Inclui+/lupaDigital3.png',
+        'Inclui+/lupaDigital4.png',
       ],
       caracteristicas: [
         'Ampliação até 30x',
@@ -147,7 +161,11 @@ document.addEventListener('DOMContentLoaded', function () {
       nome: 'Faca de Serra Angulada',
       descricao: 'Faca de serra angulada com cabo ergonômico, ideal para pessoas com mobilidade reduzida nas mãos. A lâmina serrilhada facilita o corte de pães, carnes e vegetais.',
       preco: 'R$ 700,00 à vista ou R$ 900,00 em até 12x',
-      imagem: 'Inclui+/facaDeSerraAngulada.png',
+      imagens: [
+        'Inclui+/facaDeSerraAngulada.png',
+        'Inclui+/facaDeSerraAngulada2.png',
+        'Inclui+/facaDeSerraAngulada3.png',
+      ],
       caracteristicas: [
         'Lâmina serrilhada',
         'Cabo ergonômico',
@@ -166,7 +184,11 @@ document.addEventListener('DOMContentLoaded', function () {
       nome: 'Tábua de cozinha adaptada',
       descricao: 'Tábua de cozinha adaptada com bordas antiderrapantes e compartimentos para separar alimentos. Ideal para pessoas com mobilidade reduzida, facilitando o preparo das refeições.',
       preco: 'R$ 1.000,00 à vista ou R$ 1.100,00 em até 12x',
-      imagem: 'Inclui+/tabuaDeCozinhaAdaptada.png',
+      imagens: [
+        'Inclui+/tabuaDeCozinhaAdaptada.png',
+        'Inclui+/tabuaDeCozinhaAdaptada2.png',
+        
+      ],
       caracteristicas: [
         'Bordas antiderrapantes',
         'Compartimentos integrados',
@@ -185,7 +207,11 @@ document.addEventListener('DOMContentLoaded', function () {
       nome: 'Tesoura 5 Laminas.',
       descricao: 'Tesoura com 5 lâminas afiadas, ideal para cortar ervas, legumes e outros alimentos rapidamente. Cabo ergonômico para maior conforto e controle durante o uso.',
       preco: 'R$ 700,00 à vista ou R$ 750,00 em até 12x',
-      imagem: 'Inclui+/tesoura5Laminas.png',
+      imagens: [
+        'Inclui+/tesoura5Laminas.png',
+        'Inclui+/tesoura5Laminas2.png',
+        'Inclui+/tesoura5Laminas3.png',
+      ],
       caracteristicas: [
         '5 lâminas afiadas',
         'Cabo ergonômico',
@@ -204,7 +230,11 @@ document.addEventListener('DOMContentLoaded', function () {
       nome: 'Tablet para Autismo.',
       descricao: 'Tablet desenvolvido para crianças com autismo, com aplicativos educativos, interface simplificada e controle parental. Inclui capa protetora resistente a quedas.',
       preco: 'R$ 1.200,00 à vista ou R$ 1.800,00 em até 12x',
-      imagem: 'Inclui+/tabletParaAutismo1.png', 
+      imagens: [
+        'Inclui+/tabletParaAutismo1.png',
+        'Inclui+/tabletParaAutismo2.png',
+        'Inclui+/tabletParaAutismo3.png'
+      ],
       caracteristicas: [
         'Aplicativos educativos pré-instalados',
         'Interface simplificada',
@@ -223,7 +253,12 @@ document.addEventListener('DOMContentLoaded', function () {
       nome: 'Teclado em Braille',
       descricao: 'Teclado em Braille compacto e portátil, ideal para pessoas com deficiência visual. Compatível com diversos dispositivos e sistemas operacionais, facilitando a digitação e navegação.',
       preco: 'R$ 800,00 à vista ou R$ 1.000,00 em até 12x',
-      imagem: 'Inclui+/tecladoBraille1.png',
+      imagems: [
+        'Inclui+/tecladoBraille1.png',
+        'Inclui+/tecladoBraille2.png',
+        'Inclui+/tecladoBraille3.png',
+      ],
+        
       caracteristicas: [
         'Teclas em Braille táteis',
         'Compatível com múltiplos dispositivos',
@@ -236,8 +271,57 @@ document.addEventListener('DOMContentLoaded', function () {
         'Peso': '500 g',
         'Garantia': '1 ano'
       }
-    }
+    },
+     {
+      id: '9',
+      nome: 'Vaso Sanitário Portátil',
+      descricao: 'Vaso Sanitário Portátil para uso em viagens e situações de emergência.',
+      preco: 'R$ 600,00 à vista ou R$ 700,00 em até 12x',
+      imagens: [
+        'Inclui+/vasoSanitarioPortatil.png',
+        'Inclui+/vasoSanitarioPortatil2.png',
+        'Inclui+/vasoSanitarioPortatil3.png',
+        'Inclui+/vasoSanitarioPortatil4.png'
+      ],
+      caracteristicas: [
+        'Design compacto e leve',
+        'Fácil de transportar',
+        'Capacidade de 10 litros',  
+        'Tampa vedante'
+      ],
+      especificacoes: {
+        'Material': 'Plástico resistente',
+        'Capacidade': '10 litros',
+        'Peso': '1,5 kg',
+        'Dimensões': '35 x 30 x 40 cm'
+      }
+     },
 
+     {
+      id: '10',
+      nome: 'Andador fixo 4 rodas',
+      descricao: 'Andador fixo com 4 rodas, ideal para auxiliar na mobilidade de pessoas com dificuldades para caminhar.',
+      preco: 'R$ 1.200,00 à vista ou R$ 1.400,00 em até 12x',
+      imagens: [
+        'Inclui+/andador4Rodas1.png',
+        'Inclui+/andador4Rodas2.png',
+        'Inclui+/andador4Rodas3.png',
+      ],
+      caracteristicas: [
+        'Estrutura leve e resistente',
+        '4 rodas para melhor mobilidade',
+        'Apoio para braços acolchoado',
+        'Fácil de montar e ajustar'
+      ],
+      especificacoes: {
+        'Material': 'Alumínio',
+        'Peso máximo suportado': '120 kg',
+        'Altura ajustável': '80-100 cm',
+        'Peso do andador': '3,5 kg'
+      }
+     },
+
+    
 
   ];
 

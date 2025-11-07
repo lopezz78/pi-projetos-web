@@ -25,32 +25,159 @@ body{
   padding-bottom:40px;
 }
 
-/* NAVBAR */
-.navbar{
-  position:fixed;
-  inset:0 auto auto 0; /* top:0 */
-  top:0;
-  left:0;
-  right:0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 18px;
-  background:#111827;
-  color:#fff;
-  z-index:80;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
-}
-.logo-area{ display:flex; align-items:center; gap:10px }
-.logo{ width:36px; height:36px; object-fit:contain }
-.site-name{ font-weight:700; font-size:1.05rem }
+/* ===== Navbar: fixa + animação de esconder/mostrar ===== */
+:root { --navbar-h: 0px; }            /* js */
+body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
 
-/* search small */
-.nav-search-wrap{ flex:1; display:flex; justify-content:center }
-.search-bar{ display:flex; gap:8px; max-width:420px; width:100% }
-.search-bar input{ flex:1; padding:8px 10px; border-radius:8px; border:0; outline:none }
-.search-btn{ background:transparent; color:#fff; border:0; padding:6px }
+.navbar {
+  position: fixed;        /* fixa no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  backdrop-filter: saturate(120%) blur(6px);
+  transform: translateY(0);                 /* estado visível */
+  transition: transform .28s ease-in-out;   /* animação suave */
+  box-sizing: border-box;
+}
+
+.navbar--hidden {                            /* estado escondido */
+  transform: translateY(-100%);
+}
+
+/* (opcional) reduz animações para quem prefere */
+@media (prefers-reduced-motion: reduce) {
+  .navbar { transition: none; } 
+}
+
+.logo-area { /* logo + nome do site */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {  /* logo */
+  width: 40px;
+}
+
+.site-name { /* nome do site */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.menu { /* links de navegação */
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a { /* links */
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu li a:hover { /* hover nos links */
+  color: #2563eb;
+}
+
+.btn-doar { /* botão de doar */
+  background: #2563eb;
+  color: white !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.btn-login { /* botão de login */
+  background: #06b6d4;
+  color: white !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* ===== Busca dentro da navbar ===== */
+.navbar { gap: 16px; flex-wrap: wrap; }
+
+.logo-area { flex: 0 0 auto; }
+.nav-search-wrap {
+  flex: 1 1 600px;
+  max-width: 720px;
+  /* Adicione isso para remover o mask-image que pode estar afetando */
+  mask-image: none !important;
+}
+.navbar .menu { flex: 0 0 auto; }
+
+/* Reaproveita seu estilo .search-bar, só reduz o "pílula" e a altura */
+.search-bar--nav {
+  margin: 0;
+  padding: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  /* Garante que a moldura não seja cortada */
+  overflow: visible;
+}
+.search-bar--nav input {
+  height: 40px;
+  padding: 0 44px 0 14px;
+}
+
+/* Mobile: busca ocupa linha inteira, menu vai para baixo */
+@media (max-width: 900px) {
+  .nav-search-wrap { order: 2; flex: 1 0 100%; }
+  .navbar nav { order: 3; width: 100%; }
+  .navbar .menu { justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
+}
+/* Ajuste para telas muito pequenas */
+@media (max-width: 700px) {
+  .search-bar--nav input { height: 38px; }
+}
+
+/* Estilo da barra de pesquisa */
+.nav-search-wrap{ 
+  flex:1; 
+  display:flex; 
+  justify-content:center 
+}
+
+/* ===== Barra de pesquisa ===== */
+.search-bar{ 
+  display:flex;
+  gap:8px; max-width:420px;
+   width:100%; background: #fff; 
+   padding: 6px; border-radius: 999px; 
+   border: 1px solid var(--primary, #2563eb); 
+   box-shadow: 0 4px 12px rgba(37,99,235,0.06); 
+   transition: box-shadow .18s ease, border-color .12s ease, transform .12s ease; 
+   align-items: center 
+  }
+
+  /* Efeito hover/focus */
+.search-bar input{ 
+  flex:1; 
+  padding:8px 14px; 
+  border-radius:999px; 
+  border:0; outline:none; 
+  background: transparent; 
+  font: 500 0.95rem 'Poppins', sans-serif; 
+  color: #0f172a; box-sizing: border-box 
+}
+
+/* Placeholder */
+.search-btn{ 
+  background:transparent; 
+  color:var(--primary, #2563eb); 
+  border:0; padding:6px; 
+  cursor:pointer 
+}
 
 /* menu */
 .menu{ list-style:none; display:flex; gap:12px; margin:0; padding:0; align-items:center }
@@ -259,18 +386,66 @@ section h3{ margin:10px 0 8px;
 }
 
 /* Características: pill list */
-#produto-caracteristicas{ display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0 }
-#produto-caracteristicas li{ background:var(--glass); color:var(--primary); padding:8px 12px; border-radius:999px; font-size:0.95rem; box-shadow: 0 2px 6px rgba(37,99,235,0.05) }
+#produto-caracteristicas{ display:flex; 
+  flex-wrap:wrap; 
+  gap:8px; 
+  list-style:none; 
+  padding:0; margin:0 
+}
+
+#produto-caracteristicas li{ background:var(--glass); 
+  color:var(--primary); 
+  padding:8px 12px; 
+  border-radius:999px; 
+  font-size:0.95rem; box-shadow: 0 2px 6px rgba(37,99,235,0.05)
+ }
 
 /* Especificações (dl) */
-#produto-especificacoes{ display:grid; grid-template-columns: auto 1fr; gap:6px 16px; margin:0; padding:0 }
-#produto-especificacoes dt{ font-weight:600; color:var(--muted); font-size:0.95rem }
-#produto-especificacoes dd{ margin:0; color:#0b1220; font-size:0.95rem }
+#produto-especificacoes{ 
+  display:grid; 
+  grid-template-columns: auto 1fr; 
+  gap:6px 16px; 
+  margin:0; 
+  padding:0 
+}
+
+#produto-especificacoes dt{ 
+  font-weight:600; 
+  color:var(--muted); 
+  font-size:0.95rem 
+}
+
+#produto-especificacoes dd{ 
+  margin:0; 
+  color:#0b1220; 
+  font-size:0.95rem 
+}
 
 /* Contato / footer simples */
-.contato-section{ max-width:1100px; margin:10px auto; padding:18px; background:transparent }
-.contato-list{ list-style:none; display:flex; gap:18px; padding:0; margin:0; flex-wrap:wrap; align-items:center }
-.contato-list li{ display:flex; gap:8px; align-items:center; background:rgba(0,0,0,0.03); padding:8px 12px; border-radius:8px }
+.contato-section{
+   max-width:1100px; 
+   margin:10px auto; 
+   padding:18px; 
+   background:transparent 
+  }
+
+.contato-list{ 
+  list-style:none; 
+  display:flex; 
+  gap:18px; 
+  padding:0; 
+  margin:0; 
+  flex-wrap:wrap; 
+  align-items:center 
+}
+.contato-list li{ 
+  display:flex;
+  gap:8px; 
+  align-items:center; 
+  background:rgba(0,0,0,0.03); 
+  padding:8px 12px; 
+  border-radius:8px 
+}
 
  /* Estilo da barra de pesquisa */
 .footer {
@@ -290,7 +465,10 @@ section h3{ margin:10px 0 8px;
 }
 /* Responsive tweaks */
 @media(max-width:819px){
-  main#detalhes-produto{ grid-template-columns: 1fr; margin:18px 12px; border-radius:10px; }
+  main#detalhes-produto{ 
+    grid-template-columns: 1fr; 
+    margin:18px 12px;
+    border-radius:10px; }
   .produto-galeria{ order:0 }
   .produto-info{ order:1; padding:18px; }
   .galeria-janela{ min-height:260px }

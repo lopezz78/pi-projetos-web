@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comprar - Inclui+</title>
+
+  <!-- Fontes / ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Estilo específico da página -->
+  <link rel="stylesheet" href="estiloPaginaCompra.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="Inclui+/logo.png" alt="Inclui+" class="logo" />
+      <div class="site-name">Inclui+</div>
+    </div>
+
+    <div class="nav-search-wrap">
+      <div class="search-bar search-bar--nav">
+        <input id="navSearch" placeholder="Pesquise no Inclui+" />
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="paginaInicial.html">Início</a></li>
+        <li><a href="paginaProdutos.html">Produtos</a></li>
+        <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="purchase">
+      <div class="product-media">
+        <img id="produto-imagem" src="" alt="Imagem do produto" />
+      </div>
+      <div class="product-info">
+        <h1 id="produto-nome">Carregando...</h1>
+        <p id="produto-descricao">—</p>
+        <div class="price-row">
+          <div class="produto-preco" id="produto-preco">R$ 0,00</div>
+        </div>
+
+        <div class="quantity-row">
+          <button id="decQty" class="qty-btn">−</button>
+          <input id="qty" type="number" min="1" value="1" />
+          <button id="incQty" class="qty-btn">+</button>
+        </div>
+
+        <div class="actions">
+          <button id="btn-add-cart" class="btn primary">Adicionar ao carrinho</button>
+          <button id="btn-buy-now" class="btn outline">Comprar agora</button>
+        </div>
+
+        <div class="extra-info">
+          <p><strong>Frete estimado:</strong> Calculado no checkout</p>
+          <p><strong>Garantia:</strong> 12 meses</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart modal -->
+  <div id="cart-modal" class="cart-modal" aria-hidden="true">
+    <div class="cart-panel">
+      <header class="cart-header">
+        <h3>Seu Carrinho</h3>
+        <button id="cart-close" class="icon-btn"><i class="fas fa-times"></i></button>
+      </header>
+      <div class="cart-body" id="cart-items"></div>
+      <footer class="cart-footer">
+        <div class="cart-total">Total: <span id="cart-total">R$ 0,00</span></div>
+        <div class="cart-actions">
+          <button id="btn-clear-cart" class="btn outline">Esvaziar</button>
+          <button id="btn-checkout" class="btn primary">Finalizar compra</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Checkout modal (simples) -->
+  <div id="checkout-modal" class="cart-modal" aria-hidden="true">
+    <div class="cart-panel">
+      <header class="cart-header">
+        <h3>Finalizar Compra</h3>
+        <button class="icon-btn" id="checkout-close"><i class="fas fa-times"></i></button>
+      </header>
+      <div class="cart-body">
+        <form id="checkout-form">
+          <label>Nome completo<input id="checkout-nome" required /></label>
+          <label>Email<input id="checkout-email" type="email" required /></label>
+          <label>CEP<input id="checkout-cep" required /></label>
+          <label>Endereço<input id="checkout-endereco" required /></label>
+          <div class="cart-actions">
+            <button type="button" id="checkout-cancel" class="btn outline">Cancelar</button>
+            <button type="submit" class="btn primary">Pagar e finalizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>© Inclui+ — Todos os direitos reservados</div>
+  </footer>
+
+  <script src="scriptPaginaCompra.js"></script>
+</body>
+</html>
