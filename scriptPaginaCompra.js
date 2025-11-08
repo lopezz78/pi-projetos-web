@@ -2,10 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const produtos = {
     '1': { id: '1', nome: 'Cadeira de Rodas', descricao: 'Cadeira elétrica - autonomia longa.', preco: 2500.00, imagem:'Inclui+/CadeiraDeRodasEletrica.png' },
     '2': { id: '2', nome: 'Aparelho Auditivo', descricao: 'Bluetooth com cancelamento de ruído.', preco: 2200.00, imagem:'Inclui+/AparelhoAuditivo.png' },
-    '3': { id: '3', nome: 'Lupa Digital', descricao: 'Ampliação 30x com leitura em voz alta.', preco: 1500.00, imagem:'Inclui+/lupaDigital.png' }
+    '3': { id: '3', nome: 'Lupa Digital', descricao: 'Ampliação 30x com leitura em voz alta.', preco: 1500.00, imagem:'Inclui+/lupaDigital.png' },
+    '4': { id: '4', nome: 'Andador 4 Rodas ', descricao: 'Leve e fácil de transportar.', preco: 800.00, imagem:'Inclui+/andador4Rodas1.png'},
+    
   };
 
   const params = new URLSearchParams(window.location.search);
+  
   const id = params.get('id') || '1';
   const produto = produtos[id] || Object.values(produtos)[0];
 
@@ -114,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       total: cart.reduce((s,i)=> s + i.preco * i.qtd,0),
       data: new Date().toISOString()
     };
+    /* Salvar pedido (LocalStorage) */
     const orders = JSON.parse(localStorage.getItem('orders')||'[]');
     orders.push(order);
     localStorage.setItem('orders', JSON.stringify(orders));
@@ -133,4 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   atualizarContador();
-});
+}); 
