@@ -15,6 +15,8 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--fundo-neutro);
   color: var(--texto-principal);
+  padding-top: 72px; /* espaço para navbar fixa */
+  box-sizing: border-box;
 }
 
 /* NAVBAR FIXA */
@@ -23,13 +25,16 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.95);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 40px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 1000;
+  backdrop-filter: saturate(120%) blur(6px);
+  transform: translateY(0);
+  transition: transform .28s ease-in-out;
   box-sizing: border-box;
 }
   /* Ajuste na largura da navbar para 95% */

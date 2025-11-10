@@ -3,8 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     '1': { id: '1', nome: 'Cadeira de Rodas', descricao: 'Cadeira elétrica - autonomia longa.', preco: 2500.00, imagem:'Inclui+/CadeiraDeRodasEletrica.png' },
     '2': { id: '2', nome: 'Aparelho Auditivo', descricao: 'Bluetooth com cancelamento de ruído.', preco: 2200.00, imagem:'Inclui+/AparelhoAuditivo.png' },
     '3': { id: '3', nome: 'Lupa Digital', descricao: 'Ampliação 30x com leitura em voz alta.', preco: 1500.00, imagem:'Inclui+/lupaDigital.png' },
-    '4': { id: '4', nome: 'Andador 4 Rodas ', descricao: 'Leve e fácil de transportar.', preco: 800.00, imagem:'Inclui+/andador4Rodas1.png'},
-    
+    '4': { id: '4', nome: 'Faca de Serra Angulada', descricao: 'Faca especial para melhor aderência.', preco: 120.00, imagem:'Inclui+/FacaDeSerraAngulada.png' },
+    '5': { id: '5', nome: 'Tabua de Cozinha Adaptada', descricao: 'Tabua com suporte antiderrapante.', preco: 80.00, imagem:'Inclui+/tabuaDeCozinhaAdaptada.png' },
+    '6': { id: '6', nome: 'Tesoura de 5 Laminas', descricao: 'Corte preciso e seguro.', preco: 90.00, imagem:'Inclui+/tesouraDe5Laminas.png' },
+    '7': { id: '7', nome: 'Tablet Para Pessoas Com Autismo', descricao: 'Interface simplificada e apps educativos.', preco: 1800.00, imagem:'Inclui+/tabletParaAutismo.png' },
+    '8': { id: '8', nome: 'Teclado Em Braille', descricao: 'Teclado portátil com saída em Braille.', preco: 3000.00, imagem:'Inclui+/tecladoBraille1.png' },
+    '9': { id: '9', nome: 'Vaso Sanitário Adaptado', descricao: 'Altura ajustável e barras de apoio.', preco: 600.00, imagem:'Inclui+/vasoSanitarioPortatil2.png' },
+    '10': { id: '10', nome: 'Andador fixo 4 Rodas', descricao: 'Andador com assento e rodas giratórias.', preco: 450.00, imagem:'Inclui+/andador4Rodas1.png' }
   };
 
   const params = new URLSearchParams(window.location.search);

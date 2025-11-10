@@ -5,32 +5,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Comprar - Inclui+</title>
 
-  <!-- Fontes / ícones -->
+  <!-- Fonte / ícones (padronizado) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Estilo específico da página -->
+  <!-- Estilos: primeiro o estilo global de produto (navbar padronizada) e depois o específico -->
+  <link rel="stylesheet" href="estiloPaginaProdutos.css">
   <link rel="stylesheet" href="estiloPaginaCompra.css">
 </head>
 <body>
+  <!-- NAVBAR  -->
   <header class="navbar">
     <div class="logo-area">
-      <img src="Inclui+/logo.png" alt="Inclui+" class="logo" />
+      <img src="Inclui+/logoSite.png" alt="Inclui+" class="logo" />
       <div class="site-name">Inclui+</div>
     </div>
 
     <div class="nav-search-wrap">
-      <div class="search-bar search-bar--nav">
-        <input id="navSearch" placeholder="Pesquise no Inclui+" />
-        <button class="search-btn"><i class="fas fa-search"></i></button>
+      <div class="search-bar search-bar--nav" role="search" aria-label="Pesquisar no Inclui+">
+        <input id="navSearch" placeholder="Pesquise no Inclui+" aria-label="Pesquisar" />
+        <button class="search-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
       </div>
     </div>
 
-    <nav class="menu">
+    <nav class="menu" aria-label="Principal">
       <ul>
         <li><a href="paginaInicial.html">Início</a></li>
         <li><a href="paginaProdutos.html">Produtos</a></li>
-        <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count">0</span>)</a></li>
+        <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count">0</span>)</a></li> <!-- Carrinho de Compras -->
+        <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
       </ul>
     </nav>
   </header>
@@ -44,26 +47,26 @@
         <h1 id="produto-nome">Carregando...</h1>
         <p id="produto-descricao">—</p>
         <div class="price-row">
-          <div class="produto-preco" id="produto-preco">R$ 0,00</div>
+          <div class="produto-preco" id="produto-preco">R$ 0,00</div> <!-- Preço do produto -->
         </div>
 
-        <div class="quantity-row">
+        <div class="quantity-row"> <!-- Quantidade de Produtos -->
           <button id="decQty" class="qty-btn">−</button>
           <input id="qty" type="number" min="1" value="1" />
           <button id="incQty" class="qty-btn">+</button>
         </div>
 
-        <div class="payment-info">
+        <div class="payment-info"> <!-- Informações de pagamento -->
           <p><strong>Formas de pagamento:</strong> Cartão de crédito, boleto bancário, Pix</p>
           <p><strong>Parcelamento:</strong> Até 12x sem juros no cartão de crédito</p>
         </div>
 
-        <div class="actions">
+        <div class="actions"> <!-- Botões de ação -->
           <button id="btn-add-cart" class="btn primary">Adicionar ao carrinho</button>
           <button id="btn-buy-now" class="btn outline">Comprar agora</button>
         </div>
 
-        <div class="extra-info">
+        <div class="extra-info"> <!-- Informações adicionais -->
           <p><strong>Frete estimado:</strong> Calculado no checkout</p>
           <p><strong>Garantia:</strong> 12 meses</p>
         </div>
