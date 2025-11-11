@@ -5,6 +5,7 @@
 <title>Inclui+</title>  <!-- Nome no Url do Site-->
 <img src="Inclui+/logoSite.png" alt="Logo do Site"width="100" height="100"> <!-- Logo do Site-->
 <link rel="stylesheet" href="estiloPaginaCadastroEmpresa.css"> <!-- Link para o arquivo CSS externo -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <meta name="description" content="Página de cadastro para o sistema Inclui+.">
 </head>
 <body>
@@ -44,13 +45,17 @@
 	<label for="Senha">Senha:</label> <!-- Campo para Senha -->
     <div class="password-container">
         <input type="password" id="Senha" name="Senha" minlength="8" required>
-        <button type="button" id="toggleSenha" class="toggle-password">👁️</button> 
+        <button type="button" id="toggleSenha" class="toggle-password">
+          <i class="bi bi-eye-slash-fill"></i>
+        </button>
     </div>
 
     <label for="ConfirmarSenha">Confirmar Senha:</label> <!-- Campo para Confirmar Senha -->
     <div class="password-container">
         <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" required>
-        <button type="button" id="toggleConfirmarSenha" class="toggle-password">👁️</button>
+        <button type="button" id="toggleConfirmarSenha" class="toggle-password">
+          <i class="bi bi-eye-slash-fill"></i>
+        </button>
     </div>
     <span id="mensagemErroSenha" class="error-message"></span>
 

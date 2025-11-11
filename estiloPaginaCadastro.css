@@ -146,9 +146,42 @@ button[type="submit"], button[type="reset"] {
   transition: background 0.2s;
 }
 
+/*Animação de hover nos botões*/
 button[type="submit"]:hover, button[type="reset"]:hover {
   background: var(--azul-primario);
 }
+
+  /* Mostrar/Ocultar Senha */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+  /* Garante que o input ocupe toda a largura disponível */
+.password-container input {
+  width: 100%;
+  margin-bottom: 0; 
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--texto-suporte);
+}
+
+  /* Mensagem de erro */
+.error-message {
+  color: #E53E3E; /* Um tom de vermelho */
+  font-size: 0.9rem;
+  height: 1rem; /* Garante que o layout não "pule" */
+  display: block;
+  margin-top: 4px;
+}
+/* Rodapé */
 
 footer {
   background: var(--azul-primario);

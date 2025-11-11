@@ -1,15 +1,10 @@
 // Espera o documento HTML ser completamente carregado para executar o script
 document.addEventListener('DOMContentLoaded', function() {
-
-    // Seleciona os elementos do formulário que vamos usar
-    const form = document.querySelector('form');
     const senhaInput = document.getElementById('Senha');
     const confirmarSenhaInput = document.getElementById('ConfirmarSenha');
-    const mensagemErro = document.getElementById('mensagemErroSenha');
-
-    // Seleciona os botões de mostrar/ocultar senha
     const toggleSenhaBtn = document.getElementById('toggleSenha');
     const toggleConfirmarSenhaBtn = document.getElementById('toggleConfirmarSenha');
+    const mensagemErro = document.getElementById('mensagemErroSenha');
 
     /**
      * Função para mostrar ou ocultar a senha
@@ -17,12 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {HTMLButtonElement} button - O botão que foi clicado
      */
     function togglePasswordVisibility(input, button) {
+        const icon = button.querySelector('i');
         if (input.type === 'password') {
             input.type = 'text';
-            button.textContent = '🙈'; // Muda o ícone
+            icon.className = 'bi bi-eye';
         } else {
             input.type = 'password';
-            button.textContent = '👁️'; // Volta para o ícone original
+            icon.className = 'bi bi-eye-slash-fill';
         }
     }
 
@@ -59,12 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Validação final antes de enviar o formulário
      */
-    form.addEventListener('submit', function(event) {
+    document.querySelector('form').addEventListener('submit', function(event) {
         // Se a função validarSenhas retornar false, impede o envio do formulário
         if (!validarSenhas()) {
             event.preventDefault(); // Previne o comportamento padrão (enviar o form)
             alert('Por favor, corrija os erros no formulário antes de continuar.');
         }
     });
-
 });
