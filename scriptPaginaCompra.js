@@ -49,7 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
   decBtn.addEventListener('click', ()=> { qtyInput.value = Math.max(1, Number(qtyInput.value) - 1); });
 
   function obterCarrinho(){ return JSON.parse(localStorage.getItem('cart')) || []; }
-  function salvarCarrinho(cart){ localStorage.setItem('cart', JSON.stringify(cart)); atualizarContador(); }
+  function salvarCarrinho(cart){
+    localStorage.setItem('cart', JSON.stringify(cart));
+    // atualiza contador local (na mesma página)
+    atualizarContador();
+    // escreve um timestamp auxiliar para notificar outras abas/páginas
+    try {
+      localStorage.setItem('cart_updated_at', String(Date.now()));
+    } catch (e) {
+      console.warn('Could not write cart_updated_at', e);
+    }
+  }
   function atualizarContador(){ const c = obterCarrinho().reduce((s,i)=> s + i.qtd,0); if(cartCountEl) cartCountEl.textContent = c; }
 
   function formatReal(num){ return 'R$ ' + num.toFixed(2).replace('.',','); }
@@ -63,8 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Produto adicionado ao carrinho');
   });
 
-  cartOpenBtn.addEventListener('click', (e)=>{ e.preventDefault(); renderCart(); cartModal.setAttribute('aria-hidden','false'); });
-  cartClose.addEventListener('click', ()=> cartModal.setAttribute('aria-hidden','true') );
+  // abrir/fechar carrinho
+  cartOpenBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    renderCart();
+    cartModal.setAttribute('aria-hidden','false');
+    cartModal.style.display = 'flex';
+    try { localStorage.setItem('cart_open', String(Date.now())); } catch(e){/*ignore*/ }
+  });
+  cartClose.addEventListener('click', ()=>{
+    cartModal.setAttribute('aria-hidden','true');
+    cartModal.style.display = 'none';
+    try { localStorage.setItem('cart_open', '0'); } catch(e){/*ignore*/ }
+  });
 
   function renderCart(){
     const cart = obterCarrinho();
@@ -139,7 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizarContador();
     renderCart();
     cartModal.setAttribute('aria-hidden','false');
+    cartModal.style.display = 'flex';
+    try { localStorage.setItem('cart_open', String(Date.now())); } catch(e){/*ignore*/ }
   });
 
   atualizarContador();
-}); 
+});

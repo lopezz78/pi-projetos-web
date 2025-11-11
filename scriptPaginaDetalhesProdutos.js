@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Comprimento da lâmina": "20 cm",
         "Peso": "200g"
       }
-    }, // ← vírgula adicionada aqui
+    }, 
 
     {
       id: "5",

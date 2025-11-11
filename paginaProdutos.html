@@ -11,6 +11,8 @@
 <!-- Fonte e ícones -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="scriptPaginaProduto.js" defer></script> <!-- Link para o arquivo JS externo -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -36,7 +38,7 @@
       <li><a href="paginaInicial.html">Início</a></li>
       <li><a href="#produtos">Produtos</a></li>
       <li><a href="#contato">Contato</a></li>
-      <li><a href="paginaDoação.html" class="btn-doar">Quero Doar</a></li>
+      <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count">0</span>)</a></li> <!-- Carrinho de Compras -->
       <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
     </ul>
   </nav>
@@ -225,5 +227,23 @@
     </div>
   </footer>
   
+<!-- DO CARRINHO -->
+<div id="cart-modal" class="cart-modal" aria-hidden="true" style="display:none;">
+  <div class="cart-panel">
+    <header class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button id="cart-close" class="icon-btn" aria-label="Fechar"><i class="fas fa-times"></i></button>
+    </header>
+    <div class="cart-body" id="cart-items"></div>
+    <footer class="cart-footer">
+      <div class="cart-total">Total: <span id="cart-total">R$ 0,00</span></div>
+      <div class="cart-actions">
+        <button id="btn-clear-cart" class="btn outline">Esvaziar</button>
+        <button id="btn-checkout" class="btn primary">Finalizar compra</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
 </body>
 </html>

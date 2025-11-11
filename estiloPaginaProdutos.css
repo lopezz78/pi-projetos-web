@@ -96,6 +96,25 @@ body { padding-top: var(--navbar-h); } /* pra nao ter conteudo embaixo*/
   padding: 8px 15px;
   border-radius: 20px;
 }
+/* ===== Estilo do Modal do Carrinho ===== */
+.btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--azul-primario);color:var(--branco)}
+.btn.outline{background:transparent;border:1px solid var(--azul-primario);color:var(--azul-primario)}
+
+.actions{display:flex;gap:12px;margin-top:8px}
+.extra-info{margin-top:14px;color:var(--suporte);font-size:0.95rem}
+
+/* cart modal */
+.cart-modal{position:fixed;inset:0;background:rgba(0,0,0,0.36);display:none;align-items:center;justify-content:center;padding:20px;z-index:1500}
+.cart-modal[aria-hidden="false"]{display:flex}
+.cart-panel{width:100%;max-width:720px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #f1f5f9}
+.cart-body{max-height:360px;overflow:auto;padding:12px 18px}
+.cart-item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #eef2ff}
+.cart-item img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+.cart-item .meta{flex:1}
+.cart-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-top:1px solid #f1f5f9}
+.icon-btn{background:transparent;border:0;cursor:pointer;font-size:1.05rem}
 
 /* ===== Busca dentro da navbar ===== */
 .navbar { gap: 16px; flex-wrap: wrap; }
@@ -448,3 +467,26 @@ h2 {
     font-size: 1.1rem;
   }
 }
+
+/* Garantir estilo básico do modal do carrinho (caso não exista) */
+.cart-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.36);
+  z-index: 1500;
+}
+.cart-modal[aria-hidden="false"] { display: flex; }
+
+.cart-panel {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.2);
+}
+.cart-header, .cart-footer { padding: 12px 16px; }
+.cart-body { max-height: 360px; overflow:auto; padding: 12px 16px; }

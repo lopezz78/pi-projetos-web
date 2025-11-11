@@ -80,6 +80,13 @@ body {
   border-radius: 20px;
 }
 
+.btn-login { /* botão de login */
+  background: #06b6d4;
+  color: white !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
 /* HERO */
 .hero {
   height: 100vh;
