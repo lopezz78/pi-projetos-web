@@ -1,90 +1,112 @@
-// Garante que o script só rode depois que a página carregar completamente
-document.addEventListener('DOMContentLoaded', function() {
+// Roda após a DOM estar pronta
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== Ajusta padding-top com a altura real da navbar
+  const navbar = document.querySelector('.navbar');
+  const setNavbarHeight = () => {
+    if (!navbar) return;
+    const h = navbar.getBoundingClientRect().height || 72;
+    document.documentElement.style.setProperty('--navbar-h', `${h}px`);
+  };
+  setNavbarHeight();
+  window.addEventListener('load', setNavbarHeight, { passive: true });
+  window.addEventListener('resize', setNavbarHeight);
 
+  // ===== Animação de entrada dos .box
+  const boxes = document.querySelectorAll('.box');
 
-  // Esta parte faz os cards aparecerem suavemente conforme você rola a página
-  const boxesParaAnimar = document.querySelectorAll('.box');
-  
-  if (boxesParaAnimar.length > 0) {
-    const checkBoxes = () => {
-      // Define a "linha gatilho" a 80% da altura da tela
-      const triggerBottom = window.innerHeight * 0.8;
-      
-      boxesParaAnimar.forEach(box => {
-        const boxTop = box.getBoundingClientRect().top;
-        
-        // Se o topo do box passou da linha gatilho, adiciona a classe 'show'
-        if (boxTop < triggerBottom) {
-          box.classList.add('show');
+  const showBox = (el) => el.classList.add('show');
+
+  if ('IntersectionObserver' in window && boxes.length) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          showBox(entry.target);
+          obs.unobserve(entry.target); // anima apenas uma vez
         }
       });
+    }, { root: null, rootMargin: '0px 0px -20% 0px', threshold: 0.1 });
+    boxes.forEach(b => io.observe(b));
+  } else if (boxes.length) {
+    // Fallback via scroll
+    const checkBoxes = () => {
+      const triggerBottom = window.innerHeight * 0.8;
+      boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) showBox(box);
+      });
     };
-    
-    // Escuta o evento de scroll para verificar a posição dos boxes
-    window.addEventListener('scroll', checkBoxes);
-    
-    // Roda a função uma vez no início para verificar os boxes que já estão visíveis
+    window.addEventListener('scroll', checkBoxes, { passive: true });
     checkBoxes();
   }
 
-
-  // Esta parte faz os cards com o atributo 'data-href' serem clicáveis
+  // ===== Cards com data-href clicáveis (mouse + teclado)
   const clickableBoxes = document.querySelectorAll('.box[data-href]');
-  
   clickableBoxes.forEach(box => {
-    box.addEventListener('click', function() {
-      // Pega a URL que está no atributo 'data-href' do HTML
+    box.tabIndex = 0; // foco por teclado
+    box.addEventListener('click', function () {
       const url = this.getAttribute('data-href');
-      
-      // Se a URL existir, abre em uma nova aba
-      if (url) {
-        window.open(url, '_blank');
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    });
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const url = box.getAttribute('data-href');
+        if (url) window.open(url, '_blank', 'noopener,noreferrer');
       }
     });
   });
 
-
-
-  // Esta parte faz os cards com o atributo 'data-popup' serem clicáveis
+  // ===== Pop-ups (data-popup)
   const boxesPopup = document.querySelectorAll('.box[data-popup]');
   const popups = document.querySelectorAll('.popup');
 
-  // Adiciona evento de clique para abrir o pop-up
+  const openPopup = (popup) => {
+    if (!popup) return;
+    popup.style.display = 'flex';
+    popup.setAttribute('aria-hidden', 'false');
+
+    // Move foco para conteúdo ao abrir (acessibilidade)
+    const content = popup.querySelector('.popup-content');
+    if (content) content.focus();
+  };
+
+  const closePopup = (popup) => {
+    if (!popup) return;
+    popup.style.display = 'none';
+    popup.setAttribute('aria-hidden', 'true');
+  };
+
   boxesPopup.forEach(box => {
     box.addEventListener('click', function () {
       const popupId = this.getAttribute('data-popup');
       const popup = document.getElementById(popupId);
-      if (popup) {
-        popup.style.display = 'flex';
-      }
+      openPopup(popup);
     });
   });
 
-  // Adiciona evento de clique para fechar o pop-up
+  // Botões de fechar + clique fora + tecla ESC
   popups.forEach(popup => {
     const closeBtn = popup.querySelector('.popup-close');
-    closeBtn.addEventListener('click', function () {
-      popup.style.display = 'none';
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => closePopup(popup));
+    }
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) closePopup(popup);
+    });
+
+    popup.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePopup(popup);
     });
   });
 
-  // Fecha o pop-up ao clicar fora do conteúdo
-  popups.forEach(popup => {
-    popup.addEventListener('click', function (e) {
-      if (e.target === popup) {
-        popup.style.display = 'none';
-      }
-    });
-  });
-
-  // Botão "Saiba Mais" - Rolagem suave para a seção "Sobre Nós"
+  // ===== Botão "Saiba Mais" -> rolagem suave para #sobre
   const saibaMaisBtn = document.querySelector('.hero-btn');
   const sobreSection = document.querySelector('#sobre');
-
   if (saibaMaisBtn && sobreSection) {
-    saibaMaisBtn.addEventListener('click', function (e) {
-      e.preventDefault(); // Evita comportamento padrão do link
-      sobreSection.scrollIntoView({ behavior: 'smooth' });
+    saibaMaisBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      sobreSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 });

@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClearCart = document.getElementById('btn-clear-cart');
   const btnCheckout = document.getElementById('btn-checkout');
 
+  // formatação de moeda
+  const formatReal = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(v || 0));
+
+  // util seguro para HTML
+  const esc = (s) => String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
   function obterCarrinho(){
     try { return JSON.parse(localStorage.getItem('cart')) || []; }
     catch(e){ console.warn('Erro parse cart', e); return []; }
@@ -36,10 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function atualizarContadorLocal(){
     if (!cartCountEl) return;
-    const total = obterCarrinho().reduce((s,i) => s + (i.qtd || 0), 0);
+    const total = obterCarrinho().reduce((s,i) => s + (Number(i.qtd) || 0), 0);
     cartCountEl.textContent = total;
   }
-  function formatReal(num){ return 'R$ ' + Number(num || 0).toFixed(2).replace('.',','); }
 
   // render do carrinho
   function renderCart(){
@@ -53,20 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     let total = 0;
     cart.forEach(item => {
-      total += (item.preco || 0) * (item.qtd || 1);
+      const preco = Number(item.preco || 0);
+      const qtd = Number(item.qtd || 1);
+      total += preco * qtd;
+
       const el = document.createElement('div');
       el.className = 'cart-item';
       el.innerHTML = `
-        <img src="${item.imagem}" alt="${item.nome}" />
+        <img src="${esc(item.imagem)}" alt="${esc(item.nome)}" />
         <div class="meta">
-          <div class="nome">${item.nome}</div>
-          <div class="meta-sub">${formatReal(item.preco)} x ${item.qtd}</div>
+          <div class="nome">${esc(item.nome)}</div>
+          <div class="meta-sub">${formatReal(preco)} x ${esc(qtd)}</div>
         </div>
         <div class="actions">
-          <button class="icon-btn btn-remove" data-id="${item.id}" aria-label="Remover"><i class="fas fa-trash"></i></button>
+          <button class="icon-btn btn-remove" data-id="${esc(item.id)}" aria-label="Remover item"><i class="fas fa-trash"></i></button>
           <div class="qty-controls">
-            <button class="icon-btn btn-minus" data-id="${item.id}">−</button>
-            <button class="icon-btn btn-plus" data-id="${item.id}">+</button>
+            <button class="icon-btn btn-minus" data-id="${esc(item.id)}" aria-label="Diminuir quantidade">−</button>
+            <button class="icon-btn btn-plus" data-id="${esc(item.id)}" aria-label="Aumentar quantidade">+</button>
           </div>
         </div>
       `;
@@ -74,39 +82,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     cartTotalEl.textContent = formatReal(total);
 
-    // attach handlers
+    // attach handlers (normalizando id como string)
     cartItemsEl.querySelectorAll('.btn-remove').forEach(b => b.addEventListener('click', () => {
-      const id = b.dataset.id;
-      const newCart = obterCarrinho().filter(i => i.id !== id);
+      const id = String(b.dataset.id);
+      const newCart = obterCarrinho().filter(i => String(i.id) !== id);
       salvarCarrinho(newCart);
       renderCart();
     }));
     cartItemsEl.querySelectorAll('.btn-plus').forEach(b => b.addEventListener('click', () => {
-      const id = b.dataset.id;
+      const id = String(b.dataset.id);
       const c = obterCarrinho();
-      const it = c.find(i => i.id === id);
-      if (it) { it.qtd = (it.qtd || 1) + 1; salvarCarrinho(c); renderCart(); }
+      const it = c.find(i => String(i.id) === id);
+      if (it) { it.qtd = (Number(it.qtd) || 1) + 1; salvarCarrinho(c); renderCart(); }
     }));
     cartItemsEl.querySelectorAll('.btn-minus').forEach(b => b.addEventListener('click', () => {
-      const id = b.dataset.id;
+      const id = String(b.dataset.id);
       const c = obterCarrinho();
-      const it = c.find(i => i.id === id);
-      if (it) { it.qtd = Math.max(1, (it.qtd || 1) - 1); salvarCarrinho(c); renderCart(); }
+      const it = c.find(i => String(i.id) === id);
+      if (it) { it.qtd = Math.max(1, (Number(it.qtd) || 1) - 1); salvarCarrinho(c); renderCart(); }
     }));
   }
 
-  // abrir/fechar modal e sincronizar via localStorage
+  // abrir/fechar modal e sincronizar via localStorage (usando só aria-hidden)
   function openCartModal(){
     if (!cartModal) return;
     renderCart();
     cartModal.setAttribute('aria-hidden','false');
-    cartModal.style.display = 'flex';
     try { localStorage.setItem('cart_open', String(Date.now())); } catch(e){}
   }
   function closeCartModal(){
     if (!cartModal) return;
     cartModal.setAttribute('aria-hidden','true');
-    cartModal.style.display = 'none';
     try { localStorage.setItem('cart_open', '0'); } catch(e){}
   }
 
@@ -134,5 +140,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // inicial
   atualizarContadorLocal();
 });
-
-

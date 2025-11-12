@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Inclui+</title>
+  <meta charset="UTF-8">
+  <title>Inclui+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- adicionado -->
+  <meta name="description" content="Site de Produtos para Pessoas com Necessidades Especiais.">
 
-<!-- Logo na navbar -->
-<link rel="stylesheet" href="estiloPaginaProdutos.css">
-<meta name="description" content="Site de Produtos para Pessoas com Necessidades Especiais.">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="estiloPaginaProdutos.css">
 
-<!-- Fonte e ícones -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="scriptPaginaProduto.js" defer></script> <!-- Link para o arquivo JS externo -->
+  <!-- Fonte e ícones (mantido apenas uma vez) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- JS -->
+  <script src="scriptPaginaProduto.js" defer></script>
 </head>
 <body>
 
@@ -20,33 +22,34 @@
 <header class="navbar">
   <div class="logo-area">
     <img src="Inclui+/logoSite.png" alt="Logo do Site" class="logo">
-    <span class="site-name">Inclui+</span> <!-- Nome do Site -->
+    <span class="site-name">Inclui+</span>
   </div>
 
- <!-- Busca na navbar -->
-<div class="nav-search-wrap">
-  <form class="search-bar search-bar--nav" action="buscar.html" method="get" role="search"> <!-- Formulário de busca -->
-    <label for="q" class="sr-only">Pesquisar</label> <!-- Rótulo para acessibilidade -->
-    <input id="q" name="q" type="text" placeholder="Pesquise no Inclui+" autocomplete="off" /> <!-- Campo de entrada de texto -->
-    <button class="search-btn" type="submit" aria-label="Buscar"> <!-- Botão de busca -->
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-  </form>
-</div>
+  <!-- Busca na navbar -->
+  <div class="nav-search-wrap">
+    <form class="search-bar search-bar--nav" action="buscar.html" method="get" role="search">
+      <label for="q" class="sr-only">Pesquisar</label>
+      <input id="q" name="q" type="text" placeholder="Pesquise no Inclui+" autocomplete="off" />
+      <button class="search-btn" type="submit" aria-label="Buscar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+
   <nav>
     <ul class="menu">
       <li><a href="paginaInicial.html">Início</a></li>
       <li><a href="#produtos">Produtos</a></li>
       <li><a href="#contato">Contato</a></li>
-      <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count">0</span>)</a></li> <!-- Carrinho de Compras -->
+      <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count" aria-live="polite">0</span>)</a></li>
       <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
     </ul>
   </nav>
 </header>
 
 <br><br><br><br><br><br> <!-- Espaçamento para navbar fixa -->
-  
-  <!-- RECOMENDADOS (CARROSSEL) -->
+
+<!-- RECOMENDADOS (CARROSSEL) -->
 <section id="recomendados" class="reco-section" aria-label="Produtos recomendados">
   <h2>Recomendados para você</h2>
 
@@ -97,8 +100,6 @@
     </article>
   </div>
 </section>
-<!-- =============================================================== -->
-
 
 <!-- Seção de produtos em grid -->
 <section id="produtos" class="produtos-section">
@@ -112,6 +113,7 @@
       <div class="produto-preco">R$2.500,00 à vista ou 2.900,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=1" class="btn-detalhes">Ver Detalhes</a>
     </div>
+
     <!-- Produto 2 -->
     <div class="produto-card" data-id="2">
       <img src="Inclui+/AparelhoAuditivo.png" alt="Aparelho Auditivo Bluetooth" class="produto-img">
@@ -120,6 +122,7 @@
       <div class="produto-preco">R$2.200,00 à vista ou 2.500,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=2" class="btn-detalhes">Ver Detalhes</a>
     </div>
+
     <!-- Produto 3 -->
     <div class="produto-card" data-id="3">
       <img src="Inclui+/lupaDigital.png" alt="Lupa Digital com Voz" class="produto-img">
@@ -128,46 +131,52 @@
       <div class="produto-preco">R$1.500,00 à vista ou 1.800,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=3" class="btn-detalhes">Ver Detalhes</a>
     </div>
+
     <!-- Produto 4 -->
-    <div class="produto-card" data-id="3">
-      <img src="Inclui+/facaDeSerraAngulada.png" alt="faca De Serra Angulada" class="produto-img">
-      <div class="produto-titulo">Faca de Serra Angulada </div>
-      <div class="produto-descricao">A faca de serra angulada para facilitar o corte de alimentos para pessoas com dificuldades cognitivas e Motoras.</div>
+    <div class="produto-card" data-id="4">
+      <img src="Inclui+/facaDeSerraAngulada.png" alt="Faca de Serra Angulada" class="produto-img">
+      <div class="produto-titulo">Faca de Serra Angulada</div>
+      <div class="produto-descricao">Faca de serra angulada para facilitar o corte de alimentos para pessoas com dificuldades cognitivas e motoras.</div>
       <div class="produto-preco">R$700,00 à vista ou 900,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=4" class="btn-detalhes">Ver Detalhes</a>
     </div>
-     <!-- Produto 5 -->
-    <div class="produto-card" data-id="3">
-      <img src="Inclui+/tabuaDeCozinhaAdaptada.png" alt="tabuaDeCozinhaAdaptada" class="produto-img">
-      <div class="produto-titulo">Tábua de cozinha adaptada </div>
-      <div class="produto-descricao">Tábua de cozinha adaptada para pessoas com deficiências fisicas.</div>
+
+    <!-- Produto 5 -->
+    <div class="produto-card" data-id="5">
+      <img src="Inclui+/tabuaDeCozinhaAdaptada.png" alt="Tábua de Cozinha Adaptada" class="produto-img">
+      <div class="produto-titulo">Tábua de cozinha adaptada</div>
+      <div class="produto-descricao">Tábua de cozinha adaptada para pessoas com deficiências físicas.</div>
       <div class="produto-preco">R$1.000,00 à vista ou 1.100,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=5" class="btn-detalhes">Ver Detalhes</a>
     </div>
-     <!-- Produto 6 -->
-    <div class="produto-card" data-id="3">
-      <img src="Inclui+/tesoura5Laminas.png" alt="tesoura5Laminas" class="produto-img">
-      <div class="produto-titulo">Tesoura de 5 Laminas </div>
+
+    <!-- Produto 6 -->
+    <div class="produto-card" data-id="6">
+      <img src="Inclui+/tesoura5Laminas.png" alt="Tesoura de 5 Lâminas" class="produto-img">
+      <div class="produto-titulo">Tesoura de 5 Lâminas</div>
       <div class="produto-descricao">Tesoura utilizada para cortar mais alimentos de uma vez.</div>
       <div class="produto-preco">R$700,00 à vista ou 750,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=6" class="btn-detalhes">Ver Detalhes</a>
     </div>
+
     <!-- Produto 7 -->
-    <div class="produto-card" data-id="3">
+    <div class="produto-card" data-id="7">
       <img src="Inclui+/tabletParaAutismo1.png" alt="Tablet Acessível" class="produto-img">
       <div class="produto-titulo">Tablet Acessível</div>
       <div class="produto-descricao">Tablet com aplicativos e recursos adaptados para pessoas com autismo</div>
       <div class="produto-preco">R$1.200,00 à vista ou 1.800,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=7" class="btn-detalhes">Ver Detalhes</a>
     </div>
+
     <!-- Produto 8 -->
-    <div class="produto-card" data-id="3">
+    <div class="produto-card" data-id="8">
       <img src="Inclui+/tecladoBraille1.png" alt="Teclado em Braille" class="produto-img">
       <div class="produto-titulo">Teclado em Braille</div>
       <div class="produto-descricao">Teclado em Braille compatível com computadores e dispositivos móveis</div>
       <div class="produto-preco">R$800,00 à vista ou 950,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=8" class="btn-detalhes">Ver Detalhes</a>
     </div>
+
     <!-- Produto 9 -->
     <div class="produto-card" data-id="9">
       <img src="Inclui+/vasoSanitarioPortatil.png" alt="Vaso Sanitário Portátil" class="produto-img">
@@ -176,7 +185,8 @@
       <div class="produto-preco">R$600,00 à vista ou 700,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=9" class="btn-detalhes">Ver Detalhes</a>
     </div>
-      <!-- Produto 10 -->
+
+    <!-- Produto 10 -->
     <div class="produto-card" data-id="10">
       <img src="Inclui+/andador4Rodas1.png" alt="Andador fixo 4 rodas" class="produto-img">
       <div class="produto-titulo">Andador fixo 4 rodas</div>
@@ -184,10 +194,6 @@
       <div class="produto-preco">R$1.200,00 à vista ou 1.400,00 parcelado em até 12x</div>
       <a href="paginaDetalhesProdutos.html?id=10" class="btn-detalhes">Ver Detalhes</a>
     </div>
-    
-  
-    
-    
   </div>
 </section>
 
@@ -196,39 +202,39 @@
   <h4>Contato para Suporte</h4>
   <ul class="contato-list">
     <li>
-      <img src="Inclui+/iconeEmail.png" alt="Email Icon">
+      <img src="Inclui+/iconeEmail.png" alt="Ícone de E-mail">
       <span>suporte@inclui.com.br</span>
     </li>
     <li>
-      <img src="Inclui+/iconeTelefone.png" alt="Phone Icon">
+      <img src="Inclui+/iconeTelefone.png" alt="Ícone de Telefone">
       <span>(11) 1234-5678</span>
     </li>
     <li>
-      <img src="Inclui+/iconeInstagram.png" alt="Instagram Icon">
+      <img src="Inclui+/iconeInstagram.png" alt="Ícone do Instagram">
       <span>@inclui.mais</span>
     </li>
     <li>
-      <img src="Inclui+/iconeFacebook.png" alt="Facebook Icon">
+      <img src="Inclui+/iconeFacebook.png" alt="Ícone do Facebook">
       <span>Inclui+</span>
     </li>
   </ul>
 </section>
 
 <!-- RODAPÉ -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
-      <p>Desenvolvido por Equipe Inclui+</p>
-      <div class="footer-links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Serviço</a>
-        <a href="#contato">Contato</a>
-      </div>
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
+    <p>Desenvolvido por Equipe Inclui+</p>
+    <div class="footer-links">
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Serviço</a>
+      <a href="#contato">Contato</a>
     </div>
-  </footer>
-  
-<!-- DO CARRINHO -->
-<div id="cart-modal" class="cart-modal" aria-hidden="true" style="display:none;">
+  </div>
+</footer>
+
+<!-- MODAL DO CARRINHO -->
+<div id="cart-modal" class="cart-modal" aria-hidden="true">
   <div class="cart-panel">
     <header class="cart-header">
       <h3>Seu Carrinho</h3>
@@ -236,7 +242,7 @@
     </header>
     <div class="cart-body" id="cart-items"></div>
     <footer class="cart-footer">
-      <div class="cart-total">Total: <span id="cart-total">R$ 0,00</span></div>
+      <div class="cart-total">Total: <span id="cart-total" aria-live="polite">R$ 0,00</span></div>
       <div class="cart-actions">
         <button id="btn-clear-cart" class="btn outline">Esvaziar</button>
         <button id="btn-checkout" class="btn primary">Finalizar compra</button>

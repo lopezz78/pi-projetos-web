@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inclui+</title>
 
-  <!-- Fonte e ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  
-
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="estiloPaginaInicial.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="estiloPaginaInicial.css" />
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo-area">
-      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo">
+      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo" />
       <span class="site-name">Inclui+</span>
     </div>
     <nav>
@@ -27,14 +25,14 @@
         <li><a href="#">Início</a></li>
         <li><a href="#sobre">Sobre Nós</a></li>
         <li><a href="paginaProdutos.html">Loja</a></li>
-        <li><a href="paginaDoação.html" class="btn-doar">Quero Doar</a></li>
+        <li><a href="paginaDoacao.html" class="btn-doar">Quero Doar</a></li>
         <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Frase Grande -->
-  <section class="hero">
+  <!-- HERO -->
+  <section class="hero" aria-label="Destaque">
     <div class="hero-content">
       <h1>Juntos pela inclusão e solidariedade</h1>
       <p>Conectando pessoas, ONGs e doadores para transformar vidas.</p>
@@ -42,91 +40,93 @@
     </div>
   </section>
 
-  <!-- BLOCO SOBRE NÓS -->
-  <section id="sobre" class="info-section">
-  <a name="sobre"></a> 
-  <div class="box" data-popup="popup-jornada">
-    <h2><i class="fas fa-hand-holding-heart"></i> Nossa Jornada</h2>
-    <p>Começamos com um sonho simples: conectar quem deseja ajudar com quem realmente precisa...</p>
-  </div>
+  <!-- SOBRE NÓS -->
+  <section id="sobre" class="info-section" aria-labelledby="ttl-sobre">
+    <h2 id="ttl-sobre" class="sr-only">Sobre nós</h2>
 
-  <div class="box" data-popup="popup-principios">
-    <h2><i class="fas fa-bullseye"></i> Nossos Princípios</h2>
-    <p>Acreditamos na empatia, transparência e responsabilidade social...</p>
-  </div>
+    <div class="box" data-popup="popup-jornada">
+      <h2><i class="fas fa-hand-holding-heart"></i> Nossa Jornada</h2>
+      <p>Começamos com um sonho simples: conectar quem deseja ajudar com quem realmente precisa...</p>
+    </div>
 
-  <div class="box" data-popup="popup-missao">
-    <h2><i class="fas fa-rocket"></i> Nossa Missão</h2>
-    <p>Facilitar o acesso de ONGs e pessoas com necessidades especiais a produtos essenciais...</p>
-  </div>
+    <div class="box" data-popup="popup-principios">
+      <h2><i class="fas fa-bullseye"></i> Nossos Princípios</h2>
+      <p>Acreditamos na empatia, transparência e responsabilidade social...</p>
+    </div>
 
-  <div class="box" data-popup="popup-impacto">
-    <h2><i class="fas fa-globe-americas"></i> Nosso Impacto</h2>
-    <p>Já ajudamos diversas organizações e famílias a receberem itens importantes...</p>
-  </div>
-  
+    <div class="box" data-popup="popup-missao">
+      <h2><i class="fas fa-rocket"></i> Nossa Missão</h2>
+      <p>Facilitar o acesso de ONGs e pessoas com necessidades especiais a produtos essenciais...</p>
+    </div>
 
-  <div class="box">
-    <h2><i class="fas fa-gift"></i> Quero Doar </h2>
-    <a href="paginaDoação.html" class="hero-btn">Quero Doar</a>
-  </div>
-</section>
+    <div class="box" data-popup="popup-impacto">
+      <h2><i class="fas fa-globe-americas"></i> Nosso Impacto</h2>
+      <p>Já ajudamos diversas organizações e famílias a receberem itens importantes...</p>
+    </div>
 
-      <!-- Seção de contato/suporte -->
-      <section id="contato" class="contato-section">
-        <h4>Contato para Suporte</h4>
-        <ul class="contato-list">
-          <li>
-            <img src="Inclui+/iconeEmail.png" alt="Email Icon">
-            <span>suporte@inclui.com.br</span>
-          </li>
-          <li>
-            <img src="Inclui+/iconeTelefone.png" alt="Phone Icon">
-            <span>(11) 1234-5678</span>
-          </li>
-          <li>
-            <img src="Inclui+/iconeInstagram.png" alt="Instagram Icon">
-            <span>@inclui.mais</span>
-          </li>
-          <li>
-            <img src="Inclui+/iconeFacebook.png" alt="Facebook Icon">
-            <span>Inclui+</span>
-          </li>
-        </ul>
-      </section>
+    <div class="box" data-href="paginaDoacao.html" aria-label="Ir para Quero Doar">
+      <h2><i class="fas fa-gift"></i> Quero Doar</h2>
+      <a href="paginaDoacao.html" class="hero-btn">Quero Doar</a>
+    </div>
+  </section>
 
-  <!-- Pop-ups da página Inicial -->
-  <div id="popup-jornada" class="popup"> <!--Pop Up Jornada-->
-    <div class="popup-content">
-      <span class="popup-close">&times;</span>
+  <!-- Contato -->
+  <section id="contato" class="contato-section" aria-labelledby="ttl-contato">
+    <h4 id="ttl-contato">Contato para Suporte</h4>
+    <ul class="contato-list">
+      <li>
+        <img src="Inclui+/iconeEmail.png" alt="Ícone de e-mail" />
+        <span>suporte@inclui.com.br</span>
+      </li>
+      <li>
+        <img src="Inclui+/iconeTelefone.png" alt="Ícone de telefone" />
+        <span>(11) 1234-5678</span>
+      </li>
+      <li>
+        <img src="Inclui+/iconeInstagram.png" alt="Ícone do Instagram" />
+        <span>@inclui.mais</span>
+      </li>
+      <li>
+        <img src="Inclui+/iconeFacebook.png" alt="Ícone do Facebook" />
+        <span>Inclui+</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Pop-ups -->
+  <div id="popup-jornada" class="popup" role="dialog" aria-modal="true" aria-labelledby="ttl-pop-jornada" aria-hidden="true">
+    <div class="popup-content" tabindex="-1">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <h3 id="ttl-pop-jornada">Nossa Jornada</h3>
       <p>Detalhes sobre nossa jornada e como começamos...</p>
     </div>
   </div>
 
-  <div id="popup-principios" class="popup"> <!--Pop Up Princípios-->
-    <div class="popup-content">
-      <span class="popup-close">&times;</span>
+  <div id="popup-principios" class="popup" role="dialog" aria-modal="true" aria-labelledby="ttl-pop-principios" aria-hidden="true">
+    <div class="popup-content" tabindex="-1">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <h3 id="ttl-pop-principios">Nossos Princípios</h3>
       <p>Detalhes sobre nossos princípios e valores...</p>
     </div>
   </div>
 
-  <div id="popup-missao" class="popup"> <!--Pop Up Missão-->
-    <div class="popup-content">
-      <span class="popup-close">&times;</span>
+  <div id="popup-missao" class="popup" role="dialog" aria-modal="true" aria-labelledby="ttl-pop-missao" aria-hidden="true">
+    <div class="popup-content" tabindex="-1">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <h3 id="ttl-pop-missao">Nossa Missão</h3>
       <p>Detalhes sobre nossa missão e objetivos...</p>
     </div>
   </div>
 
-  <div id="popup-impacto" class="popup"> <!--Pop Up Impacto-->
-    <div class="popup-content">
-      <span class="popup-close">&times;</span>
+  <div id="popup-impacto" class="popup" role="dialog" aria-modal="true" aria-labelledby="ttl-pop-impacto" aria-hidden="true">
+    <div class="popup-content" tabindex="-1">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <h3 id="ttl-pop-impacto">Nosso Impacto</h3>
       <p>Detalhes sobre nosso impacto e conquistas...</p>
     </div>
   </div>
 
-  
-
-  <!-- RODAPÉ -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
@@ -139,7 +139,7 @@
     </div>
   </footer>
 
-  <!-- JS externo -->
+  <!-- JS -->
   <script src="scriptPaginaInicial.js"></script>
 </body>
 </html>
