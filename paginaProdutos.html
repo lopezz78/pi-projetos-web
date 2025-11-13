@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Inclui+</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- adicionado -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Site de Produtos para Pessoas com Necessidades Especiais.">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="estiloPaginaProdutos.css">
 
-  <!-- Fonte e ícones (mantido apenas uma vez) -->
+  <!-- Fonte e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -47,7 +47,7 @@
   </nav>
 </header>
 
-<br><br><br><br><br><br> <!-- Espaçamento para navbar fixa -->
+<br><br><br><br><br><br> <!-- Espaçamento para navbar fixa, pode remover se já usar --navbar-h -->
 
 <!-- RECOMENDADOS (CARROSSEL) -->
 <section id="recomendados" class="reco-section" aria-label="Produtos recomendados">
@@ -55,7 +55,7 @@
 
   <div class="reco-carousel">
     <!-- Card 1 -->
-    <article class="reco-card">
+    <article class="reco-card" data-id="1" role="link" tabindex="0" aria-label="Comprar Cadeira de Rodas">
       <img src="Inclui+/CadeiraDeRodasEletrica.png" alt="Cadeira de Rodas Elétrica" class="reco-img">
       <div class="reco-body">
         <h3 class="reco-title">Cadeira de Rodas</h3>
@@ -64,7 +64,7 @@
     </article>
 
     <!-- Card 2 -->
-    <article class="reco-card">
+    <article class="reco-card" data-id="2" role="link" tabindex="0" aria-label="Comprar Aparelho Auditivo">
       <img src="Inclui+/AparelhoAuditivo.png" alt="Aparelho Auditivo Bluetooth" class="reco-img">
       <div class="reco-body">
         <h3 class="reco-title">Aparelho Auditivo</h3>
@@ -73,7 +73,7 @@
     </article>
 
     <!-- Card 3 -->
-    <article class="reco-card">
+    <article class="reco-card" data-id="3" role="link" tabindex="0" aria-label="Comprar Lupa Digital com Voz">
       <img src="Inclui+/lupaDigital.png" alt="Lupa Digital com Voz" class="reco-img">
       <div class="reco-body">
         <h3 class="reco-title">Lupa Digital com Voz</h3>
@@ -81,8 +81,8 @@
       </div>
     </article>
 
-    <!-- Card 4 -->
-    <article class="reco-card">
+    <!-- Card 4 (id 7) -->
+    <article class="reco-card" data-id="7" role="link" tabindex="0" aria-label="Comprar Tablet Acessível">
       <img src="Inclui+/tabletParaAutismo1.png" alt="Tablet Acessível" class="reco-img">
       <div class="reco-body">
         <h3 class="reco-title">Tablet Acessível</h3>
@@ -90,8 +90,8 @@
       </div>
     </article>
 
-    <!-- Card 5 -->
-    <article class="reco-card">
+    <!-- Card 5 (id 8) -->
+    <article class="reco-card" data-id="8" role="link" tabindex="0" aria-label="Comprar Teclado em Braille">
       <img src="Inclui+/tecladoBraille1.png" alt="Teclado em Braille" class="reco-img">
       <div class="reco-body">
         <h3 class="reco-title">Teclado em Braille</h3>

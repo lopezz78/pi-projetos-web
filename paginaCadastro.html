@@ -1,131 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Inclui+</title>  <!-- Nome no Url do Site-->
-<img src="Inclui+/logoSite.png" alt="Logo do Site"width="100" height="100"> <!-- Logo do Site-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cadastro — Inclui+</title>
 
+  <!-- Fonte e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
-<!-- Fonte e ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="estiloPaginaCadastro.css"> <!-- Link para o arquivo CSS externo -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-<meta name="description" content="Página de cadastro para o sistema Inclui+.">
+  <!-- CSS desta página -->
+  <link rel="stylesheet" href="estiloPaginaCadastro.css" />
+
+  <meta name="description" content="Página de cadastro para o sistema Inclui+." />
 </head>
 <body>
-
-<h1>Cadastro no Sistema Inclui+</h1> <!-- Título da Página de Cadastro -->
-<h2> Preencha todos os Campos Abaixo Para realizar o Cadastro em Nosso Site.</h2>
-
-<!-- NAVBAR -->
-  <header class="navbar">
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
     <div class="logo-area">
-      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo">
+      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo" />
       <span class="site-name">Inclui+</span>
     </div>
-    <nav>
+    <nav aria-label="Principal">
       <ul class="menu">
         <li><a href="paginaInicial.html">Início</a></li>
         <li><a href="paginaInicial.html#sobre">Sobre Nós</a></li>
         <li><a href="paginaProdutos.html">Loja</a></li>
-        <li><a href="paginaDoação.html" class="btn-doar">Quero Doar</a></li>
+        <!-- evite acento no nome do arquivo para não dar 404 -->
+        <li><a href="paginaDoacao.html" class="btn-doar">Quero Doar</a></li>
         <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
       </ul>
     </nav>
   </header>
 
+  <main class="container" role="main">
+    <h1>Cadastro no Sistema Inclui+</h1>
+    <h2>Preencha todos os campos abaixo para realizar o cadastro.</h2>
 
+    <form id="form-cadastro" action="index.html" method="post" autocomplete="on">
+      <label for="NomeCompleto">Nome</label>
+      <input type="text" id="NomeCompleto" name="NomeCompleto" placeholder="Seu nome completo" autocomplete="name" required />
 
-<form action="index.html" method="post"> <!-- Banco de Dados (SQL) -->
-	<label for="NomeCompleto">Nome:</label> <!-- Campo para Nome Completo -->
-	<input type="text" id="NomeCompleto" name="NomeCompleto" required>
+      <label for="Email">Email</label>
+      <input type="email" id="Email" name="Email" placeholder="exemplo@gmail.com" autocomplete="email" required />
 
-	<label for="Email">Email:</label>  <!-- Campo para Email -->
-	<input type="email" id="Email" name="Email" placeholder="exemplo@gmail.com" required>
-
-	<label for="Senha">Senha:</label> <!-- Campo para Senha -->
-    <div class="password-container">
-        <input type="password" id="Senha" name="Senha" minlength="8" required>
-        <button type="button" id="toggleSenha" class="toggle-password">
+      <label for="Senha">Senha</label>
+      <div class="password-container">
+        <input type="password" id="Senha" name="Senha" minlength="8" autocomplete="new-password" required />
+        <button type="button" id="toggleSenha" class="toggle-password" aria-label="Mostrar/ocultar senha">
           <i class="bi bi-eye-slash-fill"></i>
         </button>
-    </div>
+      </div>
 
-    <label for="ConfirmarSenha">Confirmar Senha:</label> <!-- Campo para Confirmar Senha -->
-    <div class="password-container">
-        <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" required>
-        <button type="button" id="toggleConfirmarSenha" class="toggle-password">
+      <label for="ConfirmarSenha">Confirmar Senha</label>
+      <div class="password-container">
+        <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" minlength="8" autocomplete="new-password" aria-describedby="mensagemErroSenha" required />
+        <button type="button" id="toggleConfirmarSenha" class="toggle-password" aria-label="Mostrar/ocultar confirmação de senha">
           <i class="bi bi-eye-slash-fill"></i>
         </button>
-    </div>
-    <span id="mensagemErroSenha" class="error-message"></span>
+      </div>
+      <span id="mensagemErroSenha" class="error-message" aria-live="polite"></span>
 
-    <label for="Idade">Idade:</label> <!-- Campo para Idade -->
-    <input type="number" id="Idade" name="Idade" min="18" max="99" required> <!-- Idade entre 18 e 99 anos -->
+      <label for="Idade">Idade</label>
+      <input type="number" id="Idade" name="Idade" min="18" max="99" inputmode="numeric" required />
 
-    <label for="Data de Nacimento">Data de Nascimento:</label> <!-- Campo para Data de Nascimento -->
-    <input type="date" id="DataDeNacimento" name="DataDeNacimento" required>
-    
+      <label for="DataDeNascimento">Data de Nascimento</label>
+      <input type="date" id="DataDeNascimento" name="DataDeNascimento" autocomplete="bday" required />
 
-    <label for="Cidade">Cidade:</label> <!-- Campo para Cidade -->
-    <input type="text" id="Cidade" name="Cidade" required>
-  
+      <label for="Cidade">Cidade</label>
+      <input type="text" id="Cidade" name="Cidade" autocomplete="address-level2" required />
 
-    <label for="Estado" >Estado:</label> <!-- Campo para Estado -->
-    <select id="Estado" name="Estado" required>
+      <label for="Estado">Estado</label>
+      <select id="Estado" name="Estado" autocomplete="address-level1" required>
         <option value="">Selecione</option>
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option>
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
-    </select>
-   
-        
-    <label for="Genero">Gênero:</label> <!-- Campo para Gênero -->
-    <select id="Genero" name="Genero" required>
+        <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
+      </select>
+
+      <label for="Genero">Gênero</label>
+      <select id="Genero" name="Genero" required>
         <option value="">Selecione</option>
         <option value="Feminino">Feminino</option>
         <option value="Masculino">Masculino</option>
         <option value="Outro">Outro</option>
         <option value="Prefiro não dizer">Prefiro não dizer</option>
-    </select>
+      </select>
 
-    <button type="submit">Cadastrar</button> <!-- Botão para Enviar o Formulário -->
+      <div class="btn-row">
+        <button type="submit">Cadastrar</button>
+        <button type="reset">Limpar</button>
+      </div>
 
-    <button type="reset">Limpar</button> <!-- Botão para Limpar o Formulário -->
+      <input type="hidden" name="formulario" value="cadastro" />
 
-    <input type="hidden" name="formulario" value="cadastro"> <!-- Campo Oculto para Identificar o Formulário -->
+      <p class="hint">Quer criar um login empresarial? <a href="paginaCadastroEmpresa.html">Clique aqui</a>.</p>
+    </form>
+  </main>
 
-    <p>Quer criar um login Empresarial?</p> <a href="paginaCadastroEmpresa.html">Clique Aqui</a> <!-- Link para Página de Cadastro Empresarial -->
-
-</form>
-
-
-<!-- RODAPÉ -->
+  <!-- RODAPÉ -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
@@ -137,5 +117,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- JS desta página -->
+  <script src="scriptPaginaCadastro.js" defer></script>
 </body>
 </html>

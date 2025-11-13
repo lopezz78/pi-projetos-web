@@ -1,12 +1,11 @@
-/* Variáveis globais (consistentes com o resto do site) */
 :root{
-  --azul-primario: #2563eb;
-  --branco: #ffffff;
-  --texto: #0f172a;
-  --suporte: #64748b;
-  --borda: #e6eefb;
+  --azul-primario:#2563eb;
+  --branco:#ffffff;
+  --texto:#0f172a;
+  --suporte:#64748b;
+  --borda:#e6eefb;
   --card-bg:#ffffff;
-  --shadow: 0 8px 28px rgba(37,99,235,0.08);
+  --shadow:0 8px 28px rgba(37,99,235,0.08);
 }
 
 /* base */
@@ -25,18 +24,11 @@ body{
 
 /* navbar (leve) */
 .navbar{
-  position:fixed;
-  top:12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:calc(100% - 80px);
-  max-width:1200px;
+  position:fixed; top:12px; left:50%; transform:translateX(-50%);
+  width:calc(100% - 80px); max-width:1200px;
   background:rgba(255,255,255,0.98);
-  display:flex;
-  gap:16px;
-  align-items:center;
-  padding:10px 18px;
-  border-radius:14px;
+  display:flex; gap:16px; align-items:center;
+  padding:10px 18px; border-radius:14px;
   border:1px solid rgba(37,99,235,0.12);
   box-shadow:0 6px 20px rgba(0,0,0,0.06);
   z-index:1000;

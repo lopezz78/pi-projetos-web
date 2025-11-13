@@ -23,6 +23,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClearCart = document.getElementById('btn-clear-cart');
   const btnCheckout = document.getElementById('btn-checkout');
 
+    /* ======= RECO CAROUSEL → Ir para compra ======= */
+  // cada card precisa ter data-id no HTML (veja item 2)
+  const goToBuy = (id) => {
+    if (!id) return;
+    window.location.href = `paginaCompra.html?id=${encodeURIComponent(String(id))}`;
+  };
+
+  document.querySelectorAll('.reco-card').forEach(card => {
+    const id = card.dataset.id;
+    // cursor/UX
+    card.style.cursor = 'pointer';
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+    if (!card.getAttribute('aria-label')) {
+      const title = card.querySelector('.reco-title')?.textContent?.trim() || 'Produto';
+      card.setAttribute('aria-label', `Comprar ${title}`);
+    }
+
+    // clique em qualquer área do card
+    card.addEventListener('click', () => goToBuy(id));
+
+    // teclado (Enter / Espaço)
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        goToBuy(id);
+      }
+    });
+  });
+
   // formatação de moeda
   const formatReal = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(v || 0));
 
