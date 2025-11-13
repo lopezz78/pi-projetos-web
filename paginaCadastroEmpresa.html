@@ -64,7 +64,6 @@
       <span id="mensagemErroSenha" class="error-message" aria-live="polite"></span>
 
       <label for="CNPJ">CNPJ</label>
-      <!-- texto + inputmode para não perder zeros à esquerda -->
       <input
         type="text"
         id="CNPJ"
@@ -72,9 +71,26 @@
         inputmode="numeric"
         placeholder="00.000.000/0001-00"
         maxlength="18"
-        title="Informe os 14 dígitos do CNPJ (com ou sem pontuação)."
+        pattern="^\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}$"
+        title="Digite no formato 00.000.000/0001-00 (14 dígitos)."
         required
       >
+
+      <label for="CEP">CEP</label>
+      <input
+        type="text"
+        id="CEP"
+        name="CEP"
+        inputmode="numeric"
+        placeholder="00000-000"
+        maxlength="9"
+        pattern="^\d{5}-\d{3}$"
+        title="Digite o CEP no formato 00000-000."
+        required
+      >
+
+      <label for="Endereco">Endereço</label>
+      <input type="text" id="Endereco" name="Endereco" autocomplete="street-address" required>
 
       <label for="Contato">Contato (telefone)</label>
       <input
@@ -83,13 +99,11 @@
         name="Contato"
         inputmode="tel"
         placeholder="(11) 91234-5678"
-        maxlength="15"
+        maxlength="16"
+        pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$"
         autocomplete="tel"
         required
       >
-
-      <label for="Endereco">Endereço</label>
-      <input type="text" id="Endereco" name="Endereco" autocomplete="street-address" required>
 
       <label for="TipoDeInstituicao">Tipo de Instituição</label>
       <select id="TipoDeInstituicao" name="TipoDeInstituicao" required>
@@ -111,8 +125,8 @@
       <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
       <p>Desenvolvido por Equipe Inclui+</p>
       <div class="footer-links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Termos de Serviço</a>
+        <a href="politica.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Serviço</a>
         <a href="#">Contato</a>
       </div>
     </div>

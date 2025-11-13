@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Inclui+</title>
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="estiloPaginaLogin.css" />
+
+  <meta name="description" content="Faça login para acessar o Inclui+." />
+</head>
+<body>
+  <!-- NAVBAR (opcional manter padronização do site) -->
+  <header class="navbar" role="banner">
+    <div class="logo-area">
+      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo" />
+      <span class="site-name">Inclui+</span>
+    </div>
+    <nav aria-label="Principal">
+      <ul class="menu">
+        <li><a href="paginaInicial.html">Início</a></li>
+        <li><a href="paginaInicial.html#sobre">Sobre Nós</a></li>
+        <li><a href="paginaProdutos.html">Loja</a></li>
+        <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <h1>Entrar</h1>
+    <h2>Acesse sua conta para continuar</h2>
+
+    <form id="form-login" action="#" method="post" autocomplete="on">
+      <label for="Email">Email</label>
+      <input type="email" id="Email" name="Email" placeholder="exemplo@gmail.com" autocomplete="email" required />
+
+      <label for="Senha">Senha</label>
+      <div class="password-container">
+        <input type="password" id="Senha" name="Senha" autocomplete="current-password" required />
+        <button type="button" id="toggleSenha" class="toggle-password" aria-label="Mostrar/ocultar senha">
+          <i class="bi bi-eye-slash-fill"></i>
+        </button>
+      </div>
+
+      <div id="msg" class="msg" aria-live="polite"></div>
+
+      <button type="submit" class="btn-primary">Entrar</button>
+
+      <p class="hint">
+        Não tem conta? <a href="paginaCadastro.html">Cadastre-se</a>
+      </p>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="politica.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Serviço</a>
+        <a href="paginaInicial.html#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scriptPaginaLogin.js" defer></script>
+</body>
+</html>

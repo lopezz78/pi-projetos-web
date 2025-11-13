@@ -42,6 +42,18 @@ body{
 /* Container principal */
 .container{ max-width:1200px; margin:0 auto; padding:24px; }
 
+/* Switch Login */
+.auth-switch{
+  max-width:420px;
+  margin:0 auto 8px auto;
+  display:flex; gap:8px; justify-content:flex-end; align-items:center;
+  font-size:.95rem; color:var(--texto-suporte);
+}
+.link-login{
+  color:var(--azul-primario); text-decoration:none; font-weight:600;
+}
+.link-login:hover{ text-decoration:underline; }
+
 /* Cabeçalhos */
 h1{ color:var(--azul-primario); font-size:2rem; margin-bottom:12px; text-align:center; }
 h2{ color:var(--ciano-secundario); font-size:1.1rem; margin-bottom:24px; text-align:center; }
@@ -123,6 +135,8 @@ button[type="submit"]:hover, button[type="reset"]:hover{
   padding:20px;
   margin-top:50px;
 }
+.footer a{ color:#e6efff; text-decoration:none; }
+.footer a:hover{ text-decoration:underline; }
 
 /* Responsividade */
 @media (max-width: 500px){
