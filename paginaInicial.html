@@ -40,95 +40,36 @@
     </div>
   </section>
 
-  <!-- SOBRE NÓS -->
+
+     <!-- SOBRE NÓS -->
   <section id="sobre" class="info-section" aria-labelledby="ttl-sobre">
-    <h2 id="ttl-sobre">Sobre nós</h2>
+    <h2 id="ttl-sobre" class="sr-only">Sobre nós</h2>
 
-    <div class="box show">
-      <p style="margin:0 0 18px">
-        Somos estudantes da <strong>PUC-Campinas</strong> e criamos o Inclui+ como parte da disciplina de
-        <em>Desenvolvimento Web</em>. Nosso objetivo é facilitar o acesso a itens que melhoram a autonomia de
-        pessoas com deficiência — conectando quem precisa a quem pode <strong>vender</strong> ou
-        <strong>doar</strong> equipamentos e objetos de apoio.
-      </p>
-      <p style="margin:0">
-        O projeto nasceu com foco em acessibilidade, transparência e impacto social: um lugar simples de usar,
-        com linguagem clara, onde a comunidade se ajuda e cada contribuição pode fazer a diferença no dia a dia.
-      </p>
+    <div class="box" data-popup="popup-jornada">
+      <h2><i class="fas fa-hand-holding-heart"></i> Nossa Jornada</h2>
+      <p>Começamos com um sonho simples: conectar quem deseja ajudar com quem realmente precisa...</p>
     </div>
 
-    <!-- Pilares -->
-    <div class="box features show" aria-label="Nossos pilares">
-      <div class="feature">
-        <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
-        <div class="feature-body">
-          <h3>Acessível por essência</h3>
-          <p>Layout, contraste e navegação pensados para todas as pessoas, em qualquer dispositivo.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
-        <div class="feature-body">
-          <h3>Comunidade e doação</h3>
-          <p>Você pode comprar, doar ou indicar quem precisa — criando uma rede de apoio real.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-        <div class="feature-body">
-          <h3>Transparência</h3>
-          <p>Informações claras e foco total na experiência e na segurança do usuário.</p>
-        </div>
-      </div>
+    <div class="box" data-popup="popup-principios">
+      <h2><i class="fas fa-bullseye"></i> Nossos Princípios</h2>
+      <p>Acreditamos na empatia, transparência e responsabilidade social...</p>
     </div>
-  </section>
 
-  <!-- NOSSO TIME (polaroid vertical) -->
+    <div class="box" data-popup="popup-missao">
+      <h2><i class="fas fa-rocket"></i> Nossa Missão</h2>
+      <p>Facilitar o acesso de ONGs e pessoas com necessidades especiais a produtos essenciais...</p>
+    </div>
+
+    <div class="box" data-popup="popup-impacto">
+      <h2><i class="fas fa-globe-americas"></i> Nosso Impacto</h2>
+      <p>Já ajudamos diversas organizações e famílias a receberem itens importantes...</p>
+    </div>
+
+  <!-- NOSSO TIME -->
   <section id="time" class="info-section" aria-labelledby="ttl-time">
-    <h2 id="ttl-time">Nosso time</h2>
-
-    <div class="team-grid">
-      <article class="team-card">
-        <figure class="polaroid">
-          <img src="Inclui+/time/arthur-marcilio.jpg" alt="Foto de Arthur Marcílio Carvalho" />
-        </figure>
-        <strong class="team-name">Arthur Marcílio Carvalho</strong>
-        <p class="team-bio"></p>
-      </article>
-
-      <article class="team-card">
-        <figure class="polaroid">
-          <img src="Inclui+/time/arthur-gerotto.jpg" alt="Foto de Arthur Henrique Silva Gerotto" />
-        </figure>
-        <strong class="team-name">Arthur Henrique Silva Gerotto</strong>
-        <p class="team-bio"></p>
-      </article>
-
-      <article class="team-card">
-        <figure class="polaroid">
-          <img src="Inclui+/time/gabriel-ramalho.jpg" alt="Foto de Gabriel Moura Ramalho" />
-        </figure>
-        <strong class="team-name">Gabriel Moura Ramalho</strong>
-        <p class="team-bio"></p>
-      </article>
-
-      <article class="team-card">
-        <figure class="polaroid">
-          <img src="Inclui+/time/arthur-lopez.jpg" alt="Foto de Arthur Negro Lopez" />
-        </figure>
-        <strong class="team-name">Arthur Negro Lopez</strong>
-        <p class="team-bio"></p>
-      </article>
-
-      <article class="team-card">
-        <figure class="polaroid">
-          <img src="Inclui+/time/ricardo-sanches.jpg" alt="Foto de Ricardo Sanches" />
-        </figure>
-        <strong class="team-name">Ricardo Sanches</strong>
-        <p class="team-bio"></p>
-      </article>
+    <div class="box" data-popup="popup-nosso-time" role="button" tabindex="0" aria-controls="popup-nosso-time">
+      <h3><i class="fas fa-users"></i> Ver nossa equipe</h3>
+      <p>Clique para ver fotos e nomes do time.</p>
     </div>
   </section>
 
@@ -168,6 +109,79 @@
       </div>
     </div>
   </footer>
+
+  <!-- POPUPS: pequenos conteúdos + team popup -->
+  <div id="popup-jornada" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-hand-holding-heart"></i> Nossa Jornada</h3>
+        <p>Texto expandido sobre a jornada. Aqui você pode colocar parágrafos, listas e links.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-principios" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-bullseye"></i> Nossos Princípios</h3>
+        <p>Texto expandido com os princípios da organização.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-missao" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-rocket"></i> Nossa Missão</h3>
+        <p>Detalhes da missão e objetivos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-impacto" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-globe-americas"></i> Nosso Impacto</h3>
+        <p>Resultados e histórias de impacto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: Nosso Time (contém todas as fotos extraídas das linhas 73-118) -->
+  <div id="popup-nosso-time" class="popup team-popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-users"></i> Nosso Time</h3>
+        <div class="team-grid photos-row">
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/arthur-marcilio.jpg" alt="Foto de Arthur Marcílio Carvalho" /></figure>
+            <strong class="team-name">Arthur Marcílio Carvalho</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/arthur-gerotto.jpg" alt="Foto de Arthur Henrique Silva Gerotto" /></figure>
+            <strong class="team-name">Arthur Henrique Silva Gerotto</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/gabriel-ramalho.jpg" alt="Foto de Gabriel Moura Ramalho" /></figure>
+            <strong class="team-name">Gabriel Moura Ramalho</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/arthur-lopez.jpg" alt="Foto de Arthur Negro Lopez" /></figure>
+            <strong class="team-name">Arthur Negro Lopez</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/ricardo-sanches.jpg" alt="Foto de Ricardo Sanches" /></figure>
+            <strong class="team-name">Ricardo Sanches</strong>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JS -->
   <script src="scriptPaginaInicial.js"></script>
