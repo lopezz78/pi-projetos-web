@@ -39,69 +39,110 @@
     <h2>Preencha os campos abaixo para concluir seu cadastro.</h2>
 
     <!-- Formulário -->
-    <form id="form-cadastro-empresa" action="index.html" method="post" autocomplete="on">
-     <form id="form-cadastro-empresa"
-      action="/inclui/api/empresa_create.php"
-      method="post" autocomplete="on" novalidate>
+    <form id="form-cadastro-empresa"
+          action="api/empresa_create.php"
+          method="post"
+          autocomplete="on"
+          novalidate>
 
-  <label for="NomeInstituicao">Nome da Instituição</label>
-  <input type="text" id="NomeInstituicao" name="nome" maxlength="50" autocomplete="organization" required>
+      <label for="NomeInstituicao">Nome da Instituição</label>
+      <input type="text"
+             id="NomeInstituicao"
+             name="NomeInstituicao"
+             maxlength="50"
+             autocomplete="organization"
+             required>
 
-  <label for="EmailInstituicao">Email da Instituição</label>
-  <input type="email" id="EmailInstituicao" name="email" maxlength="80" placeholder="exemplo@instituicao.org" autocomplete="email" required>
+      <label for="EmailInstituicao">Email da Instituição</label>
+      <input type="email"
+             id="EmailInstituicao"
+             name="EmailInstituicao"
+             maxlength="80"
+             placeholder="exemplo@instituicao.org"
+             autocomplete="email"
+             required>
 
-  <label for="Senha">Senha</label>
-  <div class="password-container">
-    <input type="password" id="Senha" name="senha" minlength="8" autocomplete="new-password" required>
-    <button type="button" id="toggleSenha" class="toggle-password" aria-label="Mostrar/ocultar senha">
-      <i class="bi bi-eye-slash-fill"></i>
-    </button>
-  </div>
+      <label for="Senha">Senha</label>
+      <div class="password-container">
+        <input type="password"
+               id="Senha"
+               name="Senha"
+               minlength="8"
+               autocomplete="new-password"
+               required>
+        <button type="button" id="toggleSenha" class="toggle-password" aria-label="Mostrar/ocultar senha">
+          <i class="bi bi-eye-slash-fill"></i>
+        </button>
+      </div>
 
-  <label for="ConfirmarSenha">Confirmar Senha</label>
-  <div class="password-container">
-    <!-- sem name aqui -->
-    <input type="password" id="ConfirmarSenha" minlength="8" autocomplete="new-password" aria-describedby="mensagemErroSenha" required>
-    <button type="button" id="toggleConfirmarSenha" class="toggle-password" aria-label="Mostrar/ocultar confirmação de senha">
-      <i class="bi bi-eye-slash-fill"></i>
-    </button>
-  </div>
-  <span id="mensagemErroSenha" class="error-message" aria-live="polite"></span>
+      <label for="ConfirmarSenha">Confirmar Senha</label>
+      <div class="password-container">
+        <input type="password"
+               id="ConfirmarSenha"
+               name="ConfirmarSenha"
+               minlength="8"
+               autocomplete="new-password"
+               aria-describedby="mensagemErroSenha"
+               required>
+        <button type="button" id="toggleConfirmarSenha" class="toggle-password" aria-label="Mostrar/ocultar confirmação de senha">
+          <i class="bi bi-eye-slash-fill"></i>
+        </button>
+      </div>
+      <span id="mensagemErroSenha" class="error-message" aria-live="polite"></span>
 
-  <label for="CNPJ">CNPJ</label>
-  <input
-    type="text" id="CNPJ" name="cnpj" inputmode="numeric"
-    placeholder="00.000.000/0001-00" maxlength="18"
-    pattern="^\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}$"
-    title="Digite no formato 00.000.000/0001-00 (14 dígitos)." required>
+      <label for="CNPJ">CNPJ</label>
+      <input
+        type="text"
+        id="CNPJ"
+        name="CNPJ"
+        inputmode="numeric"
+        placeholder="00.000.000/0001-00"
+        maxlength="18"
+        pattern="^\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}$"
+        title="Digite no formato 00.000.000/0001-00 (14 dígitos)."
+        required>
 
-  <label for="CEP">CEP</label>
-  <input
-    type="text" id="CEP" name="cep" inputmode="numeric"
-    placeholder="00000-000" maxlength="9"
-    pattern="^\d{5}-\d{3}$"
-    title="Digite o CEP no formato 00000-000." required>
+      <label for="CEP">CEP</label>
+      <input
+        type="text"
+        id="CEP"
+        name="CEP"
+        inputmode="numeric"
+        placeholder="00000-000"
+        maxlength="9"
+        pattern="^\d{5}-\d{3}$"
+        title="Digite o CEP no formato 00000-000."
+        required>
 
-  <label for="Endereco">Endereço</label>
-  <input type="text" id="Endereco" name="endereco" autocomplete="street-address" required>
+      <label for="Endereco">Endereço</label>
+      <input type="text"
+             id="Endereco"
+             name="Endereco"
+             autocomplete="street-address"
+             required>
 
-  <label for="Contato">Contato (telefone)</label>
-  <input
-    type="tel" id="Contato" name="contato" inputmode="tel"
-    placeholder="(11) 91234-5678" maxlength="16"
-    pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$" autocomplete="tel" required>
+      <label for="Contato">Contato (telefone)</label>
+      <input
+        type="tel"
+        id="Contato"
+        name="Contato"
+        inputmode="tel"
+        placeholder="(11) 91234-5678"
+        maxlength="16"
+        pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$"
+        autocomplete="tel"
+        required>
 
-  <label for="TipoDeInstituicao">Tipo de Instituição</label>
-  <select id="TipoDeInstituicao" name="tipo" required>
-    <option value="">Selecione</option>
-    <option value="ONG">ONG</option>
-    <option value="Associacao">Associação</option>
-    <option value="Fundacao">Fundação</option>
-    <option value="Outros">Outros</option>
-  </select>
+      <label for="TipoDeInstituicao">Tipo de Instituição</label>
+      <select id="TipoDeInstituicao" name="TipoDeInstituicao" required>
+        <option value="">Selecione</option>
+        <option value="ONG">ONG</option>
+        <option value="Associacao">Associação</option>
+        <option value="Fundacao">Fundação</option>
+        <option value="Outros">Outros</option>
+      </select>
 
-  <button type="submit">Cadastrar</button>
-</form>
+      <button type="submit">Cadastrar</button>
     </form>
   </main>
 
