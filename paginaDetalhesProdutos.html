@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inclui+ — Detalhes do Produto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- CSS da página -->
+  <link rel="stylesheet" href="estiloPaginaDetalhesProdutos.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo">
+      <span class="site-name">Inclui+</span>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="paginaInicial.html">Início</a></li>
+        <li><a href="paginaInicial.html#sobre">Sobre Nós</a></li>
+        <li><a href="paginaProdutos.html">Loja</a></li>
+        <li><a href="paginaDoação.html" class="btn-doar">Quero Doar</a></li>
+        <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main id="detalhes-produto">
+    <!-- Galeria -->
+    <section class="produto-galeria">
+      <div class="galeria-janela" tabindex="0">
+        <div class="gal-imagem-wrap">
+          <img id="produto-imagem" src="" alt="Imagem do produto">
+        </div>
+        <button class="gal-prev" aria-label="Imagem anterior" type="button">‹</button>
+        <button class="gal-next" aria-label="Próxima imagem" type="button">›</button>
+      </div>
+      <div id="gal-miniaturas" class="gal-miniaturas"></div>
+    </section>
+
+    <!-- Info -->
+    <section class="produto-info">
+      <div class="produto-top">
+        <div class="produto-titulo-wrap">
+          <h1 id="produto-nome"></h1>
+          <p id="produto-descricao-curta"></p>
+        </div>
+        <div class="produto-acao-wrap">
+          <div id="produto-preco"></div>
+          <a id="botao-comprar" class="btn-comprar" href="#">Comprar</a>
+        </div>
+      </div>
+
+      <section>
+        <h3>Descrição</h3>
+        <p id="produto-descricao"></p>
+      </section>
+
+      <section>
+        <h3>Características</h3>
+        <ul id="produto-caracteristicas"></ul>
+      </section>
+
+      <section>
+        <h3>Especificações</h3>
+        <dl id="produto-especificacoes"></dl>
+      </section>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- JS da página -->
+  <script src="scriptPaginaDetalhesProdutos.js" defer></script>
+</body>
+</html>

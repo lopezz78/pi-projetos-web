@@ -1,0 +1,272 @@
+/* ===== Paleta e variáveis ===== */
+:root {
+  --azul-primario: #2563EB;
+  --ciano-secundario: #0891B2;
+  --fundo-neutro: #F8FAFC;
+  --texto-principal: #1E293B;
+  --texto-suporte: #64748B;
+  --borda-suave: #E2E8F0;
+  --branco: #FFFFFF;
+  --navbar-h: 72px; /* ajustada via JS se quiser */
+}
+
+/* ===== Reset base ===== */
+* { box-sizing: border-box; }
+img { max-width: 100%; display: block; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--fundo-neutro);
+  color: var(--texto-principal);
+  padding-top: var(--navbar-h);
+}
+
+/* ===== Navbar fixa ===== */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(255,255,255,0.95);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  backdrop-filter: saturate(120%) blur(6px);
+}
+
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.logo { width: 40px; }
+.site-name { font-size: 1.5rem; font-weight: 700; color: var(--azul-primario); }
+
+.menu { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+.menu li a {
+  text-decoration: none; color: var(--texto-principal); font-weight: 500; transition: color .3s;
+}
+.menu li a:hover { color: var(--azul-primario); }
+
+.btn-doar {
+  background: var(--azul-primario);
+  color: var(--branco) !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+.btn-login {
+  background: #06b6d4;
+  color: white !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: calc(100vh - var(--navbar-h));
+  background: url("img/hero-bg.jpg") no-repeat center center / cover;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; color: var(--branco);
+  position: relative; padding: 0 20px;
+}
+.hero::before { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.5); }
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+.hero p { font-size: 1.2rem; margin-bottom: 25px; }
+.hero-btn {
+  background: var(--ciano-secundario); padding: 12px 20px; border-radius: 25px;
+  text-decoration: none; color: var(--branco); font-weight: 600; transition: background .3s;
+}
+.hero-btn:hover { background: var(--azul-primario); }
+
+/* ===== Seções gerais ===== */
+.info-section { max-width: 900px; margin: 100px auto; padding: 20px; }
+.info-section > h2 { margin: 0 0 16px; font-size: 1.8rem; color: var(--azul-primario); }
+
+/* ===== Box padrão (com fade-in opcional) ===== */
+.box {
+  background: var(--branco);
+  padding: 30px; margin-bottom: 26px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid var(--borda-suave);
+
+  opacity: 1; transform: none; /* já visível */
+}
+
+/* ===== Cards informativos ===== */
+.cards-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* ===== Equipe - Polaroid vertical ===== */
+.team-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+  gap: 26px; 
+  max-width: 760px; 
+  margin: 0 auto;
+}
+.team-card { text-align: center; padding-bottom: 6px; }
+.polaroid {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 10px 22px;
+  box-shadow: 0 12px 24px rgba(2,6,23,.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.polaroid img {
+  width: 100%;
+  max-width: 220px;    /* menor que antes */
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #eef2f7;
+}
+
+/* --- POPUP com todas as fotos em linha --- */
+.team-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  padding: 20px;
+}
+.team-popup[aria-hidden="false"] { display: flex; }
+
+.team-popup .popup-panel {
+  background: var(--branco);
+  padding: 20px 24px;
+  border-radius: 12px;
+  max-width: 1200px; /* mais esticado */
+  width: calc(100% - 40px);
+  height: 70vh;      /* painel mais alto */
+  box-shadow: 0 22px 60px rgba(2,6,23,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+/* Linha de fotos: todas lado a lado, com wrap em telas pequenas */
+.team-popup .photos-row {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;   /* linha única */
+  overflow-x: auto;    /* permite scroll horizontal em telas pequenas */
+  padding: 8px 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Polaroids dentro do popup */
+.team-popup .polaroid {
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(2,6,23,.08);
+  border: 1px solid var(--borda-suave);
+  background: var(--branco);
+}
+.team-popup .polaroid img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.team-popup .person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px; /* garante um pouco de presença */
+  text-align: center;
+}
+
+/* título do popup e ícone alinhados */
+.team-popup .popup-content h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  color: var(--azul-primario);
+}
+
+/* Botão de fechar simples para o popup */
+.team-popup .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: 0;
+  color: var(--texto-principal);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* popups genéricos (adicionar se não existirem) */
+.popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 2200;
+  padding: 20px;
+}
+.popup[aria-hidden="false"] { display: flex; }
+
+.popup-panel {
+  background: var(--branco);
+  border-radius: 12px;
+  box-shadow: 0 18px 48px rgba(2,6,23,0.18);
+  width: 100%;
+  max-width: 880px;
+  overflow: auto;
+  position: relative;
+}
+.popup-small { max-width: 560px; padding: 18px; }
+.popup-panel .popup-content { padding: 12px; outline: none; max-height: 75vh; overflow:auto; }
+
+.popup-close {
+  position: absolute; right: 12px; top: 10px; font-size: 1.2rem; background: transparent; border:0; cursor:pointer;
+}
+/* CONTATO/SUPORTE */
+.contato-section {
+  max-width: 900px;
+  margin: 60px auto 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  padding: 32px;
+}
+.contato-section h4 { color: #2563eb; font-size: 1.2rem; margin-bottom: 18px; }
+.contato-list { list-style: none; padding: 0; margin: 0; }
+.contato-list li { display: flex; align-items: center; margin-bottom: 16px; font-size: 1rem; }
+.contato-list img { width: 36px; height: 36px; margin-right: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(37,99,235,0.08); }
+
+/* RODAPÉ */
+.footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: 50px;
+}
+/* ===== Responsividade ===== */
+@media (max-width: 560px){
+  .hero h1{ font-size: 2rem; }
+  .hero p{ font-size: 1.05rem; }
+  .polaroid img{ max-width: 220px; }
+}
+
+/* ajuste responsivo: em telas pequenas volta a quebrar em múltiplas linhas */
+@media (max-width: 720px) {
+  .team-popup .photos-row { flex-wrap: wrap; justify-content: center; }
+  .team-popup .polaroid img { width: 120px; height: 120px; }
+}
