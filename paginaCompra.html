@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comprar - Inclui+</title>
+
+  <!-- Fonte / ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="estiloPaginaProdutos.css">
+  <link rel="stylesheet" href="estiloPaginaCompra.css">
+</head>
+<body>
+  <!-- NAVBAR  -->
+  <header class="navbar" role="banner">
+    <div class="logo-area">
+      <img src="Inclui+/logoSite.png" alt="Inclui+" class="logo" />
+      <div class="site-name">Inclui+</div>
+    </div>
+
+    <div class="nav-search-wrap">
+      <form class="search-bar search-bar--nav" role="search" aria-label="Pesquisar no Inclui+">
+        <input id="navSearch" placeholder="Pesquise no Inclui+" aria-label="Pesquisar" />
+        <button class="search-btn" type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+    <nav class="menu" aria-label="Principal">
+      <ul>
+        <li><a href="paginaInicial.html">Início</a></li>
+        <li><a href="paginaProdutos.html">Produtos</a></li>
+        <li><a href="#" id="btn-cart-open">Carrinho (<span id="cart-count">0</span>)</a></li>
+        <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <section class="purchase">
+      <div class="product-media">
+        <img id="produto-imagem" src="" alt="Imagem do produto" />
+      </div>
+      <div class="product-info">
+        <h1 id="produto-nome">Carregando...</h1>
+        <p id="produto-descricao">—</p>
+
+        <div class="price-row">
+          <div class="produto-preco" id="produto-preco">R$ 0,00</div>
+        </div>
+
+        <div class="quantity-row" aria-label="Quantidade">
+          <button id="decQty" class="qty-btn" type="button" aria-label="Diminuir">−</button>
+          <input id="qty" type="number" min="1" value="1" aria-label="Quantidade" />
+          <button id="incQty" class="qty-btn" type="button" aria-label="Aumentar">+</button>
+        </div>
+
+        <div class="payment-info">
+          <p><strong>Formas de pagamento:</strong> Cartão de crédito, boleto bancário, Pix</p>
+          <p><strong>Parcelamento:</strong> Até 12x sem juros no cartão de crédito</p>
+        </div>
+
+        <div class="actions">
+          <button id="btn-add-cart" class="btn primary" type="button">Adicionar ao carrinho</button>
+          <button id="btn-buy-now" class="btn outline" type="button">Comprar agora</button>
+        </div>
+
+        <div class="extra-info">
+          <p><strong>Frete estimado:</strong> Calculado no checkout</p>
+          <p><strong>Garantia:</strong> 12 meses</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart modal -->
+  <div id="cart-modal" class="cart-modal" aria-hidden="true">
+    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <header class="cart-header">
+        <h3 id="cart-title">Seu Carrinho</h3>
+        <button id="cart-close" class="icon-btn" aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </header>
+      <div class="cart-body" id="cart-items"></div>
+      <footer class="cart-footer">
+        <div class="cart-total">Total: <span id="cart-total">R$ 0,00</span></div>
+        <div class="cart-actions">
+          <button id="btn-clear-cart" class="btn outline" type="button">Esvaziar</button>
+          <button id="btn-checkout" class="btn primary" type="button">Finalizar compra</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Checkout modal -->
+  <div id="checkout-modal" class="cart-modal" aria-hidden="true">
+    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <header class="cart-header">
+        <h3 id="checkout-title">Finalizar Compra</h3>
+        <button class="icon-btn" id="checkout-close" aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </header>
+      <div class="cart-body">
+        <form id="checkout-form">
+          <label>Nome completo<input id="checkout-nome" required /></label>
+          <label>Email<input id="checkout-email" type="email" required /></label>
+          <label>CEP<input id="checkout-cep" required /></label>
+          <label>Endereço<input id="checkout-endereco" required /></label>
+          <div class="cart-actions">
+            <button type="button" id="checkout-cancel" class="btn outline">Cancelar</button>
+            <button type="submit" class="btn primary">Pagar e finalizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>© Inclui+ — Todos os direitos reservados</div>
+  </footer>
+
+  <script src="scriptPaginaCompra.js" defer></script>
+</body>
+</html>

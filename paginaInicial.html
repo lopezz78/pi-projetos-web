@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inclui+</title>
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="estiloPaginaInicial.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="Inclui+/logoSite.png" alt="Logo Inclui+" class="logo" />
+      <span class="site-name">Inclui+</span>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="paginaProdutos.html">Loja</a></li>
+        <li><a href="paginaDoação.html" class="btn-doar">Quero Doar</a></li>
+        <li><a href="paginaCadastro.html" class="btn-login">Cadastrar-se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Destaque">
+    <div class="hero-content">
+      <h1>Juntos pela inclusão e solidariedade</h1>
+      <p>Conectando pessoas, ONGs e doadores para transformar vidas.</p>
+      <a href="#sobre" class="hero-btn">Saiba Mais</a>
+    </div>
+  </section>
+
+
+     <!-- SOBRE NÓS -->
+  <section id="sobre" class="info-section" aria-labelledby="ttl-sobre">
+    <h2 id="ttl-sobre" class="sr-only">Sobre nós</h2>
+
+    <div class="box" data-popup="popup-jornada">
+      <h2><i class="fas fa-hand-holding-heart"></i> Nossa Jornada</h2>
+      <p>Começamos com um sonho simples: conectar quem deseja ajudar com quem realmente precisa...</p>
+    </div>
+
+    <div class="box" data-popup="popup-principios">
+      <h2><i class="fas fa-bullseye"></i> Nossos Princípios</h2>
+      <p>Acreditamos na empatia, transparência e responsabilidade social...</p>
+    </div>
+
+    <div class="box" data-popup="popup-missao">
+      <h2><i class="fas fa-rocket"></i> Nossa Missão</h2>
+      <p>Facilitar o acesso de ONGs e pessoas com necessidades especiais a produtos essenciais...</p>
+    </div>
+
+    <div class="box" data-popup="popup-impacto">
+      <h2><i class="fas fa-globe-americas"></i> Nosso Impacto</h2>
+      <p>Já ajudamos diversas organizações e famílias a receberem itens importantes...</p>
+    </div>
+
+  <!-- NOSSO TIME -->
+  <section id="time" class="info-section" aria-labelledby="ttl-time">
+    <div class="box" data-popup="popup-nosso-time" role="button" tabindex="0" aria-controls="popup-nosso-time">
+      <h3><i class="fas fa-users"></i> Ver nossa equipe</h3>
+      <p>Clique para ver fotos e nomes do time.</p>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="contato-section" aria-labelledby="ttl-contato">
+    <h4 id="ttl-contato">Contato para Suporte</h4>
+    <ul class="contato-list">
+      <li>
+        <img src="Inclui+/iconeEmail.png" alt="Ícone de e-mail" />
+        <span>suporte@inclui.com.br</span>
+      </li>
+      <li>
+        <img src="Inclui+/iconeTelefone.png" alt="Ícone de telefone" />
+        <span>(11) 1234-5678</span>
+      </li>
+      <li>
+        <img src="Inclui+/iconeInstagram.png" alt="Ícone do Instagram" />
+        <span>@inclui.mais</span>
+      </li>
+      <li>
+        <img src="Inclui+/iconeFacebook.png" alt="Ícone do Facebook" />
+        <span>Inclui+</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Inclui+. Todos os direitos reservados.</p>
+      <p>Desenvolvido por Equipe Inclui+</p>
+      <div class="footer-links">
+        <!-- CORRIGIDO: links reais -->
+        <a href="politica.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Serviço</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- POPUPS: pequenos conteúdos + team popup -->
+  <div id="popup-jornada" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-hand-holding-heart"></i> Nossa Jornada</h3>
+        <p>Texto expandido sobre a jornada. Aqui você pode colocar parágrafos, listas e links.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-principios" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-bullseye"></i> Nossos Princípios</h3>
+        <p>Texto expandido com os princípios da organização.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-missao" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-rocket"></i> Nossa Missão</h3>
+        <p>Detalhes da missão e objetivos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-impacto" class="popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel popup-small" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-globe-americas"></i> Nosso Impacto</h3>
+        <p>Resultados e histórias de impacto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: Nosso Time (contém todas as fotos extraídas das linhas 73-118) -->
+  <div id="popup-nosso-time" class="popup team-popup" aria-hidden="true" tabindex="-1">
+    <div class="popup-panel" role="dialog" aria-modal="true">
+      <button class="popup-close" aria-label="Fechar">&times;</button>
+      <div class="popup-content" tabindex="0">
+        <h3><i class="fas fa-users"></i> Nosso Time</h3>
+        <div class="team-grid photos-row">
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/arthur-marcilio.jpg" alt="Foto de Arthur Marcílio Carvalho" /></figure>
+            <strong class="team-name">Arthur Marcílio Carvalho</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/arthur-gerotto.jpg" alt="Foto de Arthur Henrique Silva Gerotto" /></figure>
+            <strong class="team-name">Arthur Henrique Silva Gerotto</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/gabriel-ramalho.jpg" alt="Foto de Gabriel Moura Ramalho" /></figure>
+            <strong class="team-name">Gabriel Moura Ramalho</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/arthur-lopez.jpg" alt="Foto de Arthur Negro Lopez" /></figure>
+            <strong class="team-name">Arthur Negro Lopez</strong>
+          </article>
+          <article class="team-card">
+            <figure class="polaroid"><img src="Inclui+/time/ricardo-sanches.jpg" alt="Foto de Ricardo Sanches" /></figure>
+            <strong class="team-name">Ricardo Sanches</strong>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="scriptPaginaInicial.js"></script>
+</body>
+</html>
