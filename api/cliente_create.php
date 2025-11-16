@@ -38,8 +38,8 @@ if (strlen($cep) !== 8) {
 
 // Data de nascimento – formato simples (YYYY-MM-DD)
 $dt = DateTime::createFromFormat('Y-m-d', $nasc);
-$dtErrors = DateTime::getLastErrors();
-if (!$dt || $dtErrors['warning_count'] > 0 || $dtErrors['error_count'] > 0) {
+// Se falhar ou se o format não bater exatamente, considera inválida
+if (!$dt || $dt->format('Y-m-d') !== $nasc) {
   json(['ok' => false, 'erro' => 'Data de nascimento inválida.'], 400);
 }
 
@@ -49,7 +49,7 @@ if ($dt > $hoje) {
   json(['ok' => false, 'erro' => 'Data de nascimento não pode ser futura.'], 400);
 }
 
-// Validação de gênero — mesmo valor que está nas <option>
+// Validação de gênero — mesmos valores das <option> do HTML
 $generosPermitidos = [
   'Feminino',
   'Masculino',
@@ -92,7 +92,7 @@ try {
 
   json(['ok' => true, 'msg' => 'Cadastro realizado com sucesso!']);
 } catch (Throwable $e) {
-  // Em desenvolvimento, você pode logar o erro em arquivo
+  // Em desenvolvimento você pode logar o erro:
   // error_log($e->getMessage());
   json(['ok' => false, 'erro' => 'Erro no servidor ao salvar cadastro.'], 500);
 }
