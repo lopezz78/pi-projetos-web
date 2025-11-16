@@ -38,43 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   try {
     if ('IntersectionObserver' in window && boxes.length) {
-      const autoOpened = new Set();
       const io = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             showBox(entry.target);
-            const popupId = entry.target.getAttribute('data-popup');
-            if (popupId && !autoOpened.has(popupId)) {
-              setTimeout(() => {
-                const popup = document.getElementById(popupId);
-                if (popup) openPopup(popup);
-                else console.warn('[IO] popup não encontrado:', popupId);
-              }, 450);
-              autoOpened.add(popupId);
-            }
             obs.unobserve(entry.target);
           }
         });
       }, { root: null, rootMargin: '0px 0px -20% 0px', threshold: 0.25 });
-      boxes.forEach(b => io.observe(b));
-      console.debug('[scriptPaginaInicial] IntersectionObserver ativo');
+      boxes.forEach((b, i) => {
+        b.style.transitionDelay = `${i * 80}ms`;
+        io.observe(b);
+      });
+      console.debug('[scriptPaginaInicial] IntersectionObserver ativo (sem abrir popups)');
     } else if (boxes.length) {
-      console.debug('[scriptPaginaInicial] Fallback scroll observer ativo');
+      console.debug('[scriptPaginaInicial] Fallback scroll observer ativo (sem abrir popups)');
       const checkBoxes = () => {
         const triggerBottom = window.innerHeight * 0.8;
         boxes.forEach(box => {
           const boxTop = box.getBoundingClientRect().top;
           if (boxTop < triggerBottom && !box.classList.contains('show')) {
             showBox(box);
-            const popupId = box.getAttribute('data-popup');
-            if (popupId) {
-              const popup = document.getElementById(popupId);
-              if (popup) openPopup(popup);
-              else console.warn('[Fallback] popup não encontrado:', popupId);
-            }
           }
         });
       };
+      // aplicar delay escalonado para um efeito de revelar
+      boxes.forEach((b, i) => { b.style.transitionDelay = `${i * 80}ms`; });
       window.addEventListener('scroll', checkBoxes, { passive: true });
       checkBoxes();
     }
@@ -83,16 +72,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== Cards com data-href clicáveis (mouse + teclado)
-  const clickableBoxes = document.querySelectorAll('.box[data-href]');
+  // selecionar apenas boxes com `data-href` que NÃO tenham `data-popup`
+  const clickableBoxes = document.querySelectorAll('.box[data-href]:not([data-popup])');
   clickableBoxes.forEach(box => {
     box.tabIndex = 0;
-    box.addEventListener('click', function () {
+    box.addEventListener('click', function (e) {
+      // proteção defensiva: se por algum motivo o elemento tiver data-popup, não navegue
+      if (this.hasAttribute && this.hasAttribute('data-popup')) return;
+      e.preventDefault();
+      e.stopPropagation();
       const url = this.getAttribute('data-href');
       if (url) window.open(url, '_blank', 'noopener,noreferrer');
     });
     box.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
+        // proteção defensiva: não navegar se também tiver popup
+        if (box.hasAttribute && box.hasAttribute('data-popup')) return;
         e.preventDefault();
+        e.stopPropagation();
         const url = box.getAttribute('data-href');
         if (url) window.open(url, '_blank', 'noopener,noreferrer');
       }
@@ -109,7 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const popupId = box.getAttribute('data-popup');
     if (!popupId) return;
     box.tabIndex = 0;
-    box.addEventListener('click', () => {
+    box.addEventListener('click', (e) => {
+      // impedir que outros handlers (ex: navegação) sejam executados
+      e.preventDefault();
+      e.stopPropagation();
       const popup = document.getElementById(popupId);
       if (popup) openPopup(popup);
       else console.warn('click -> popup não encontrado:', popupId);
@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
+        e.stopPropagation();
         const popup = document.getElementById(popupId);
         if (popup) openPopup(popup);
         else console.warn('key -> popup não encontrado:', popupId);
@@ -149,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.info("  document.getElementById('popup-jornada') && (document.getElementById('popup-jornada').style.display='flex')");
 });
 
-// fallback temporário: anexa click + scroll simples (cole no Console)
+  // fallback temporário: anexa click + scroll simples (cole no Console)
 (function(){
   if (window._popupFallbackApplied) return console.log('fallback já aplicado');
   window._popupFallbackApplied = true;
@@ -173,11 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const r = b.getBoundingClientRect();
       if (r.top < window.innerHeight * 0.8) {
         b.classList.add('shownFallback');
-        const id = b.getAttribute('data-popup');
-        const p = document.getElementById(id);
-        if (p) {
-          setTimeout(()=>{ p.style.display='flex'; p.setAttribute('aria-hidden','false'); }, 300);
-        }
       }
     });
   };
@@ -190,5 +186,5 @@ document.addEventListener('DOMContentLoaded', () => {
     p.querySelectorAll('.popup-close').forEach(btn => btn.addEventListener('click', () => { p.style.display='none'; p.setAttribute('aria-hidden','true'); }));
   });
 
-  console.log('fallback aplicado:', boxes.length, 'boxes,', popups.length, 'popups');
+  console.log('fallback aplicado (sem abrir popups automaticamente):', boxes.length, 'boxes,', popups.length, 'popups');
 })();
