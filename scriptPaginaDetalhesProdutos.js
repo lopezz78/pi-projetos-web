@@ -61,17 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "4",
-      nome: "Faca de Serra Angulada",
-      descricaoCurta: "Faca de Serra Angulada para cozinha",
-      descricao: "Faca de serra angulada com lâmina de aço inoxidável...",
-      preco: "R$ 150,00 à vista ou R$ 180,00 em até 3x",
+      nome: "Irrigador Bucal",
+      descricaoCurta: "Irrigador Bucal para higiene oral eficiente",
+      descricao: "Irrigador bucal para higiene oral eficiente e confortável.",
+      preco: "R$ 700,00 à vista ou R$ 900,00 em até 12x",
       imagens: [
-        "Inclui+/facaDeSerraAngulada.png",
-        "Inclui+/facaDeSerraAngulada2.png",
-        "Inclui+/facaDeSerraAngulada3.png"
+        "Inclui+/irrigadorbucal1.png",
+        "Inclui+/irrigadorbucal2.png",
+        "Inclui+/irrigadorbucal3.png"
       ],
-      caracteristicas: ["Lâmina de aço inoxidável", "Cabo ergonômico", "Ideal para pães e bolos"],
-      especificacoes: { "Comprimento da lâmina": "20 cm", "Peso": "200g" }
+      caracteristicas: ["Jato de água potente", "Cabo ergonômico", "Ideal para higiene oral"],
+      especificacoes: { "": "20 cm", "Peso": "200g" }
     },
     {
       id: "5",
