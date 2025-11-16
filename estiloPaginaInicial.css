@@ -86,7 +86,17 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   border: 1px solid var(--borda-suave);
 
-  opacity: 1; transform: none; /* já visível */
+  /* inicial para efeito de reveal (JS aplica transition-delay inline) */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .45s ease, transform .45s ease;
+  will-change: opacity, transform;
+}
+
+/* estado visível após o observer aplicar a classe `show` */
+.box.show {
+  opacity: 1;
+  transform: none;
 }
 
 /* ===== Cards informativos ===== */
