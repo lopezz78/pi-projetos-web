@@ -1,56 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('form-login');
-  const emailEl = document.getElementById('Email');
-  const senhaEl = document.getElementById('Senha');
+  const form           = document.getElementById('form-login');
+  const emailEl        = document.getElementById('Email');
+  const senhaEl        = document.getElementById('Senha');
   const toggleSenhaBtn = document.getElementById('toggleSenha');
-  const msg = document.getElementById('msg');
+  const msg            = document.getElementById('msg');
 
-  // Troca visibilidade da senha
+  // Mostrar / ocultar senha
   toggleSenhaBtn?.addEventListener('click', () => {
     const icon = toggleSenhaBtn.querySelector('i');
     const show = senhaEl.type === 'password';
     senhaEl.type = show ? 'text' : 'password';
-    if (icon) icon.className = show ? 'bi bi-eye' : 'bi bi-eye-slash-fill';
+    if (icon) {
+      icon.className = show ? 'bi bi-eye' : 'bi bi-eye-slash-fill';
+    }
   });
 
-  // Base URL da API (ajuste se rodar em outra porta/host)
-  const API_BASE = window.API_BASE || '';
-
-  async function login(email, password) {
-    const res = await fetch(`${API_BASE}/api/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      const err = data?.error || 'Falha no login';
-      throw new Error(err);
-    }
-    return res.json();
-  }
-
+  // Envia login para a API PHP
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     msg.textContent = '';
     const email = emailEl.value.trim();
-    const password = senhaEl.value;
+    const senha = senhaEl.value;
 
-    if (!email || !password) {
+    if (!email || !senha) {
       msg.textContent = 'Informe email e senha.';
       return;
     }
 
-    try {
-      const data = await login(email, password);
-      // Armazena o token (pode trocar para cookie httpOnly no backend, se preferir)
-      localStorage.setItem('inclui_token', data.token);
-      localStorage.setItem('inclui_user', JSON.stringify(data.user));
+    const formData = new FormData();
+    formData.append('Email', email);
+    formData.append('Senha', senha);
 
-      // Redireciona (ajuste para a rota desejada)
-      window.location.href = 'paginaInicial.html';
+    try {
+      msg.textContent = 'Verificando dados...';
+
+      const res = await fetch('api/login.php', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      const data = await res.json();
+
+      if (!data.ok) {
+        msg.textContent = data.erro || 'Falha ao fazer login.';
+        return;
+      }
+
+      msg.textContent = data.msg || 'Login realizado com sucesso!';
+
+      // Redireciona conforme o tipo (ajuste os arquivos se quiser)
+      setTimeout(() => {
+        if (data.tipo === 'cliente') {
+          // depois você pode trocar por dashboard do cliente
+          window.location.href = 'paginaInicial.html';
+        } else if (data.tipo === 'empresa') {
+          // depois você pode trocar por dashboard da empresa
+          window.location.href = 'paginaInicial.html';
+        } else {
+          window.location.href = 'paginaInicial.html';
+        }
+      }, 800);
+
     } catch (err) {
-      msg.textContent = err.message || 'Credenciais inválidas';
+      console.error(err);
+      msg.textContent = 'Erro de comunicação com o servidor.';
     }
   });
 });
