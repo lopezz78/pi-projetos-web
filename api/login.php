@@ -3,7 +3,7 @@
 session_start();
 require __DIR__ . '/db.php';
 
-// ATIVAR ERROS EM DESENVOLVIMENTO (pode tirar depois)
+// MODO DESENVOLVIMENTO – depois você pode comentar essas 2 linhas
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -25,57 +25,62 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 try {
   $pdo = db();
 
-  // IMPORTANTE: confira se os nomes das tabelas/colunas estão assim no banco:
-  //  - tabela: clientes   | colunas: id, email, senha_hash
-  //  - tabela: empresas   | colunas: id, email, senha_hash
-  $sql = "
-    SELECT id, senha_hash, 'cliente' AS tipo
-    FROM clientes
-    WHERE email = :email
+  $usuario = null;
+  $tipo    = null;
 
-    UNION ALL
-
-    SELECT id, senha_hash, 'empresa' AS tipo
-    FROM empresas
-    WHERE email = :email
-
-    LIMIT 1
-  ";
-
-  $st = $pdo->prepare($sql);
+  // 1) Tenta achar como CLIENTE
+  // ATENÇÃO: confira no phpMyAdmin se a tabela se chama exatamente "clientes"
+  // e se a coluna da senha se chama exatamente "senha_hash".
+  $st = $pdo->prepare('SELECT id, senha_hash FROM clientes WHERE email = :email LIMIT 1');
   $st->execute([':email' => $email]);
-  $usuario = $st->fetch();
+  $usuario = $st->fetch(PDO::FETCH_ASSOC);
 
+  if ($usuario) {
+    $tipo = 'cliente';
+  } else {
+    // 2) Se não achou, tenta como EMPRESA
+    $st = $pdo->prepare('SELECT id, senha_hash FROM empresas WHERE email = :email LIMIT 1');
+    $st->execute([':email' => $email]);
+    $usuario = $st->fetch(PDO::FETCH_ASSOC);
+
+    if ($usuario) {
+      $tipo = 'empresa';
+    }
+  }
+
+  // Nenhum usuário com esse e-mail
   if (!$usuario) {
     json(['ok' => false, 'erro' => 'Email ou senha inválidos.'], 401);
   }
 
-  if (!isset($usuario['senha_hash'])) {
+  // Confere se a coluna senha_hash realmente veio
+  if (!array_key_exists('senha_hash', $usuario)) {
     json([
       'ok'   => false,
-      'erro' => 'Coluna senha_hash não retornada. Confira o nome da coluna nas tabelas clientes/empresas.'
+      'erro' => '[DEBUG] Coluna "senha_hash" não encontrada. Confira o nome da coluna nas tabelas clientes/empresas.'
     ], 500);
   }
 
+  // Valida a senha
   if (!password_verify($senha, $usuario['senha_hash'])) {
     json(['ok' => false, 'erro' => 'Email ou senha inválidos.'], 401);
   }
 
-  // Guarda infos mínimas na sessão
+  // Guarda na sessão
   $_SESSION['usuario_id']   = $usuario['id'];
-  $_SESSION['usuario_tipo'] = $usuario['tipo'];
+  $_SESSION['usuario_tipo'] = $tipo;
 
   json([
     'ok'   => true,
     'msg'  => 'Login realizado com sucesso!',
-    'tipo' => $usuario['tipo']
+    'tipo' => $tipo
   ]);
 
 } catch (Throwable $e) {
-  // Loga no error_log do PHP (útil pra você depois)
+  // Log pra você olhar depois, se quiser
   error_log('ERRO LOGIN: ' . $e->getMessage());
 
-  // Devolve a mensagem detalhada pra gente enxergar o problema AGORA
+  // Em desenvolvimento, devolve o erro detalhado
   json([
     'ok'   => false,
     'erro' => '[DEBUG] ' . $e->getMessage()
