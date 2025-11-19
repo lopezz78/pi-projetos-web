@@ -3,7 +3,7 @@
 session_start();
 require __DIR__ . '/db.php';
 
-// MODO DESENVOLVIMENTO – depois você pode comentar essas 2 linhas
+// DESENVOLVIMENTO – pode comentar depois
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -28,9 +28,14 @@ try {
   $usuario = null;
   $tipo    = null;
 
-  // 1) Tenta achar como CLIENTE
-  // ATENÇÃO: confira no phpMyAdmin se a tabela se chama exatamente "clientes"
-  // e se a coluna da senha se chama exatamente "senha_hash".
+  // *** IMPORTANTE ***
+  // Confira no phpMyAdmin:
+  //  - se a tabela de clientes se chama MESMO "clientes"
+  //  - se a coluna de senha se chama MESMO "senha_hash"
+  //
+  // Se for "cliente" ou "senha" etc., troque aqui.
+
+  // 1) tenta achar como CLIENTE
   $st = $pdo->prepare('SELECT id, senha_hash FROM clientes WHERE email = :email LIMIT 1');
   $st->execute([':email' => $email]);
   $usuario = $st->fetch(PDO::FETCH_ASSOC);
@@ -38,7 +43,7 @@ try {
   if ($usuario) {
     $tipo = 'cliente';
   } else {
-    // 2) Se não achou, tenta como EMPRESA
+    // 2) se não achou, tenta EMPRESA
     $st = $pdo->prepare('SELECT id, senha_hash FROM empresas WHERE email = :email LIMIT 1');
     $st->execute([':email' => $email]);
     $usuario = $st->fetch(PDO::FETCH_ASSOC);
@@ -48,12 +53,12 @@ try {
     }
   }
 
-  // Nenhum usuário com esse e-mail
+  // Nenhum usuário com esse email
   if (!$usuario) {
     json(['ok' => false, 'erro' => 'Email ou senha inválidos.'], 401);
   }
 
-  // Confere se a coluna senha_hash realmente veio
+  // Garante que veio a coluna senha_hash
   if (!array_key_exists('senha_hash', $usuario)) {
     json([
       'ok'   => false,
@@ -73,14 +78,12 @@ try {
   json([
     'ok'   => true,
     'msg'  => 'Login realizado com sucesso!',
-    'tipo' => $tipo
+    'tipo' => $tipo,
   ]);
 
 } catch (Throwable $e) {
-  // Log pra você olhar depois, se quiser
   error_log('ERRO LOGIN: ' . $e->getMessage());
 
-  // Em desenvolvimento, devolve o erro detalhado
   json([
     'ok'   => false,
     'erro' => '[DEBUG] ' . $e->getMessage()

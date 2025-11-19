@@ -35,19 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       msg.textContent = 'Verificando dados...';
 
-      const res = await fetch('api/login.php', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+const res = await fetch('api/login.php', {
+  method: 'POST',
+  body: formData,
+  headers: { 'Accept': 'application/json' }
+});
 
-      const data = await res.json();
+const data = await res.json();
+console.log('Resposta do login.php:', data);
 
-      if (!data.ok) {
-        msg.textContent = data.erro || 'Falha ao fazer login.';
-        return;
+if (!data.ok) {
+  msg.textContent = data.erro || 'Falha ao fazer login.';
+  return;
+
       }
 
       msg.textContent = data.msg || 'Login realizado com sucesso!';
