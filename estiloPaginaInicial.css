@@ -1,4 +1,4 @@
-/* ===== Paleta e variáveis ===== */
+/* ===== Paleta e variáveis Base ===== */
 :root {
   --azul-primario: #2563EB;
   --ciano-secundario: #0891B2;
@@ -14,13 +14,20 @@
 * { box-sizing: border-box; }
 img { max-width: 100%; display: block; }
 
+html, body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: var(--fundo-neutro);
   color: var(--texto-principal);
   padding-top: var(--navbar-h);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+
+.content-wrap { flex: 1 1 auto; }
 
 /* ===== Navbar fixa ===== */
 .navbar {
@@ -33,6 +40,7 @@ body {
   backdrop-filter: saturate(120%) blur(6px);
 }
 
+/* Logo e nome do site */
 .logo-area { display: flex; align-items: center; gap: 10px; }
 .logo { width: 40px; }
 .site-name { font-size: 1.5rem; font-weight: 700; color: var(--azul-primario); }
@@ -43,6 +51,7 @@ body {
 }
 .menu li a:hover { color: var(--azul-primario); }
 
+/* Botões na navbar */
 .btn-doar {
   background: var(--azul-primario);
   color: var(--branco) !important;
@@ -105,7 +114,7 @@ body {
   gap: 24px;
 }
 
-/* ===== Equipe - Polaroid vertical ===== */
+/* ===== Equipe ===== */
 .team-grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
@@ -125,7 +134,7 @@ body {
 }
 .polaroid img {
   width: 100%;
-  max-width: 220px;    /* menor que antes */
+  max-width: 220px;    
   aspect-ratio: 4/5;
   object-fit: cover;
   border-radius: 6px;
@@ -185,7 +194,6 @@ body {
   object-fit: cover;
   border-radius: 8px;
 }
-
 .team-popup .person {
   display: flex;
   flex-direction: column;
@@ -205,7 +213,7 @@ body {
   color: var(--azul-primario);
 }
 
-/* Botão de fechar simples para o popup */
+/* Botão de fechar para o popup */
 .team-popup .close-btn {
   position: absolute;
   top: 18px;
@@ -217,7 +225,7 @@ body {
   cursor: pointer;
 }
 
-/* popups genéricos (adicionar se não existirem) */
+/* popups  */
 .popup {
   position: fixed;
   inset: 0;
