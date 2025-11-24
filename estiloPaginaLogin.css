@@ -9,11 +9,18 @@
 }
 
 *{ box-sizing:border-box }
+html, body { height: 100%; }
 body{
   margin:0; font-family:'Poppins',sans-serif;
   background:var(--fundo-neutro); color:var(--texto-principal);
   padding-top:72px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+/* content wrapper fills available space so footer stays at bottom like homepage */
+.content-wrap { flex: 1 1 auto; }
 
 /* navbar */
 .navbar{
@@ -67,7 +74,7 @@ input:focus{ outline:none; border-color:var(--azul-primario); box-shadow:0 0 0 3
 
 .footer{
   background:var(--azul-primario); color:#fff; text-align:center;
-  padding:20px; margin-top:40px;
+  padding:20px; width:100%; margin-top:50px;
 }
 .footer .footer-links a{ color:#fff; text-decoration:none; margin:0 8px }
 .footer .footer-links a:hover{ text-decoration:underline }
