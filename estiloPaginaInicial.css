@@ -119,10 +119,41 @@ body {
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
   gap: 26px; 
-  max-width: 760px; 
+  /* igual ao container de info-section */
+  max-width: 900px; 
   margin: 0 auto;
 }
 .team-card { text-align: center; padding-bottom: 6px; }
+
+/* fazer com que cada cartão da equipe tenha o mesmo visual/espacamento das .box */
+.team-grid .team-card {
+  background: var(--branco);
+  padding: 30px; /* mesmo padding da .box */
+  margin-bottom: 26px; /* mesmo espaçamento */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid var(--borda-suave);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+/* remover borda/sombra duplicada da polaroid dentro do cartão para evitar efeito duplo */
+.team-grid .team-card .polaroid {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.team-grid .team-card .polaroid img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .polaroid {
   display: inline-block;
   background: #fff;
