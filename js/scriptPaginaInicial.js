@@ -133,6 +133,34 @@ document.addEventListener('DOMContentLoaded', () => {
     popup.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePopup(popup); });
   });
 
+  // ===== Destaque dinâmico no carrossel de membros (popup de time)
+  try {
+    const photosRows = Array.from(document.querySelectorAll('.team-popup .photos-row'));
+    photosRows.forEach(row => {
+      // ensure snapping behaviour (CSS-first, fallback here)
+      if (!row.style.scrollSnapType) row.style.scrollSnapType = 'x mandatory';
+      const cards = Array.from(row.querySelectorAll('.team-card'));
+      cards.forEach(c => { c.style.scrollSnapAlign = 'center'; });
+
+      // build thresholds for smoother detection
+      const thresholds = [];
+      for (let i=0; i<=1.0; i+=0.05) thresholds.push(i);
+
+      const io = new IntersectionObserver((entries) => {
+        // choose entry with largest intersectionRatio
+        let best = null;
+        entries.forEach(e => { if (!best || e.intersectionRatio > best.intersectionRatio) best = e; });
+        if (!best) return;
+        cards.forEach(c => c.classList.remove('active'));
+        if (best.intersectionRatio > 0.2) best.target.classList.add('active');
+      }, { root: row, threshold: thresholds });
+
+      cards.forEach(c => io.observe(c));
+    });
+  } catch (err) {
+    console.warn('[scriptPaginaInicial] não foi possível ativar destaque dinâmico do carrossel', err);
+  }
+
   // ===== Botão "Saiba Mais" -> rolagem suave para #sobre
   const saibaMaisBtn = document.querySelector('.hero-btn');
   const sobreSection = document.querySelector('#sobre');

@@ -8,6 +8,7 @@
   --borda-suave: #E2E8F0;
   --branco: #FFFFFF;
   --navbar-h: 72px; /* ajustada via JS se quiser */
+  --team-card-h: 220px; /* altura padrão para cartões de equipe */
 }
 
 /* ===== Reset base ===== */
@@ -128,7 +129,7 @@ body {
 /* fazer com que cada cartão da equipe tenha o mesmo visual/espacamento das .box */
 .team-grid .team-card {
   background: var(--branco);
-  padding: 30px; /* mesmo padding da .box */
+  padding: 18px; /* reduzir padding para caber imagem + texto */
   margin-bottom: 26px; /* mesmo espaçamento */
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
@@ -136,8 +137,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   box-sizing: border-box;
+  height: var(--team-card-h);
+  overflow: hidden;
 }
 
 /* remover borda/sombra duplicada da polaroid dentro do cartão para evitar efeito duplo */
@@ -148,8 +151,8 @@ body {
   padding: 0;
 }
 .team-grid .team-card .polaroid img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -211,6 +214,30 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Enable snap-to-center behavior and active scaling for the centered member */
+.team-popup .photos-row {
+  scroll-snap-type: x mandatory;
+}
+.team-popup .photos-row .team-card {
+  scroll-snap-align: center;
+  min-width: 160px; /* ensure a consistent hit area */
+  box-sizing: border-box;
+  transition: transform .22s ease, box-shadow .22s ease;
+  transform-origin: center bottom;
+  will-change: transform;
+  height: var(--team-card-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.team-popup .photos-row .team-card.active {
+  /* neutralize active state so all cards remain static and equal height */
+  transform: none !important;
+  z-index: 1;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
 /* Polaroids dentro do popup */
 .team-popup .polaroid {
   padding: 6px;
@@ -220,10 +247,23 @@ body {
   background: var(--branco);
 }
 .team-popup .polaroid img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+/* Ajustes de tipografia para nomes dentro dos cartões */
+.team-card .team-name {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 8px;
+  color: var(--texto-principal);
+  font-weight: 700;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .team-popup .person {
   display: flex;
@@ -312,6 +352,15 @@ body {
   .hero h1{ font-size: 2rem; }
   .hero p{ font-size: 1.05rem; }
   .polaroid img{ max-width: 220px; }
+}
+
+/* ajustar a altura dos cartões em telas menores */
+@media (max-width: 720px) {
+  :root { --team-card-h: 140px; }
+}
+
+@media (max-width: 420px) {
+  :root { --team-card-h: 150px; }
 }
 
 /* ajuste responsivo: em telas pequenas volta a quebrar em múltiplas linhas */
