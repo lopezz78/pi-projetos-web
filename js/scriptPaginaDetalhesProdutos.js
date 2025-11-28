@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
       descricao: "Cadeira de rodas elétrica confortável, com ajuste de encosto...",
       preco: "R$ 2.500,00 à vista ou R$ 2.900,00 em até 12x",
       imagens: [
-        "Inclui+/CadeiraDeRodasEletrica.png",
-        "Inclui+/CadeiraDeRodasEletrica2.png",
-        "Inclui+/CadeiraDeRodasEletrica3.png"
+        "../Inclui+/CadeiraDeRodasEletrica.png",
+        "../Inclui+/CadeiraDeRodasEletrica2.png",
+        "../Inclui+/CadeiraDeRodasEletrica3.png"
       ],
       caracteristicas: [
         "Controle remoto incluído",
@@ -41,7 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Aparelho auditivo com cancelamento de ruído",
       descricao: "Aparelho auditivo bluetooth com múltiplos níveis de ganho...",
       preco: "R$ 2.200,00 à vista ou R$ 2.500,00 em até 12x",
-      imagens: ["Inclui+/AparelhoAuditivo.png", "Inclui+/AparelhoAuditivo2.png"],
+      imagens: [
+        "../Inclui+/AparelhoAuditivo.png", 
+        "../Inclui+/AparelhoAuditivo2.png"
+      ],
       caracteristicas: [
         "Bluetooth para smartphone",
         "Cancelamento ativo de ruído",
@@ -55,8 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Lupa Digital com ampliação de até 30x",
       descricao: "Lupa digital com iluminação LED e função de voz...",
       preco: "R$ 1.500,00 à vista ou R$ 1.800,00 em até 12x",
-      imagens: ["Inclui+/lupaDigital.png", "Inclui+/lupaDigital2.png", "Inclui+/lupaDigital3.png"],
-      caracteristicas: ["Ampliação até 30x", "Leitura em voz alta", "Tela LCD"],
+      imagens: [
+        "../Inclui+/lupaDigital.png", 
+        "../Inclui+/lupaDigital2.png", 
+        "../Inclui+/lupaDigital3.png"
+      ],
+      caracteristicas: [
+        "Ampliação até 30x", 
+        "Leitura em voz alta", 
+        "Tela LCD"
+      ],
       especificacoes: { "Bateria": "Recarregável", "Peso": "350g" }
     },
     {
@@ -66,11 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
       descricao: "Irrigador bucal para higiene oral eficiente e confortável.",
       preco: "R$ 700,00 à vista ou R$ 900,00 em até 12x",
       imagens: [
-        "Inclui+/irrigadorbucal1.png",
-        "Inclui+/irrigadorbucal2.png",
-        "Inclui+/irrigadorbucal3.png"
+        "../Inclui+/irrigadorbucal1.png",
+        "../Inclui+/irrigadorbucal2.png",
+        "../Inclui+/irrigadorbucal3.png"
       ],
-      caracteristicas: ["Jato de água potente", "Cabo ergonômico", "Ideal para higiene oral"],
+      caracteristicas: [
+        "Jato de água potente", 
+        "Cabo ergonômico",
+        "Ideal para higiene oral"
+      ],
       especificacoes: { "": "20 cm", "Peso": "200g" }
     },
     {
@@ -79,8 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Tábua de cozinha com suporte antiderrapante",
       descricao: "Tábua de cozinha adaptada com suporte antiderrapante e canaleta para líquidos...",
       preco: "R$ 80,00 à vista ou R$ 90,00 em até 2x",
-      imagens: ["Inclui+/tabuaDeCozinhaAdaptada.png", "Inclui+/tabuaDeCozinhaAdaptada2.png"],
-      caracteristicas: ["Suporte antiderrapante", "Canaleta para líquidos", "Material resistente"],
+      imagens: [
+        "../Inclui+/tabuaDeCozinhaAdaptada.png", 
+        "../Inclui+/tabuaDeCozinhaAdaptada2.png"
+      ],
+      caracteristicas: [
+        "Suporte antiderrapante", 
+        "Canaleta para líquidos", 
+        "Material resistente"
+      ],
       especificacoes: { "Dimensões": "30x20 cm", "Peso": "500g" }
     },
     {
@@ -89,8 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Tesoura com 5 lâminas para cortes precisos",
       descricao: "Tesoura de 5 lâminas ideal para cortes precisos em diversos materiais...",
       preco: "R$ 90,00 à vista ou R$ 100,00 em até 2x",
-      imagens: ["Inclui+/tesoura5Laminas.png", "Inclui+/tesoura5Laminas2.png", "Inclui+/tesoura5Laminas3.png"],
-      caracteristicas: ["5 lâminas afiadas", "Cabo ergonômico", "Ideal para tecidos e papel"],
+      imagens: [
+        "../Inclui+/tesoura5Laminas.png", 
+        "../Inclui+/tesoura5Laminas2.png", 
+        "../Inclui+/tesoura5Laminas3.png"
+      ],
+      caracteristicas: [
+        "5 lâminas afiadas", 
+        "Cabo ergonômico", 
+        "Ideal para tecidos e papel"
+      ],
       especificacoes: { "Comprimento": "15 cm", "Peso": "150g" }
     },
     {
@@ -99,8 +129,16 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Tablet com interface simplificada e apps educativos",
       descricao: "Tablet especialmente desenvolvido para pessoas com autismo, com interface simplificada e aplicativos educativos...",
       preco: "R$ 1.800,00 à vista ou R$ 2.000,00 em até 12x",
-      imagens: ["Inclui+/tabletParaAutismo1.png", "Inclui+/tabletParaAutismo2.png", "Inclui+/tabletParaAutismo3.png"],
-      caracteristicas: ["Interface simplificada", "Apps educativos pré-instalados", "Tela resistente"],
+      imagens: [
+        "../Inclui+/tabletParaAutismo1.png", 
+        "../Inclui+/tabletParaAutismo2.png", 
+        "../Inclui+/tabletParaAutismo3.png"
+      ],
+      caracteristicas: [
+        "Interface simplificada", 
+        "Apps educativos pré-instalados", 
+        "Tela resistente"
+      ],
       especificacoes: { "Tela": "10 polegadas", "Armazenamento": "64 GB" }
     },
     {
@@ -109,8 +147,16 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Teclado portátil com saída em Braille",
       descricao: "Teclado portátil com saída em Braille, ideal para pessoas com deficiência visual...",
       preco: "R$ 3.000,00 à vista ou R$ 3.300,00 em até 12x",
-      imagens: ["Inclui+/tecladoBraille1.png", "Inclui+/tecladoBraille2.png", "Inclui+/tecladoBraille3.png"],
-      caracteristicas: ["Saída em Braille", "Portátil e leve", "Compatível com diversos dispositivos"],
+      imagens: [
+        "../Inclui+/tecladoBraille1.png", 
+        "../Inclui+/tecladoBraille2.png", 
+        "../Inclui+/tecladoBraille3.png"
+      ],
+      caracteristicas: [
+        "Saída em Braille", 
+        "Portátil e leve", 
+        "Compatível com diversos dispositivos"
+      ],
       especificacoes: { "Conectividade": "Bluetooth e USB", "Peso": "500g" }
     },
     {
@@ -119,8 +165,16 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Vaso sanitário com altura ajustável e barras de apoio",
       descricao: "Vaso sanitário adaptado com altura ajustável e barras de apoio para maior segurança...",
       preco: "R$ 600,00 à vista ou R$ 700,00 em até 6x",
-      imagens: ["Inclui+/vasoSanitarioPortatil2.png", "Inclui+/vasoSanitarioPortatil3.png", "Inclui+/vasoSanitarioPortatil4.png"],
-      caracteristicas: ["Altura ajustável", "Barras de apoio laterais", "Assento confortável"],
+      imagens: [
+        "../Inclui+/vasoSanitarioPortatil2.png", 
+        "../Inclui+/vasoSanitarioPortatil3.png", 
+        "../Inclui+/vasoSanitarioPortatil4.png"
+      ],
+      caracteristicas: [
+        "Altura ajustável", 
+        "Barras de apoio laterais", 
+        "Assento confortável"
+      ],
       especificacoes: { "Material": "Plástico resistente", "Peso máximo suportado": "150 kg" }
     },
     {
@@ -129,8 +183,16 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoCurta: "Andador com assento e rodas giratórias",
       descricao: "Andador fixo com 4 rodas, assento acolchoado e cesto para transporte...",
       preco: "R$ 450,00 à vista ou R$ 500,00 em até 6x",
-      imagens: ["Inclui+/andador4Rodas1.png", "Inclui+/andador4Rodas2.png", "Inclui+/andador4Rodas3.png"],
-      caracteristicas: ["4 rodas giratórias", "Assento acolchoado", "Cesto para transporte"],
+      imagens: [
+        "../Inclui+/andador4Rodas1.png", 
+        "../Inclui+/andador4Rodas2.png", 
+        "../Inclui+/andador4Rodas3.png",
+      ],
+      caracteristicas: [
+        "4 rodas giratórias", 
+        "Assento acolchoado", 
+        "Cesto para transporte"
+      ],
       especificacoes: { "Peso máximo suportado": "120 kg", "Altura ajustável": "Sim" }
     }
   ];
