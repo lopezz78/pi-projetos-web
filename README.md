@@ -23,7 +23,7 @@ Link para o protótipo no Figma: [https://www.figma.com/make/7oROaWoa8zdAgw2ZBUn
 - Arthur Negro Lopez: Documentação e Pesquisa de Mercado
 - Arthur Carvalho: HTML, CSS e Banco de Dados ( PHP, MySQL, XAMMP)
 - Arthur Gerotto: HTML, CSS, JS (Código Bruto)
-- Ricardo Sanches: CSS
+- Ricardo Sanches: Documentação e CSS 
 - Gabriel Ramalho: HTML, CSS, JS (Código Bruto)
 
 
