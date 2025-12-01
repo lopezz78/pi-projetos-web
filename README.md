@@ -5,7 +5,6 @@ Aplicativo desenvolvido para Compra, Venda e Doações de produtos, focado em pe
 
 ## Tecnologias Utilizadas
 - HTML5, CSS3, JavaScript
-- Node.js
 - Banco de Dados: MySQL / XAMPP / PHP / Apache / InfiniftFree
 
 ## Estrutura do Projeto
